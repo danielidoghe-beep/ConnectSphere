@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================
    RESET
-========================= */
+========================================= */
 
 *{
     margin:0;
@@ -8,182 +8,274 @@
     box-sizing:border-box;
 }
 
-body{
-    font-family:'Inter',sans-serif;
-    background:#ffffff;
-    color:#111111;
+html{
+    scroll-behavior:smooth;
 }
 
-/* =========================
+body{
+    width:100%;
+    min-height:100vh;
+    background:#ffffff;
+    font-family:'Inter',sans-serif;
+    color:#111111;
+    overflow-x:hidden;
+}
+
+
+/* =========================================
    HEADER
-========================= */
+========================================= */
 
 .header{
     width:100%;
     height:72px;
+    background:#ffffff;
+    border-bottom:1px solid #ececec;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 20px;
-    background:#ffffff;
-    border-bottom:1px solid #ececec;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.logo-area{
+.logo{
     display:flex;
     align-items:center;
-    gap:10px;
 }
 
 .logo-icon{
-    width:34px;
-    height:34px;
-    background:#15b84f;
-    border-radius:10px;
-}
+    width:30px;
+    height:30px;
 
-.logo-text{
-    font-size:20px;
-    font-weight:800;
-    color:#111;
-}
-
-.header-icons{
     display:flex;
     align-items:center;
-    gap:12px;
+    justify-content:center;
+
+    margin-right:10px;
+}
+
+.logo-icon svg{
+    width:28px;
+    height:28px;
+    fill:#67b31b;
+}
+
+.logo h1{
+    font-size:18px;
+    font-weight:800;
+    color:#111111;
+    letter-spacing:-0.4px;
+    line-height:1;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:22px;
 }
 
 .theme-btn,
 .menu-btn{
-    width:42px;
-    height:42px;
     border:none;
-    border-radius:12px;
-    background:#f6f6f6;
+    background:transparent;
+    padding:0;
     cursor:pointer;
 }
 
-.theme-btn{
-    font-size:18px;
+
+/* Moon */
+
+.theme-btn svg{
+    width:28px;
+    height:28px;
+
+    fill:none;
+    stroke:#4b4b4b;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
 }
 
+
+/* Hamburger */
+
 .menu-btn{
+    width:28px;
+    height:22px;
+
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:4px;
+    justify-content:space-between;
 }
 
 .menu-btn span{
-    width:18px;
-    height:2px;
-    background:#111;
+    width:100%;
+    height:3px;
+    background:#111111;
+    border-radius:100px;
 }
-
-
-/* =========================
-   HERO
-========================= */
+/* =========================================
+   HERO SECTION
+========================================= */
 
 .hero{
-    padding:40px 24px;
+    width:100%;
+    padding:96px 28px 0;
+    text-align:center;
 }
 
-.hero h1{
-    font-size:48px;
+.hero h2{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+
+    font-size:64px;
     font-weight:900;
-    line-height:1.05;
-    letter-spacing:-1px;
+    line-height:.93;
+    letter-spacing:-3px;
+    text-transform:uppercase;
 }
 
-.hero h1 span{
-    color:#18b856;
+.hero h2 .black{
+    color:#111111;
+}
+
+.hero h2 .green{
+    color:#63AD17;
 }
 
 .hero p{
-    margin-top:24px;
-    font-size:16px;
-    line-height:1.8;
-    color:#555;
+    margin:42px auto 0;
+    max-width:350px;
+
+    font-size:18px;
+    font-weight:400;
+    line-height:1.6;
+    color:#4c4c4c;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
 .hero-buttons{
-    margin-top:32px;
+    width:100%;
+    margin-top:48px;
+
     display:flex;
     flex-direction:column;
-    gap:16px;
+    align-items:center;
+    gap:18px;
+}
+
+.primary-btn,
+.secondary-btn{
+    width:275px;
+    height:74px;
+
+    border:none;
+    outline:none;
+
+    border-radius:18px;
+
+    font-size:17px;
+    font-weight:800;
+    font-family:inherit;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:.2s;
 }
 
 .primary-btn{
-    height:58px;
-    border:none;
-    border-radius:14px;
-    background:#18b856;
-    color:#fff;
-    font-size:15px;
-    font-weight:700;
-    cursor:pointer;
-    box-shadow:0 10px 25px rgba(24,184,86,.25);
+    background:#63AD17;
+    color:#ffffff;
+
+    box-shadow:
+        0 2px 0 rgba(0,0,0,.05),
+        inset 0 -2px 0 rgba(0,0,0,.08);
+}
+
+.primary-btn:active{
+    transform:scale(.98);
 }
 
 .secondary-btn{
-    height:58px;
-    border:2px solid #18b856;
-    border-radius:14px;
-    background:#fff;
-    color:#18b856;
-    font-size:15px;
-    font-weight:700;
-    cursor:pointer;
+    background:#F4F4F4;
+    color:#111111;
+
+    border:1px solid #E6E6E6;
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.05),
+        inset 0 1px 0 rgba(255,255,255,.8);
 }
 
+.secondary-btn:active{
+    transform:scale(.98);
+}
+/* =========================================
+   CATEGORY STRIP
+========================================= */
 
-/* =========================
-   CATEGORY BAR
-========================= */
-
-.category-bar{
-    margin-top:36px;
-    background:#18b856;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:16px;
-    padding:16px;
-    font-size:13px;
-    font-weight:700;
+.category-strip{
+    width:100%;
+    margin-top:56px;
+    background:#63AD17;
     overflow:hidden;
 }
 
+.scroll-track{
+    height:58px;
+    display:flex;
+    align-items:center;
+    white-space:nowrap;
+    gap:18px;
+    padding:0 20px;
+}
 
-/* =========================
+.scroll-track span{
+    color:#ffffff;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.4px;
+    flex-shrink:0;
+}
+
+
+/* =========================================
    STATS
-========================= */
+========================================= */
 
 .stats{
-    padding:40px 24px;
+    width:100%;
+    padding:60px 28px 70px;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:28px;
+    grid-template-columns:repeat(2,1fr);
+    gap:42px 20px;
 }
 
-.stat-box h2{
-    font-size:34px;
+.stat{
+    text-align:center;
+}
+
+.stat h3{
+    font-size:42px;
     font-weight:900;
-    color:#111;
+    color:#111111;
+    line-height:1;
+    margin-bottom:10px;
 }
 
-.stat-box p{
-    margin-top:8px;
-    font-size:13px;
+.stat p{
+    font-size:12px;
     font-weight:700;
-    color:#666;
+    color:#7a7a7a;
+    letter-spacing:1px;
+    line-height:1.5;
 }
