@@ -1,6 +1,12 @@
-/* =========================================
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ===========================
    RESET
-========================================= */
+=========================== */
 
 *{
     margin:0;
@@ -13,67 +19,54 @@ html{
 }
 
 body{
-    width:100%;
-    min-height:100vh;
-    background:#ffffff;
     font-family:'Inter',sans-serif;
+    background:#ffffff;
     color:#111111;
     overflow-x:hidden;
 }
 
-
-/* =========================================
+/* ===========================
    HEADER
-========================================= */
+=========================== */
 
 .header{
     width:100%;
     height:72px;
-    background:#ffffff;
-    border-bottom:1px solid #ececec;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
+    padding:0 18px;
+    background:#fff;
+    border-bottom:1px solid #ececec;
+}
 
-    padding:0 20px;
-
-    position:sticky;
-    top:0;
-    z-index:1000;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
 .logo{
     display:flex;
-    align-items:center;
+    flex-direction:column;
+    gap:3px;
 }
 
-.logo-icon{
-    width:30px;
-    height:30px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin-right:10px;
+.logo span{
+    width:18px;
+    height:4px;
+    background:#67b41d;
+    border-radius:10px;
+    transform:skewY(-18deg);
 }
 
-.logo-icon svg{
-    width:28px;
-    height:28px;
-    fill:#67b31b;
-}
-
-.logo h1{
+.brand h1{
     font-size:18px;
     font-weight:800;
-    color:#111111;
     letter-spacing:-0.4px;
-    line-height:1;
 }
 
-.header-right{
+.nav{
     display:flex;
     align-items:center;
     gap:22px;
@@ -81,89 +74,74 @@ body{
 
 .theme-btn,
 .menu-btn{
+    background:none;
     border:none;
-    background:transparent;
-    padding:0;
     cursor:pointer;
 }
 
-
-/* Moon */
-
 .theme-btn svg{
-    width:28px;
-    height:28px;
-
+    width:26px;
+    height:26px;
     fill:none;
-    stroke:#4b4b4b;
+    stroke:#555;
     stroke-width:2;
-    stroke-linecap:round;
-    stroke-linejoin:round;
 }
-
-
-/* Hamburger */
 
 .menu-btn{
     width:28px;
-    height:22px;
-
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    gap:5px;
 }
 
 .menu-btn span{
     width:100%;
     height:3px;
-    background:#111111;
-    border-radius:100px;
+    background:#111;
+    border-radius:30px;
 }
-/* =========================================
-   HERO SECTION
-========================================= */
+
+/* ===========================
+   HERO
+=========================== */
 
 .hero{
-    width:100%;
-    padding:96px 28px 0;
+    padding:95px 26px 0;
     text-align:center;
 }
 
 .hero h2{
     display:flex;
     flex-direction:column;
-    align-items:center;
     gap:2px;
-
-    font-size:64px;
+    font-size:62px;
+    line-height:.95;
     font-weight:900;
-    line-height:.93;
     letter-spacing:-3px;
-    text-transform:uppercase;
 }
 
-.hero h2 .black{
+.dark{
     color:#111111;
 }
 
-.hero h2 .green{
-    color:#63AD17;
+.green{
+    color:#66b31f;
 }
 
 .hero p{
+    max-width:360px;
     margin:42px auto 0;
-    max-width:350px;
-
     font-size:18px;
-    font-weight:400;
-    line-height:1.6;
-    color:#4c4c4c;
+    line-height:1.65;
+    color:#4f4f4f;
 }
 
-.hero-buttons{
-    width:100%;
-    margin-top:48px;
+/* ===========================
+   BUTTONS
+=========================== */
 
+.buttons{
+    margin-top:42px;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -172,109 +150,98 @@ body{
 
 .primary-btn,
 .secondary-btn{
-    width:275px;
-    height:74px;
-
-    border:none;
-    outline:none;
-
+    width:278px;
+    height:72px;
     border-radius:18px;
-
     font-size:17px;
     font-weight:800;
-    font-family:inherit;
-
-    text-transform:uppercase;
-
-    cursor:pointer;
-
-    transition:.2s;
+    border:none;
 }
 
 .primary-btn{
-    background:#63AD17;
-    color:#ffffff;
-
-    box-shadow:
-        0 2px 0 rgba(0,0,0,.05),
-        inset 0 -2px 0 rgba(0,0,0,.08);
-}
-
-.primary-btn:active{
-    transform:scale(.98);
+    background:#66b31f;
+    color:#fff;
 }
 
 .secondary-btn{
-    background:#F4F4F4;
-    color:#111111;
-
-    border:1px solid #E6E6E6;
-
-    box-shadow:
-        0 1px 2px rgba(0,0,0,.05),
-        inset 0 1px 0 rgba(255,255,255,.8);
+    background:#f3f3f3;
+    border:1px solid #e3e3e3;
+    color:#111;
 }
+/* ===========================
+   INFINITE TICKER
+=========================== */
 
-.secondary-btn:active{
-    transform:scale(.98);
-}
-/* =========================================
-   CATEGORY STRIP
-========================================= */
-
-.category-strip{
+.ticker{
     width:100%;
-    margin-top:56px;
-    background:#63AD17;
+    height:56px;
+    margin-top:55px;
+    background:#66b31f;
     overflow:hidden;
-}
-
-.scroll-track{
-    height:58px;
     display:flex;
     align-items:center;
-    white-space:nowrap;
-    gap:18px;
-    padding:0 20px;
 }
 
-.scroll-track span{
+.ticker-track{
+    display:flex;
+    align-items:center;
+    width:max-content;
+    white-space:nowrap;
+    animation:marquee 22s linear infinite;
+}
+
+.ticker-track span{
     color:#ffffff;
     font-size:14px;
     font-weight:700;
+    text-transform:uppercase;
     letter-spacing:.4px;
+    margin-right:42px;
     flex-shrink:0;
 }
 
-/* =========================================
+@keyframes marquee{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+/* ===========================
    STATS
-========================================= */
+=========================== */
 
 .stats{
     width:100%;
-    padding:60px 28px 70px;
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:42px 20px;
+    padding:55px 28px 70px;
 }
 
 .stat{
     text-align:center;
+    margin-bottom:45px;
+}
+
+.stat:last-child{
+    margin-bottom:0;
 }
 
 .stat h3{
-    font-size:42px;
+    font-size:44px;
     font-weight:900;
-    color:#111111;
     line-height:1;
-    margin-bottom:10px;
+    color:#111111;
+    letter-spacing:-2px;
 }
 
 .stat p{
-    font-size:12px;
+    margin-top:12px;
+    font-size:13px;
     font-weight:700;
-    color:#7a7a7a;
-    letter-spacing:1px;
-    line-height:1.5;
+    color:#7b7b7b;
+    letter-spacing:1.3px;
 }
