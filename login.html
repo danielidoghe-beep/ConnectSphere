@@ -2,18 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     >
 
-    <title>Sign In — Connecsphere</title>
+    <title>Sign In - Connectphere</title>
 
-    <link
-        rel="stylesheet"
-        href="login.css"
-    >
+    <!-- CSS will be added next -->
+    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
@@ -21,83 +18,91 @@
     <!-- =========================
          HEADER
     ========================== -->
+    <header class="site-header">
 
-    <header class="header">
+        <div class="header-inner">
 
-        <a href="index.html" class="brand">
+            <!-- Logo -->
+            <a href="index.html" class="brand" aria-label="VerifyStackAcct Home">
 
-            <!-- Connectsphere logo -->
-            <svg
-                class="brand-logo"
-                viewBox="0 0 48 48"
-                aria-hidden="true"
-            >
-                <path
-                    d="M24 4L44 14L24 24L4 14L24 4Z"
-                    fill="none"
-                    stroke="#5ca91c"
-                    stroke-width="4"
-                    stroke-linejoin="round"
-                />
-
-                <path
-                    d="M4 24L24 34L44 24"
-                    fill="none"
-                    stroke="#5ca91c"
-                    stroke-width="4"
-                    stroke-linejoin="round"
-                />
-
-                <path
-                    d="M4 34L24 44L44 34"
-                    fill="none"
-                    stroke="#5ca91c"
-                    stroke-width="4"
-                    stroke-linejoin="round"
-                />
-            </svg>
-
-            <span>Connectsphere</span>
-
-        </a>
-
-
-        <div class="header-actions">
-
-            <!-- Dark mode -->
-            <button
-                type="button"
-                class="theme-btn"
-                id="themeBtn"
-                aria-label="Toggle dark mode"
-            >
                 <svg
-                    viewBox="0 0 24 24"
+                    class="brand-icon"
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true"
                 >
                     <path
-                        d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5
-                        A8.5 8.5 0 1 0 20.5 14.5Z"
+                        d="M24 4L4 14L24 24L44 14L24 4Z"
                         fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
+                        stroke="#59A817"
+                        stroke-width="3"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M4 23L24 33L44 23"
+                        fill="none"
+                        stroke="#59A817"
+                        stroke-width="3"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M4 32L24 42L44 32"
+                        fill="none"
+                        stroke="#59A817"
+                        stroke-width="3"
+                        stroke-linejoin="round"
                     />
                 </svg>
-            </button>
+
+                <span class="brand-name">VerifyStackAcct</span>
+
+            </a>
 
 
-            <!-- Menu -->
-            <button
-                type="button"
-                class="menu-btn"
-                id="menuBtn"
-                aria-label="Open menu"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <!-- Header controls -->
+            <div class="header-controls">
+
+                <!-- Dark mode button -->
+                <button
+                    type="button"
+                    class="theme-toggle"
+                    id="themeToggle"
+                    aria-label="Toggle dark mode"
+                >
+                    <svg
+                        class="moon-icon"
+                        viewBox="0 0 32 32"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M26.5 20.7C24.9 21.4 23.2 21.8 21.3 21.8C14.8 21.8 9.5 16.5 9.5 10C9.5 8.1 9.9 6.4 10.6 4.8C5.8 6.8 2.5 11.4 2.5 16.8C2.5 23.9 8.3 29.5 15.4 29.5C20.8 29.5 25.4 26.2 27.4 21.4C27.1 21.2 26.8 21 26.5 20.7Z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
+
+
+                <!-- Mobile menu -->
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
 
         </div>
 
@@ -105,22 +110,36 @@
 
 
     <!-- =========================
-         SIGN IN
+         MOBILE MENU
     ========================== -->
+    <nav
+        class="mobile-menu"
+        id="mobileMenu"
+        aria-hidden="true"
+    >
 
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="signin.html">Sign in</a>
+        <a href="signup.html">Get started</a>
+        <a href="faq.html">FAQ</a>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN SIGN-IN CONTENT
+    ========================== -->
     <main class="signin-page">
 
         <section class="signin-container">
 
             <!-- Heading -->
-
             <div class="signin-heading">
 
                 <h1>Sign in</h1>
 
-                <p>
-                    Welcome back to VerifyStackAcct
-                </p>
+                <p>Welcome back to VerifyStackAcct</p>
 
             </div>
 
@@ -128,70 +147,41 @@
             <!-- =========================
                  GOOGLE SIGN IN
             ========================== -->
-
             <button
                 type="button"
-                class="google-btn"
-                id="googleSignInBtn"
+                class="google-signin-button"
+                id="googleSignInButton"
             >
 
-                <span class="google-icon" aria-hidden="true">
+                <!-- Real Google G logo -->
+                <svg
+                    class="google-icon"
+                    viewBox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        fill="#EA4335"
+                        d="M24 9.5c3.54 0 6.72 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.61 0 6.52 5.38 2.56 13.22l7.98 6.19C12.43 13.21 17.74 9.5 24 9.5z"
+                    />
 
-                    <svg
-                        viewBox="0 0 48 48"
-                        role="img"
-                    >
-                        <path
-                            fill="#FFC107"
-                            d="M43.6 20.5H42V20H24v8h11.3
-                            c-1.6 4.7-6.1 8-11.3 8
-                            -6.6 0-12-5.4-12-12
-                            s5.4-12 12-12
-                            c3.1 0 5.9 1.2 8 3.1
-                            l5.7-5.7
-                            C34.1 6.1 29.3 4 24 4
-                            12.9 4 4 12.9 4 24
-                            s8.9 20 20 20
-                            20-8.9 20-20
-                            c0-1.3-.1-2.4-.4-3.5Z"
-                        />
+                    <path
+                        fill="#4285F4"
+                        d="M46.98 24.55c0-1.64-.15-3.22-.42-4.74H24v9h12.94c-.56 3-2.26 5.54-4.82 7.24l7.73 6c4.51-4.17 7.13-10.32 7.13-17.5z"
+                    />
 
-                        <path
-                            fill="#FF3D00"
-                            d="M6.3 14.7l6.6 4.8
-                            C14.7 16.1 19 13 24 13
-                            c3.1 0 5.9 1.2 8 3.1
-                            l5.7-5.7
-                            C34.1 6.1 29.3 4 24 4
-                            c-7.7 0-14.3 4.3-17.7 10.7Z"
-                        />
+                    <path
+                        fill="#FBBC05"
+                        d="M10.54 28.59A14.43 14.43 0 0 1 9.5 24c0-1.59.36-3.13 1.04-4.59l-7.98-6.19A23.94 23.94 0 0 0 0 24c0 3.87.93 7.54 2.56 10.78l7.98-6.19z"
+                    />
 
-                        <path
-                            fill="#4CAF50"
-                            d="M24 44c5.2 0 10-2 13.5-5.2
-                            l-6.2-5.2
-                            c-2 1.5-4.5 2.4-7.3 2.4
-                            -5.2 0-9.6-3.3-11.3-8
-                            l-6.6 5.1
-                            C9.5 39.7 16.2 44 24 44Z"
-                        />
+                    <path
+                        fill="#34A853"
+                        d="M24 48c6.48 0 11.91-2.14 15.85-5.85l-7.73-6c-2.14 1.44-4.86 2.29-8.12 2.29-6.26 0-11.57-3.71-13.46-8.91l-7.98 6.19C6.52 42.62 14.61 48 24 48z"
+                    />
+                </svg>
 
-                        <path
-                            fill="#1976D2"
-                            d="M43.6 20.5H42V20H24v8h11.3
-                            c-.8 2.4-2.2 4.5-4 6
-                            l6.2 5.2
-                            C41.1 35.6 44 30.4 44 24
-                            c0-1.3-.1-2.4-.4-3.5Z"
-                        />
-
-                    </svg>
-
-                </span>
-
-                <span>
-                    Sign in with Google
-                </span>
+                <span>Sign in with Google</span>
 
             </button>
 
@@ -199,52 +189,50 @@
             <!-- =========================
                  DIVIDER
             ========================== -->
-
             <div class="signin-divider">
 
-                <span></span>
+                <span class="divider-line"></span>
 
-                <p>or sign in with email</p>
+                <span class="divider-text">
+                    or sign in with email
+                </span>
 
-                <span></span>
+                <span class="divider-line"></span>
 
             </div>
 
 
             <!-- =========================
-                 FIREBASE MESSAGE
+                 FIREBASE MESSAGE AREA
             ========================== -->
 
+            <!-- Error message -->
             <div
-                class="auth-message auth-error"
-                id="authError"
+                class="firebase-message firebase-error"
+                id="firebaseError"
                 role="alert"
                 aria-live="polite"
                 hidden
             >
-                <span id="authErrorText">
-                    Invalid email or password
-                </span>
+                Invalid email or password
             </div>
 
 
+            <!-- Success message -->
             <div
-                class="auth-message auth-success"
-                id="authSuccess"
+                class="firebase-message firebase-success"
+                id="firebaseSuccess"
                 role="status"
                 aria-live="polite"
                 hidden
             >
-                <span id="authSuccessText">
-                    Login successful! Redirecting…
-                </span>
+                Login successful! Redirecting...
             </div>
 
 
             <!-- =========================
-                 EMAIL LOGIN FORM
+                 EMAIL/PASSWORD FORM
             ========================== -->
-
             <form
                 class="signin-form"
                 id="signinForm"
@@ -252,7 +240,6 @@
             >
 
                 <!-- Email -->
-
                 <div class="form-group">
 
                     <label for="email">
@@ -263,8 +250,8 @@
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="you@example.com"
                         autocomplete="email"
+                        placeholder="you@example.com"
                         required
                     >
 
@@ -272,7 +259,6 @@
 
 
                 <!-- Password -->
-
                 <div class="form-group">
 
                     <label for="password">
@@ -285,11 +271,12 @@
                             type="password"
                             id="password"
                             name="password"
-                            placeholder="Enter your password"
                             autocomplete="current-password"
+                            placeholder="Enter your password"
                             required
                         >
 
+                        <!-- Password visibility -->
                         <button
                             type="button"
                             class="password-toggle"
@@ -299,58 +286,61 @@
 
                             <!-- Eye icon -->
                             <svg
-                                class="eye-open"
-                                viewBox="0 0 24 24"
+                                class="eye-icon eye-visible"
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true"
                             >
                                 <path
-                                    d="M2 12s3.5-6 10-6
-                                    10 6 10 6
-                                    -3.5 6-10 6
-                                    -10-6-10-6Z"
+                                    d="M2.5 16C5.8 9.7 10.5 6.5 16 6.5S26.2 9.7 29.5 16C26.2 22.3 21.5 25.5 16 25.5S5.8 22.3 2.5 16Z"
                                     fill="none"
                                     stroke="currentColor"
-                                    stroke-width="2"
+                                    stroke-width="2.3"
+                                    stroke-linejoin="round"
                                 />
 
                                 <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="3"
+                                    cx="16"
+                                    cy="16"
+                                    r="4"
                                     fill="none"
                                     stroke="currentColor"
-                                    stroke-width="2"
+                                    stroke-width="2.3"
                                 />
                             </svg>
 
 
-                            <!-- Eye slash icon -->
+                            <!-- Hidden eye-off icon -->
                             <svg
-                                class="eye-closed"
-                                viewBox="0 0 24 24"
+                                class="eye-icon eye-hidden"
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true"
                             >
                                 <path
-                                    d="M3 3l18 18"
+                                    d="M4 4L28 28"
                                     fill="none"
                                     stroke="currentColor"
-                                    stroke-width="2"
+                                    stroke-width="2.5"
                                     stroke-linecap="round"
                                 />
 
                                 <path
-                                    d="M10.6 6.2
-                                    A10.8 10.8 0 0 1 12 6
-                                    c6.5 0 10 6 10 6
-                                    a17.4 17.4 0 0 1-3.1 3.5
-                                    M6.2 6.8
-                                    C3.6 8.6 2 12 2 12
-                                    s3.5 6 10 6
-                                    c1.4 0 2.7-.3 3.8-.8"
+                                    d="M13.7 7C14.45 6.68 15.22 6.5 16 6.5C21.5 6.5 26.2 9.7 29.5 16C28.15 18.58 26.55 20.6 24.7 22.08"
                                     fill="none"
                                     stroke="currentColor"
-                                    stroke-width="2"
+                                    stroke-width="2.3"
                                     stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+
+                                <path
+                                    d="M9.3 9.92C6.72 11.32 4.45 13.35 2.5 16C5.8 22.3 10.5 25.5 16 25.5C17.9 25.5 19.67 25.15 21.3 24.47"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
                                 />
                             </svg>
 
@@ -362,7 +352,6 @@
 
 
                 <!-- Remember / Forgot -->
-
                 <div class="form-options">
 
                     <label class="remember-option">
@@ -375,7 +364,7 @@
 
                         <span class="custom-checkbox"></span>
 
-                        <span>
+                        <span class="remember-text">
                             Remember me
                         </span>
 
@@ -384,7 +373,7 @@
 
                     <a
                         href="forgot-password.html"
-                        class="forgot-link"
+                        class="forgot-password"
                     >
                         Forgot password?
                     </a>
@@ -392,23 +381,30 @@
                 </div>
 
 
-                <!-- Submit -->
-
+                <!-- =========================
+                     SIGN IN BUTTON
+                ========================== -->
                 <button
                     type="submit"
-                    class="signin-btn"
-                    id="signinBtn"
+                    class="signin-button"
+                    id="signinButton"
                 >
-                    <span id="signinBtnText">
+
+                    <span
+                        class="signin-button-text"
+                        id="signinButtonText"
+                    >
                         Sign in
                     </span>
 
                     <span
-                        id="signinSpinner"
-                        class="signin-spinner"
-                        aria-hidden="true"
+                        class="signin-loading-text"
+                        id="signinLoadingText"
                         hidden
-                    ></span>
+                    >
+                        Signing in...
+                    </span>
+
                 </button>
 
             </form>
@@ -417,10 +413,9 @@
             <!-- =========================
                  SIGN UP
             ========================== -->
+            <p class="signup-prompt">
 
-            <p class="signup-text">
-
-                Don't have an account?
+                <span>Don't have an account?</span>
 
                 <a href="signup.html">
                     Sign up
@@ -434,385 +429,10 @@
 
 
     <!-- =========================
-         FIREBASE
+         JAVASCRIPT WILL BE ADDED
+         AFTER THE CSS
     ========================== -->
-
-    <script type="module">
-
-        import {
-            initializeApp
-        } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-
-        import {
-            getAnalytics
-        } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
-
-
-        const firebaseConfig = {
-
-            apiKey:
-                "AIzaSyAKAD0Gxtk4XxMmnR_kpjmy5VLoX72Dtls",
-
-            authDomain:
-                "connectsphere-7a679.firebaseapp.com",
-
-            projectId:
-                "connectsphere-7a679",
-
-            storageBucket:
-                "connectsphere-7a679.firebasestorage.app",
-
-            messagingSenderId:
-                "748741698521",
-
-            appId:
-                "1:748741698521:web:ea08d28f31a4d8638c2fc8",
-
-            measurementId:
-                "G-WRQ5GX3KMZ"
-        };
-
-
-        const app = initializeApp(firebaseConfig);
-
-        getAnalytics(app);
-
-    </script>
-
-
-   
-<!-- Main site JavaScript -->
-    <script type="module">
-
-/* =========================================
-   FIREBASE AUTHENTICATION
-========================================= */
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-
-import {
-    getAuth,
-    signInWithEmailAndPassword,
-    setPersistence,
-    browserLocalPersistence,
-    browserSessionPersistence
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-
-
-/* =========================================
-   FIREBASE CONFIG
-========================================= */
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAKAD0Gxtk4XxMmnR_kpjmy5VLoX72Dtls",
-    authDomain: "connectsphere-7a679.firebaseapp.com",
-    projectId: "connectsphere-7a679",
-    storageBucket: "connectsphere-7a679.firebasestorage.app",
-    messagingSenderId: "748741698521",
-    appId: "1:748741698521:web:ea08d28f31a4d8638c2fc8",
-    measurementId: "G-WRQ5GX3KMZ"
-};
-
-
-/* =========================================
-   INITIALIZE FIREBASE
-========================================= */
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-
-/* =========================================
-   GET LOGIN ELEMENTS
-========================================= */
-
-const loginForm = document.querySelector("#loginForm");
-const emailInput = document.querySelector("#email");
-const passwordInput = document.querySelector("#password");
-const rememberMe = document.querySelector("#rememberMe");
-const signInButton = document.querySelector("#signInButton");
-
-const messageBox = document.querySelector("#firebaseMessage");
-const messageText = document.querySelector("#firebaseMessageText");
-
-
-/* =========================================
-   FIREBASE MESSAGE
-========================================= */
-
-function showFirebaseMessage(type, message) {
-
-    if (!messageBox || !messageText) return;
-
-    messageText.textContent = message;
-
-    messageBox.classList.remove(
-        "firebase-error",
-        "firebase-success",
-        "show"
-    );
-
-    if (type === "error") {
-        messageBox.classList.add("firebase-error");
-    }
-
-    if (type === "success") {
-        messageBox.classList.add("firebase-success");
-    }
-
-    messageBox.classList.add("show");
-}
-
-
-/* =========================================
-   HIDE FIREBASE MESSAGE
-========================================= */
-
-function hideFirebaseMessage() {
-
-    if (!messageBox) return;
-
-    messageBox.classList.remove(
-        "show",
-        "firebase-error",
-        "firebase-success"
-    );
-}
-
-
-/* =========================================
-   PASSWORD VISIBILITY
-========================================= */
-
-const passwordToggle = document.querySelector("#passwordToggle");
-
-if (passwordToggle) {
-
-    passwordToggle.addEventListener("click", () => {
-
-        if (passwordInput.type === "password") {
-
-            passwordInput.type = "text";
-
-            passwordToggle.innerHTML = `
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M3 3l18 18"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                    />
-
-                    <path
-                        d="M10.6 10.6a2 2 0 0 0 2.8 2.8"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                    />
-
-                    <path
-                        d="M9.9 5.2A10.8 10.8 0 0 1 12 5c5.2 0 9.3 4.1 10.5 7-0.5 1.2-1.4 2.4-2.6 3.4"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                    />
-
-                    <path
-                        d="M6.1 6.1C4.2 7.5 2.8 9.2 1.5 12c1.2 2.8 5.3 7 10.5 7 1.5 0 2.8-.3 4-.8"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                    />
-                </svg>
-            `;
-
-        } else {
-
-            passwordInput.type = "password";
-
-            passwordToggle.innerHTML = `
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-                </svg>
-            `;
-        }
-
-    });
-
-}
-
-
-/* =========================================
-   LOGIN
-========================================= */
-
-if (loginForm) {
-
-    loginForm.addEventListener("submit", async (event) => {
-
-        event.preventDefault();
-
-        hideFirebaseMessage();
-
-        const email = emailInput.value.trim();
-        const password = passwordInput.value;
-
-        /* -----------------------------
-           BASIC VALIDATION
-        ----------------------------- */
-
-        if (!email || !password) {
-
-            showFirebaseMessage(
-                "error",
-                "Invalid email or password"
-            );
-
-            return;
-        }
-
-
-        /* -----------------------------
-           CHANGE BUTTON
-        ----------------------------- */
-
-        signInButton.disabled = true;
-
-        signInButton.textContent = "Signing in…";
-
-        signInButton.classList.add("loading");
-
-
-        try {
-
-            /* -----------------------------
-               REMEMBER ME
-            ----------------------------- */
-
-            if (rememberMe && rememberMe.checked) {
-
-                await setPersistence(
-                    auth,
-                    browserLocalPersistence
-                );
-
-            } else {
-
-                await setPersistence(
-                    auth,
-                    browserSessionPersistence
-                );
-
-            }
-
-
-            /* -----------------------------
-               FIREBASE LOGIN
-            ----------------------------- */
-
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-
-            /* -----------------------------
-               SUCCESS MESSAGE
-            ----------------------------- */
-
-            showFirebaseMessage(
-                "success",
-                "Login successful! Redirecting..."
-            );
-
-
-            /*
-             * Give the user time to see
-             * the Firebase success message.
-             */
-
-            setTimeout(() => {
-
-                window.location.href = "dashboard.html";
-
-            }, 1200);
-
-
-        } catch (error) {
-
-            console.error("Firebase sign-in error:", error);
-
-
-            /* -----------------------------
-               ERROR MESSAGE
-            ----------------------------- */
-
-            showFirebaseMessage(
-                "error",
-                "Invalid email or password"
-            );
-
-
-            /* -----------------------------
-               RESTORE BUTTON
-            ----------------------------- */
-
-            signInButton.disabled = false;
-
-            signInButton.textContent = "Sign in";
-
-            signInButton.classList.remove("loading");
-
-        }
-
-    });
-
-}
-<form id="loginForm">
-
-<input id="email">
-
-<input id="password">
-
-<input id="rememberMe" type="checkbox">
-
-<button id="passwordToggle" type="button"></button>
-
-<button id="signInButton" type="submit">
-    Sign in
-</button>
-
-<div id="firebaseMessage">
-    <span id="firebaseMessageText"></span>
-</div>
-
-</form>
-    <script src="script.js"></script>
+    <script type="module" src="login.js"></script>
 
 </body>
 </html>
