@@ -931,6 +931,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-</script>
+// =========================
+// MOBILE MENU
+// =========================
+
+const menuBtn = document.getElementById("menuToggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+const menuOverlay = document.querySelector(".menu-overlay");
+
+// Open & Close Menu
+menuBtn.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("active");
+    menuOverlay.classList.toggle("active");
+
+});
+
+// Close when clicking outside
+menuOverlay.addEventListener("click", () => {
+
+    mobileMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+
+});
+
+// Close when a menu link is clicked
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("active");
+        menuOverlay.classList.remove("active");
+
+    });
+
+});
+
+// Close when a button is clicked
+document.querySelectorAll(".mobile-menu button").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("active");
+        menuOverlay.classList.remove("active");
+
+    });
+
+});
+    </script>
 </body>
 </html>
