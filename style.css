@@ -30,14 +30,22 @@ body{
 =========================== */
 
 .header{
-    width:100%;
-    height:72px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 18px;
-    background:#fff;
-    border-bottom:1px solid #ececec;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: #fff;
+    border-bottom: 1px solid #ececec;
+
+    z-index: 1000;
 }
 
 .brand{
@@ -1659,7 +1667,7 @@ body{
 
 .mobile-menu{
     position: fixed;
-    top: 78px;
+    top: 64px;
     left: 0;
     width: 100%;
     height: 58vh;
@@ -1672,7 +1680,7 @@ body{
     padding: 34px 32px;
     box-sizing: border-box;
 
-    transform: translateY(calc(-100% - 78px));
+    transform: translateY(-100%);
     transition: transform .35s ease;
 
     z-index: 999;
