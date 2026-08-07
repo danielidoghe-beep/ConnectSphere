@@ -1986,3 +1986,595 @@ body {
     }
 
 }
+/* =========================================================
+   VERIFYSTACKACCT — LOGIN PAGE
+   MOBILE REFERENCE MATCH
+========================================================= */
+
+.login-page{
+    width:100%;
+    min-height:100vh;
+    background:#ffffff;
+    color:#080808;
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    width:100%;
+    height:66px;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:#ffffff;
+    border-bottom:1px solid #e5e5e5;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.logo{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:3px;
+    width:29px;
+}
+
+.logo span{
+    display:block;
+    width:25px;
+    height:4px;
+
+    background:#58a51b;
+    border-radius:8px;
+
+    transform:skewY(-25deg);
+}
+
+.brand h1{
+    margin:0;
+
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    line-height:1;
+    font-weight:900;
+    letter-spacing:-0.8px;
+
+    color:#080808;
+}
+
+
+/* =========================================================
+   HEADER ICONS
+========================================================= */
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.theme-btn,
+.menu-btn{
+    padding:0;
+    margin:0;
+
+    background:none;
+    border:0;
+
+    cursor:pointer;
+}
+
+.theme-btn{
+    width:27px;
+    height:27px;
+}
+
+.theme-btn svg{
+    width:27px;
+    height:27px;
+
+    fill:none;
+    stroke:#555555;
+    stroke-width:2.4;
+}
+
+.menu-btn{
+    width:27px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.menu-btn span{
+    display:block;
+    width:27px;
+    height:3px;
+
+    background:#111111;
+    border-radius:5px;
+}
+
+
+/* =========================================================
+   LOGIN CONTENT
+========================================================= */
+
+.login-container{
+    width:100%;
+    max-width:326px;
+
+    margin:0 auto;
+    padding-top:73px;
+    padding-bottom:80px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.login-container h1,
+.login-title{
+    margin:0;
+
+    font-size:52px;
+    line-height:.98;
+    font-weight:900;
+    letter-spacing:-2.8px;
+
+    color:#080808;
+}
+
+.login-subtitle{
+    margin:22px 0 0;
+
+    font-size:18px;
+    line-height:1.3;
+    font-weight:400;
+
+    color:#555555;
+}
+
+
+/* =========================================================
+   GOOGLE BUTTON
+========================================================= */
+
+.google-btn{
+    position:relative;
+
+    width:100%;
+    height:40px;
+
+    margin-top:56px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#ffffff;
+
+    border:1px solid #d8d8d8;
+    border-radius:4px;
+
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    font-weight:400;
+
+    color:#3f3f3f;
+
+    cursor:pointer;
+}
+
+.google-btn img,
+.google-btn svg{
+    position:absolute;
+    left:13px;
+
+    width:20px;
+    height:20px;
+}
+
+
+/* =========================================================
+   EMAIL DIVIDER
+========================================================= */
+
+.login-divider{
+    width:100%;
+
+    margin-top:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#555555;
+    font-size:16px;
+    line-height:1.2;
+    font-weight:400;
+}
+
+.login-divider::before,
+.login-divider::after{
+    content:"";
+
+    flex:1;
+    height:1px;
+
+    background:#dddddd;
+}
+
+.login-divider span{
+    padding:0 12px;
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   FIREBASE MESSAGE
+========================================================= */
+
+.auth-message{
+    width:100%;
+
+    margin-top:42px;
+    padding:20px 18px;
+
+    border-radius:10px;
+
+    font-size:15px;
+    line-height:1.35;
+    font-weight:600;
+}
+
+.auth-message.error{
+    background:#fde1e1;
+    border:1px solid #f16a6a;
+
+    color:#9d2b2b;
+}
+
+.auth-message.success{
+    background:#d9f8e4;
+    border:1px solid #55d98a;
+
+    color:#176b3b;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.login-form{
+    width:100%;
+    margin-top:32px;
+}
+
+.form-group{
+    width:100%;
+    margin-bottom:22px;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:15px;
+    line-height:1.2;
+    font-weight:600;
+
+    color:#111111;
+}
+
+.form-group input{
+    width:100%;
+    height:46px;
+
+    padding:0 16px;
+
+    background:#ffffff;
+
+    border:1px solid #dddddd;
+    border-radius:9px;
+
+    outline:none;
+
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    font-weight:400;
+
+    color:#111111;
+
+    transition:border-color .2s ease;
+}
+
+.form-group input::placeholder{
+    color:#a9a9a9;
+}
+
+.form-group input:focus{
+    border-color:#bdbdbd;
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.password-field{
+    position:relative;
+}
+
+.password-field input{
+    padding-right:52px;
+}
+
+.password-toggle{
+    position:absolute;
+
+    top:50%;
+    right:15px;
+
+    width:27px;
+    height:27px;
+
+    transform:translateY(-50%);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:none;
+    border:0;
+
+    color:#666666;
+    cursor:pointer;
+}
+
+.password-toggle svg{
+    width:25px;
+    height:25px;
+
+    fill:none;
+    stroke:#666666;
+    stroke-width:2;
+}
+
+
+/* =========================================================
+   REMEMBER / FORGOT
+========================================================= */
+
+.login-options{
+    width:100%;
+
+    margin-top:4px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.remember-me{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    font-size:15px;
+    font-weight:600;
+
+    color:#555555;
+}
+
+.remember-me input{
+    appearance:none;
+
+    width:16px;
+    height:16px;
+
+    margin:0;
+
+    border:2px solid #999999;
+    border-radius:4px;
+
+    background:#ffffff;
+
+    cursor:pointer;
+}
+
+.remember-me input:checked{
+    background:#58a817;
+    border-color:#58a817;
+}
+
+.forgot-password{
+    text-decoration:none;
+
+    font-size:15px;
+    font-weight:600;
+
+    color:#58a817;
+}
+
+
+/* =========================================================
+   SIGN IN BUTTON
+========================================================= */
+
+.signin-btn{
+    width:100%;
+    height:48px;
+
+    margin-top:29px;
+
+    border:0;
+    border-radius:9px;
+
+    background:#55a817;
+    color:#ffffff;
+
+    font-family:'Inter',sans-serif;
+    font-size:18px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:opacity .2s ease;
+}
+
+.signin-btn:hover{
+    opacity:.94;
+}
+
+.signin-btn:disabled{
+    cursor:not-allowed;
+    opacity:.75;
+}
+
+
+/* =========================================================
+   SIGNING IN STATE
+========================================================= */
+
+.signin-btn.signing-in{
+    background:#55a817;
+    color:#ffffff;
+}
+
+
+/* =========================================================
+   SIGN UP
+========================================================= */
+
+.signup-text{
+    margin-top:28px;
+
+    text-align:center;
+
+    font-size:16px;
+    line-height:1.3;
+    font-weight:400;
+
+    color:#555555;
+}
+
+.signup-text a{
+    color:#58a817;
+    text-decoration:none;
+    font-weight:700;
+}
+
+
+/* =========================================================
+   MOBILE — EXACT 390px STYLE
+========================================================= */
+
+@media (max-width:480px){
+
+    .header{
+        height:66px;
+        padding:0 24px;
+    }
+
+    .brand{
+        gap:9px;
+    }
+
+    .brand h1{
+        font-size:17px;
+    }
+
+    .nav{
+        gap:24px;
+    }
+
+    .login-container{
+        width:calc(100% - 64px);
+        max-width:none;
+
+        padding-top:73px;
+        padding-bottom:80px;
+    }
+
+    .login-container h1,
+    .login-title{
+        font-size:52px;
+        letter-spacing:-2.8px;
+    }
+
+    .login-subtitle{
+        margin-top:22px;
+        font-size:18px;
+    }
+
+    .google-btn{
+        margin-top:56px;
+        height:40px;
+    }
+
+    .login-divider{
+        margin-top:27px;
+        font-size:16px;
+    }
+
+    .auth-message{
+        margin-top:42px;
+        padding:20px 18px;
+        font-size:15px;
+    }
+
+    .login-form{
+        margin-top:32px;
+    }
+
+    .form-group{
+        margin-bottom:22px;
+    }
+
+    .form-group label{
+        margin-bottom:10px;
+        font-size:15px;
+    }
+
+    .form-group input{
+        height:46px;
+        font-size:17px;
+        border-radius:9px;
+    }
+
+    .login-options{
+        margin-top:4px;
+    }
+
+    .remember-me,
+    .forgot-password{
+        font-size:15px;
+    }
+
+    .signin-btn{
+        height:48px;
+        margin-top:29px;
+        font-size:18px;
+        border-radius:9px;
+    }
+
+    .signup-text{
+        margin-top:28px;
+        font-size:16px;
+    }
+}
