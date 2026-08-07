@@ -245,3 +245,222 @@ body{
     color:#7b7b7b;
     letter-spacing:1.3px;
 }
+/* =========================================
+   PART 1 — FINAL SIZE + COLOR CORRECTIONS
+========================================= */
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+    height:64px;
+    padding:0 20px;
+}
+
+.brand{
+    gap:8px;
+}
+
+.logo{
+    gap:2px;
+}
+
+.logo span{
+    width:17px;
+    height:3px;
+}
+
+.brand h1{
+    font-size:17px;
+    font-weight:800;
+    letter-spacing:-0.5px;
+}
+
+.nav{
+    gap:20px;
+}
+
+.theme-btn svg{
+    width:25px;
+    height:25px;
+}
+
+.menu-btn{
+    width:27px;
+    gap:4px;
+}
+
+.menu-btn span{
+    height:2.5px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    padding:94px 24px 0;
+}
+
+.hero h2{
+    font-size:54px;
+    line-height:0.97;
+    letter-spacing:-2.7px;
+    gap:1px;
+}
+
+.hero p{
+    max-width:530px;
+    margin-top:38px;
+    font-size:17px;
+    line-height:1.65;
+    color:#555555;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.buttons{
+    margin-top:48px;
+    gap:25px;
+}
+
+.primary-btn,
+.secondary-btn{
+    width:246px;
+    height:76px;
+    border-radius:17px;
+    font-size:16px;
+    font-weight:800;
+}
+
+.primary-btn{
+    background:#61ad16;
+    box-shadow:none;
+}
+
+.secondary-btn{
+    background:#f4f4f6;
+    border:1px solid #dedee1;
+}
+
+
+/* =========================================
+   SCROLLING GREEN BAR
+========================================= */
+
+.ticker{
+    height:83px;
+    margin-top:101px;
+    background:#61ad16;
+}
+
+.ticker-track{
+    animation:marquee 20s linear infinite;
+}
+
+.ticker-track span{
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin-right:52px;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats{
+    padding:56px 20px 65px;
+}
+
+.stat{
+    margin-bottom:58px;
+}
+
+.stat h3{
+    font-size:38px;
+    font-weight:900;
+    line-height:1;
+    letter-spacing:-1.5px;
+
+    /* GREEN — THIS WAS BLACK BEFORE */
+    color:#61ad16;
+}
+
+.stat p{
+    margin-top:10px;
+
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.7px;
+
+    /* LABELS STAY BLACK */
+    color:#111111;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:480px){
+
+    .header{
+        height:64px;
+        padding:0 20px;
+    }
+
+    .hero{
+        padding-top:96px;
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .hero h2{
+        font-size:54px;
+        letter-spacing:-2.8px;
+    }
+
+    .hero p{
+        max-width:520px;
+        font-size:17px;
+        line-height:1.65;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:246px;
+        height:76px;
+    }
+
+    .ticker{
+        height:83px;
+    }
+
+    .ticker-track span{
+        font-size:14px;
+    }
+
+    .stats{
+        padding-top:57px;
+    }
+
+    .stat{
+        margin-bottom:58px;
+    }
+
+    .stat h3{
+        font-size:38px;
+    }
+
+    .stat p{
+        font-size:12px;
+    }
+}
