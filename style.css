@@ -968,3 +968,183 @@ body{
         line-height: 1.48;
     }
 }
+/* =========================================
+   BUILT FOR EFFICIENCY
+   MOBILE DESIGN
+========================================= */
+
+.built-section{
+    width:100%;
+    padding:136px 33px 70px;
+    background:#ffffff;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.built-section h2{
+    margin:0;
+    max-width:310px;
+
+    font-size:36px;
+    line-height:1.02;
+    letter-spacing:-1.8px;
+    font-weight:900;
+    text-transform:uppercase;
+    color:#111111;
+}
+
+.built-section h2 .green,
+.built-section h2 span{
+    color:#61ad16;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.built-section > p{
+    max-width:315px;
+
+    margin-top:20px;
+
+    font-size:17px;
+    line-height:1.45;
+    font-weight:400;
+
+    color:#555555;
+}
+
+/* =========================================
+   GET STARTED
+========================================= */
+
+.built-section .primary-btn{
+    width:157px;
+    height:51px;
+
+    margin-top:62px;
+
+    border:none;
+    border-radius:11px;
+
+    background:#61ad16;
+    color:#ffffff;
+
+    font-size:13px;
+    font-weight:800;
+}
+
+/* =========================================
+   FEATURE LIST
+========================================= */
+
+.built-features{
+    width:100%;
+
+    margin-top:64px;
+
+    border:1px solid #e1e1e1;
+    background:#ffffff;
+}
+
+/* =========================================
+   FEATURE ITEM
+========================================= */
+
+.built-feature{
+    min-height:155px;
+
+    padding:31px 32px;
+
+    border-bottom:1px solid #e1e1e1;
+}
+
+.built-feature:last-child{
+    border-bottom:none;
+}
+
+/* =========================================
+   FEATURE TITLE
+========================================= */
+
+.built-feature h3{
+    margin:0;
+
+    font-size:17px;
+    line-height:1.1;
+    letter-spacing:-.6px;
+    font-weight:900;
+
+    color:#111111;
+}
+
+/* =========================================
+   FEATURE DESCRIPTION
+========================================= */
+
+.built-feature p{
+    max-width:270px;
+
+    margin-top:9px;
+
+    font-size:14px;
+    line-height:1.45;
+    font-weight:400;
+
+    color:#555555;
+}
+
+
+/* =========================================
+   MOBILE — MATCH SCREENSHOT
+========================================= */
+
+@media (max-width:480px){
+
+    .built-section{
+        padding:136px 33px 70px;
+    }
+
+    .built-section h2{
+        max-width:300px;
+        font-size:36px;
+        line-height:1.02;
+        letter-spacing:-1.8px;
+    }
+
+    .built-section > p{
+        max-width:315px;
+        margin-top:20px;
+        font-size:17px;
+        line-height:1.45;
+    }
+
+    .built-section .primary-btn{
+        width:157px;
+        height:51px;
+        margin-top:62px;
+        border-radius:11px;
+        font-size:13px;
+    }
+
+    .built-features{
+        margin-top:64px;
+    }
+
+    .built-feature{
+        min-height:155px;
+        padding:31px 32px;
+    }
+
+    .built-feature h3{
+        font-size:17px;
+    }
+
+    .built-feature p{
+        max-width:270px;
+        font-size:14px;
+        line-height:1.45;
+    }
+}
