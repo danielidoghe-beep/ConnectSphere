@@ -1148,3 +1148,187 @@ body{
         line-height:1.45;
     }
 }
+/* =========================================
+   TESTIMONIALS
+========================================= */
+
+.testimonials{
+    width:100%;
+    background:#f7f8fa;
+
+    padding:110px 30px 70px;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.testimonials-heading{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.testimonials-heading span{
+    display:block;
+
+    margin-bottom:13px;
+
+    color:#61ad16;
+
+    font-size:13px;
+    line-height:1;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.testimonials-heading h2{
+    margin:0;
+
+    color:#111111;
+
+    font-size:27px;
+    line-height:1.02;
+    letter-spacing:-1.2px;
+    font-weight:900;
+}
+
+/* =========================================
+   TESTIMONIAL LIST
+========================================= */
+
+.testimonial-list{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.testimonial-card{
+    width:100%;
+    min-height:262px;
+
+    padding:34px 30px 30px;
+
+    background:#f8f9fa;
+
+    border:1px solid #dedfe1;
+    border-radius:7px;
+}
+
+/* =========================================
+   STARS
+========================================= */
+
+.stars{
+    color:#ffb400;
+
+    font-size:24px;
+    line-height:1;
+
+    letter-spacing:0;
+}
+
+/* =========================================
+   REVIEW TEXT
+========================================= */
+
+.testimonial-card > p{
+    margin-top:22px;
+
+    color:#111111;
+
+    font-size:15px;
+    line-height:1.5;
+    font-weight:400;
+}
+
+/* =========================================
+   REVIEWER
+========================================= */
+
+.reviewer{
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    margin-top:28px;
+}
+
+.google-icon{
+    width:34px;
+    height:34px;
+    flex-shrink:0;
+}
+
+.reviewer span{
+    color:#111111;
+
+    font-size:15px;
+    line-height:1;
+    font-weight:500;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:480px){
+
+    .testimonials{
+        padding:110px 30px 70px;
+    }
+
+    .testimonials-heading{
+        margin-bottom:60px;
+    }
+
+    .testimonials-heading span{
+        font-size:13px;
+        margin-bottom:13px;
+    }
+
+    .testimonials-heading h2{
+        font-size:27px;
+        line-height:1.02;
+        letter-spacing:-1.2px;
+    }
+
+    .testimonial-list{
+        gap:30px;
+    }
+
+    .testimonial-card{
+        min-height:262px;
+        padding:34px 30px 30px;
+        border-radius:7px;
+    }
+
+    .stars{
+        font-size:24px;
+    }
+
+    .testimonial-card > p{
+        margin-top:22px;
+        font-size:15px;
+        line-height:1.5;
+    }
+
+    .reviewer{
+        margin-top:28px;
+        gap:13px;
+    }
+
+    .google-icon{
+        width:34px;
+        height:34px;
+    }
+
+    .reviewer span{
+        font-size:15px;
+    }
+}
