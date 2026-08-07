@@ -1854,6 +1854,8 @@ min-height: 58vh;
 .service-image {
     display: block;
     width: 100%;
+    max-width: 435px;
     height: auto;
+    margin: 60px auto 0;
     object-fit: cover;
 }
