@@ -1517,3 +1517,129 @@ body{
 .social-btn:hover{
     background:rgba(255,255,255,.22);
 }
+/* =========================
+        FOOTER
+========================= */
+
+.footer{
+    background:#fff;
+    padding:60px 26px 40px;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+}
+
+/* CSS Logo */
+
+.footer-logo{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.footer-logo span{
+    width:24px;
+    height:6px;
+    border:3px solid #63b32e;
+    border-radius:4px;
+    transform:skewY(-25deg);
+}
+
+.footer-brand h2{
+    font-size:24px;
+    font-weight:900;
+    color:#111;
+}
+
+.footer-description{
+    font-size:15px;
+    line-height:1.7;
+    color:#555;
+    margin-bottom:60px;
+    max-width:300px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:55px;
+}
+
+.footer-column h3{
+    font-size:15px;
+    font-weight:800;
+    color:#111;
+    margin-bottom:20px;
+}
+
+.footer-column a{
+    display:block;
+    text-decoration:none;
+    color:#555;
+    font-size:15px;
+    margin-bottom:16px;
+    transition:.25s;
+}
+
+.footer-column a:hover{
+    color:#63b32e;
+}
+
+.footer-divider{
+    width:100%;
+    height:1px;
+    background:#e5e5e5;
+    margin:55px 0 35px;
+}
+
+.footer-copy{
+    text-align:center;
+    font-size:14px;
+    color:#666;
+    margin-bottom:30px;
+}
+
+/* =========================
+      SOCIAL BUTTONS
+========================= */
+
+.footer-socials{
+    width:185px;
+    height:58px;
+    margin:0 auto;
+
+    display:flex;
+    justify-content:space-evenly;
+    align-items:center;
+
+    border:1px solid #e6e6e6;
+    border-radius:50px;
+    background:#fff;
+}
+
+.footer-socials a{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+    background:#fafafa;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.25s;
+}
+
+.footer-socials a:hover{
+    transform:translateY(-2px);
+}
+
+.footer-socials svg{
+    width:22px;
+    height:22px;
+}
