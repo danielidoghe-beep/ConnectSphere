@@ -220,3 +220,161 @@
     display:block;
     border-radius:8px;
 }
+/* =========================================
+   SERVICE 03 — SMS VIRTUAL NUMBERS
+========================================= */
+
+.service-section {
+    width: 100%;
+    padding: 80px 24px;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+/* SERVICE NUMBER */
+
+.service-section .service-number {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    color: #e8e8e8;
+    margin-bottom: 22px;
+}
+
+/* GREEN LABEL */
+
+.service-section .service-label {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+    color: #5cae20;
+    margin-bottom: 20px;
+}
+
+/* TITLE */
+
+.service-section h2 {
+    margin: 0 0 28px;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+    color: #111111;
+}
+
+/* DESCRIPTION */
+
+.service-section .service-description {
+    margin: 0 0 30px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #555555;
+}
+
+/* TAGS */
+
+.service-section .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 35px;
+}
+
+.service-section .service-tags span {
+    display: inline-block;
+    padding: 9px 13px;
+    border: 1px solid #dddddd;
+    background: #ffffff;
+    color: #555555;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* FEATURES */
+
+.service-section .service-features {
+    list-style: none;
+    margin: 0 0 35px;
+    padding: 0;
+}
+
+.service-section .service-features li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444444;
+}
+
+.service-section .service-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #5cae20;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+/* GET STARTED BUTTON */
+
+.service-section .service-button {
+    display: inline-block;
+    padding: 15px 24px;
+    margin-bottom: 45px;
+    background: #5cae20;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+}
+
+/* IMAGE */
+
+.service-section .service-image {
+    display: block;
+    width: 100%;
+    max-width: 435px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .service-section {
+        padding: 65px 20px;
+    }
+
+    .service-section .service-number {
+        font-size: 62px;
+    }
+
+    .service-section .service-label {
+        font-size: 12px;
+    }
+
+    .service-section h2 {
+        font-size: 43px;
+    }
+
+    .service-section .service-description {
+        font-size: 16px;
+    }
+
+    .service-section .service-image {
+        width: 100%;
+        max-width: 435px;
+        height: auto;
+    }
+}
