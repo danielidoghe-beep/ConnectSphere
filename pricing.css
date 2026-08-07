@@ -1,0 +1,402 @@
+/* =========================================
+   PRICING PAGE
+   MOBILE DESIGN
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.pricing-page {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.pricing-hero {
+    text-align: center;
+    padding: 37px 40px 0;
+}
+
+.pricing-label {
+    color: #579d20;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 31px;
+}
+
+.pricing-hero h1 {
+    margin: 0 auto;
+
+    max-width: 500px;
+
+    font-size: 57px;
+    line-height: 1.07;
+    font-weight: 950;
+    letter-spacing: -2.5px;
+
+    overflow-wrap: break-word;
+}
+
+.pricing-hero p {
+    max-width: 600px;
+
+    margin: 42px auto 0;
+
+    color: #5d5d5d;
+
+    font-size: 22px;
+    line-height: 1.65;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   WALLET CARD
+========================================= */
+
+.wallet-card {
+    width: calc(100% - 80px);
+
+    margin: 232px auto 0;
+
+    min-height: 275px;
+
+    padding: 50px 51px;
+
+    background: #f8f9fa;
+
+    border: 1px solid #dedfe1;
+
+    border-radius: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.wallet-text {
+    flex: 1;
+}
+
+.wallet-text h2 {
+    font-size: 26px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.8px;
+
+    margin-bottom: 17px;
+}
+
+.wallet-text p {
+    color: #555555;
+
+    font-size: 19px;
+    line-height: 1.45;
+    font-weight: 500;
+}
+
+.wallet-price {
+    min-width: 180px;
+    text-align: left;
+}
+
+.wallet-price strong {
+    display: block;
+
+    color: #579d20;
+
+    font-size: 40px;
+    line-height: 1;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+.wallet-price span {
+    display: block;
+
+    margin-top: 18px;
+
+    color: #555555;
+
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.pricing-category {
+    width: calc(100% - 80px);
+
+    margin: 64px auto 0;
+}
+
+.category-title {
+    font-size: 29px;
+    line-height: 1.1;
+    font-weight: 950;
+
+    letter-spacing: -1.2px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   PRICE ITEMS
+========================================= */
+
+.price-item {
+    min-height: 100px;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid #dedede;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+.price-item h3 {
+    margin: 0;
+
+    max-width: 430px;
+
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 500;
+}
+
+.price-item p {
+    margin-top: 7px;
+
+    color: #666666;
+
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.price-item strong {
+    color: #579d20;
+
+    font-size: 19px;
+    line-height: 1.3;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .pricing-page {
+        width: 100%;
+    }
+
+    .pricing-hero {
+        padding: 38px 40px 0;
+    }
+
+    .pricing-label {
+        font-size: 18px;
+        letter-spacing: 1.3px;
+        margin-bottom: 30px;
+    }
+
+    .pricing-hero h1 {
+        font-size: 53px;
+        line-height: 1.06;
+        letter-spacing: -2.5px;
+    }
+
+    .pricing-hero p {
+        margin-top: 40px;
+
+        font-size: 21px;
+        line-height: 1.7;
+    }
+
+
+    /* Wallet */
+
+    .wallet-card {
+        width: calc(100% - 80px);
+
+        margin-top: 225px;
+
+        min-height: 275px;
+
+        padding: 48px 50px;
+
+        border-radius: 28px;
+
+        gap: 22px;
+    }
+
+    .wallet-text h2 {
+        font-size: 25px;
+    }
+
+    .wallet-text p {
+        font-size: 18px;
+    }
+
+    .wallet-price {
+        min-width: 160px;
+    }
+
+    .wallet-price strong {
+        font-size: 38px;
+    }
+
+    .wallet-price span {
+        font-size: 17px;
+    }
+
+
+    /* Category */
+
+    .pricing-category {
+        width: calc(100% - 80px);
+
+        margin-top: 63px;
+    }
+
+    .category-title {
+        font-size: 28px;
+        margin-bottom: 34px;
+    }
+
+    .price-item {
+        padding: 21px 0;
+
+        gap: 15px;
+    }
+
+    .price-item h3 {
+        font-size: 18px;
+        line-height: 1.35;
+    }
+
+    .price-item p {
+        font-size: 15px;
+    }
+
+    .price-item strong {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 430px) {
+
+    .pricing-hero {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .pricing-label {
+        font-size: 16px;
+    }
+
+    .pricing-hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .pricing-hero p {
+        font-size: 19px;
+    }
+
+
+    .wallet-card {
+        width: calc(100% - 60px);
+
+        padding: 38px 30px;
+
+        margin-top: 190px;
+
+        gap: 18px;
+    }
+
+    .wallet-text h2 {
+        font-size: 22px;
+    }
+
+    .wallet-text p {
+        font-size: 16px;
+    }
+
+    .wallet-price {
+        min-width: 135px;
+    }
+
+    .wallet-price strong {
+        font-size: 31px;
+    }
+
+    .wallet-price span {
+        font-size: 15px;
+    }
+
+
+    .pricing-category {
+        width: calc(100% - 60px);
+    }
+
+    .category-title {
+        font-size: 25px;
+    }
+
+    .price-item h3 {
+        font-size: 16px;
+    }
+
+    .price-item strong {
+        font-size: 16px;
+    }
+}
