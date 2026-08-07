@@ -1754,3 +1754,106 @@ min-height: 58vh;
 
     cursor:pointer;
 }
+/* =========================
+   SERVICE 03 - VIRTUAL NUMBERS
+========================= */
+
+.service-section {
+    padding: 110px 43px 100px;
+    border-top: 1px solid #e5e5e5;
+    background: #fff;
+}
+
+.service-number {
+    font-size: 100px;
+    line-height: 1;
+    font-weight: 900;
+    color: #e8e8e8;
+    margin-bottom: 25px;
+}
+
+.service-label {
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #5da51d;
+    margin-bottom: 25px;
+}
+
+.service-section h2 {
+    font-size: 58px;
+    line-height: 0.98;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: #111;
+    margin: 0 0 45px;
+}
+
+.service-description {
+    font-size: 24px;
+    line-height: 1.55;
+    color: #555;
+    margin: 0 0 45px;
+}
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 55px;
+}
+
+.service-tags span {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    font-size: 17px;
+    font-weight: 700;
+    color: #555;
+    background: #fff;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 60px;
+}
+
+.service-features li {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 25px;
+    font-size: 22px;
+    line-height: 1.45;
+    color: #555;
+}
+
+.service-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #5da51d;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.service-button {
+    display: inline-block;
+    padding: 20px 42px;
+    border-radius: 25px;
+    background: #5da51d;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 70px;
+}
+
+.service-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
