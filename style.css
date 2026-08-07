@@ -464,3 +464,197 @@ body{
         font-size:12px;
     }
 }
+/* =========================================
+   SERVICES SECTION
+========================================= */
+
+.services{
+    width:100%;
+    padding:88px 25px 70px;
+    background:#ffffff;
+}
+
+
+/* =========================================
+   SERVICES HEADING
+========================================= */
+
+.services-heading{
+    width:100%;
+    margin-bottom:50px;
+}
+
+.section-label{
+    display:block;
+
+    margin-bottom:9px;
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+
+    color:#61a916;
+}
+
+.services-heading h2{
+    margin:0;
+
+    font-size:31px;
+    line-height:1.02;
+    letter-spacing:-1.5px;
+    font-weight:900;
+
+    color:#111111;
+}
+
+.services-heading p{
+    max-width:285px;
+
+    margin-top:14px;
+
+    font-size:15px;
+    line-height:1.45;
+    font-weight:400;
+
+    color:#444444;
+}
+
+
+/* =========================================
+   SERVICE CARD
+========================================= */
+
+.service-card{
+    width:100%;
+
+    margin-bottom:26px;
+    padding:26px;
+
+    background:#f6f7f8;
+}
+
+.service-card:last-child{
+    margin-bottom:0;
+}
+
+
+/* =========================================
+   IMAGE AREA
+========================================= */
+
+.service-image{
+    position:relative;
+
+    width:100%;
+    height:115px;
+
+    background:#f1f2f4;
+
+    border:1px dashed #dfe1e4;
+}
+
+.service-number{
+    position:absolute;
+
+    top:-6px;
+    right:-1px;
+
+    font-size:10px;
+    font-weight:500;
+
+    color:#222222;
+}
+
+
+/* =========================================
+   SERVICE CONTENT
+========================================= */
+
+.service-content{
+    padding-top:25px;
+}
+
+.service-content h3{
+    margin:0;
+
+    font-size:18px;
+    line-height:1.1;
+    letter-spacing:-.7px;
+
+    font-weight:900;
+
+    color:#111111;
+}
+
+.service-content p{
+    margin-top:8px;
+
+    font-size:12px;
+    line-height:1.45;
+    font-weight:400;
+
+    color:#444444;
+}
+
+
+/* =========================================
+   SERVICE TAGS
+========================================= */
+
+.service-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+
+    margin-top:16px;
+}
+
+.service-tags span{
+    display:inline-flex;
+    align-items:center;
+
+    min-height:22px;
+    padding:4px 7px;
+
+    background:#f1f2f3;
+    border:1px solid #dedfe1;
+
+    font-size:9px;
+    line-height:1;
+    font-weight:800;
+
+    color:#111111;
+}
+
+
+/* =========================================
+   GET STARTED LINK
+========================================= */
+
+.service-link{
+    display:inline-flex;
+    align-items:center;
+
+    margin-top:20px;
+    padding-bottom:4px;
+
+    border-bottom:2px solid #61a916;
+
+    text-decoration:none;
+
+    font-size:11px;
+    line-height:1;
+    font-weight:900;
+
+    color:#111111;
+}
+
+.service-link span:first-of-type{
+    margin-left:3px;
+    font-size:12px;
+}
+
+.service-link span:last-of-type{
+    margin-left:5px;
+    font-size:12px;
+}
