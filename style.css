@@ -679,3 +679,125 @@ body{
     object-fit:cover;
     object-position:center;
 }
+/* ================================
+   HOW IT WORKS
+   ================================ */
+
+.how-it-works {
+    width: 100%;
+    background: #f7f8fa;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    padding: 296px 24px 250px;
+    box-sizing: border-box;
+}
+
+.how-it-works-header {
+    text-align: center;
+    margin-bottom: 140px;
+}
+
+.section-label {
+    margin: 0 0 28px;
+    color: #4fae16;
+    font-size: 27px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.how-it-works h2 {
+    margin: 0;
+    color: #080808;
+    font-size: 62px;
+    line-height: 1.08;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+}
+
+.steps {
+    width: 100%;
+}
+
+.step {
+    margin: 0 0 138px;
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    margin-bottom: 40px;
+    color: #4fae16;
+    font-size: 47px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.step h3 {
+    margin: 0 0 22px;
+    color: #080808;
+    font-size: 38px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.step p {
+    max-width: 680px;
+    margin: 0;
+    color: #55585c;
+    font-size: 27px;
+    line-height: 1.45;
+    font-weight: 400;
+}
+
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 600px) {
+
+    .how-it-works {
+        padding: 292px 61px 255px;
+    }
+
+    .how-it-works-header {
+        margin-bottom: 143px;
+    }
+
+    .section-label {
+        margin-bottom: 31px;
+        font-size: 27px;
+        letter-spacing: 2px;
+    }
+
+    .how-it-works h2 {
+        font-size: 59px;
+        line-height: 1.08;
+        letter-spacing: -2.5px;
+    }
+
+    .step {
+        margin-bottom: 137px;
+    }
+
+    .step-number {
+        margin-bottom: 43px;
+        font-size: 47px;
+    }
+
+    .step h3 {
+        margin-bottom: 21px;
+        font-size: 37px;
+        line-height: 1.08;
+        letter-spacing: -1.5px;
+    }
+
+    .step p {
+        font-size: 26px;
+        line-height: 1.46;
+    }
+}
