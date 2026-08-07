@@ -358,3 +358,248 @@ body {
     }
 
 }
+/* =========================
+   ABOUT STATS
+========================= */
+
+.about-stats {
+    width: 100%;
+    padding: 30px 48px 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stat-card {
+    width: 100%;
+    min-height: 292px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 30px;
+
+    background: #f7f8fa;
+
+    border: 1px solid #dddddd;
+    border-radius: 35px;
+
+    text-align: center;
+}
+
+.stat-card h2 {
+    margin-bottom: 25px;
+
+    color: #59a923;
+
+    font-size: 60px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.stat-card p {
+    max-width: 390px;
+
+    color: #555555;
+
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   OUR MISSION
+========================= */
+
+.about-mission {
+    width: 100%;
+
+    padding: 390px 35px 0;
+
+    text-align: center;
+}
+
+.mission-label {
+    margin-bottom: 18px;
+
+    color: #5a5a5a;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.about-mission h2 {
+    margin-bottom: 38px;
+
+    color: #080808;
+
+    font-size: 48px;
+    line-height: 1.05;
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.mission-text {
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    color: #555555;
+
+    font-size: 22px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BACK TO HOME
+========================= */
+
+.about-bottom {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 70px 35px 100px;
+}
+
+.back-home-button {
+    width: 315px;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border-radius: 20px;
+
+    background: #60ad1c;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.back-home-button span {
+    font-size: 28px;
+    line-height: 1;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .about-stats {
+        padding: 30px 48px 0;
+        gap: 24px;
+    }
+
+    .stat-card {
+        min-height: 292px;
+
+        padding: 35px 25px;
+
+        border-radius: 35px;
+    }
+
+    .stat-card h2 {
+        font-size: 58px;
+    }
+
+    .stat-card p {
+        font-size: 22px;
+        line-height: 1.7;
+    }
+
+
+    .about-mission {
+        padding: 390px 25px 0;
+    }
+
+    .mission-label {
+        font-size: 22px;
+    }
+
+    .about-mission h2 {
+        font-size: 47px;
+        line-height: 1.05;
+    }
+
+    .mission-text {
+        font-size: 21px;
+        line-height: 1.7;
+    }
+
+
+    .about-bottom {
+        padding: 70px 35px 90px;
+    }
+
+    .back-home-button {
+        width: 315px;
+        min-height: 80px;
+
+        border-radius: 20px;
+
+        font-size: 21px;
+    }
+
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 420px) {
+
+    .about-stats {
+        padding-left: 42px;
+        padding-right: 42px;
+    }
+
+    .stat-card {
+        min-height: 280px;
+        padding: 30px 20px;
+    }
+
+    .stat-card h2 {
+        font-size: 52px;
+    }
+
+    .stat-card p {
+        font-size: 20px;
+    }
+
+
+    .about-mission {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about-mission h2 {
+        font-size: 42px;
+    }
+
+    .mission-text {
+        font-size: 20px;
+    }
+
+    .back-home-button {
+        width: 100%;
+    }
+
+}
