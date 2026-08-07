@@ -935,48 +935,32 @@ document.addEventListener("DOMContentLoaded", () => {
 // MOBILE MENU
 // =========================
 
-const menuBtn = document.getElementById("menuToggle");
+const menuBtn = document.querySelector(".menu-btn");
 const mobileMenu = document.querySelector(".mobile-menu");
-const menuOverlay = document.querySelector(".menu-overlay");
+const overlay = document.querySelector(".menu-overlay");
 
-// Open & Close Menu
-menuBtn.addEventListener("click", () => {
-
-    mobileMenu.classList.toggle("active");
-    menuOverlay.classList.toggle("active");
-
-});
-
-// Close when clicking outside
-menuOverlay.addEventListener("click", () => {
-
+function closeMenu() {
     mobileMenu.classList.remove("active");
-    menuOverlay.classList.remove("active");
+    overlay.classList.remove("active");
+}
 
+function openMenu() {
+    mobileMenu.classList.add("active");
+    overlay.classList.add("active");
+}
+
+menuBtn.addEventListener("click", () => {
+    if (mobileMenu.classList.contains("active")) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
 });
 
-// Close when a menu link is clicked
+overlay.addEventListener("click", closeMenu);
+
 document.querySelectorAll(".mobile-menu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("active");
-        menuOverlay.classList.remove("active");
-
-    });
-
-});
-
-// Close when a button is clicked
-document.querySelectorAll(".mobile-menu button").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("active");
-        menuOverlay.classList.remove("active");
-
-    });
-
+    link.addEventListener("click", closeMenu);
 });
     </script>
 </body>
