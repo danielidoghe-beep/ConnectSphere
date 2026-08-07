@@ -892,8 +892,8 @@
 
 </footer>
     <script>
-    // ===========================
-// FAQ Accordion
+// ===========================
+// FAQ ACCORDION
 // ===========================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -910,18 +910,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const isActive = item.classList.contains("active");
 
-            // Close all FAQ items
             faqItems.forEach(faq => {
                 faq.classList.remove("active");
-
                 faq.querySelector(".faq-answer").style.maxHeight = null;
                 faq.querySelector(".icon").textContent = "+";
             });
 
-            // Open the clicked one if it wasn't already open
             if (!isActive) {
                 item.classList.add("active");
-
                 answer.style.maxHeight = answer.scrollHeight + "px";
                 icon.textContent = "−";
             }
@@ -931,63 +927,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-// =========================
+
+
+// ===========================
 // MOBILE MENU
-// =========================
+// ===========================
 
-const menuBtn = document.querySelector(".menu-btn");
-const mobileMenu = document.querySelector(".mobile-menu");
-const overlay = document.querySelector(".menu-overlay");
+document.addEventListener("DOMContentLoaded", () => {
 
-function closeMenu() {
-    mobileMenu.classList.remove("active");
-    overlay.classList.remove("active");
-}
+    const menuBtn = document.getElementById("menuToggle");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const overlay = document.querySelector(".menu-overlay");
 
-function openMenu() {
-    mobileMenu.classList.add("active");
-    overlay.classList.add("active");
-}
-
-menuBtn.addEventListener("click", () => {
-    if (mobileMenu.classList.contains("active")) {
-        closeMenu();
-    } else {
-        openMenu();
+    function openMenu() {
+        mobileMenu.classList.add("active");
+        overlay.classList.add("active");
     }
+
+    function closeMenu() {
+        mobileMenu.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+
+    function toggleMenu() {
+        if (mobileMenu.classList.contains("active")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    // Open / Close using hamburger
+    menuBtn.addEventListener("click", toggleMenu);
+
+    // Close when tapping outside
+    overlay.addEventListener("click", closeMenu);
+
+    // Close when any menu link is clicked
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    // Close when Sign In button is clicked
+    const signInBtn = document.querySelector(".menu-signin");
+    if (signInBtn) {
+        signInBtn.addEventListener("click", closeMenu);
+    }
+
+    // Close when Get Started button is clicked
+    const getStartedBtn = document.querySelector(".menu-start");
+    if (getStartedBtn) {
+        getStartedBtn.addEventListener("click", closeMenu);
+    }
+
 });
-
-overlay.addEventListener("click", closeMenu);
-
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", closeMenu);
-});
-    const menu = document.querySelector(".mobile-menu");
-const overlay = document.querySelector(".menu-overlay");
-const menuBtn = document.querySelector(".menu-btn");
-
-function closeMenu() {
-    menu.classList.remove("active");
-    overlay.classList.remove("active");
-}
-
-menuBtn.addEventListener("click", () => {
-    menu.classList.toggle("active");
-    overlay.classList.toggle("active");
-});
-
-overlay.addEventListener("click", closeMenu);
-
-// Close when any menu link is clicked
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-    link.addEventListener("click", closeMenu);
-});
-
-// Close when Sign In is clicked
-document.querySelector(".menu-signin").addEventListener("click", closeMenu);
-
-// Close when Get Started is clicked
-document.querySelector(".menu-start").addEventListener("click", closeMenu);
     </script>
 </body>
 </html>
