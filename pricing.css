@@ -400,3 +400,267 @@ body {
         font-size: 16px;
     }
 }
+/* =========================================
+   WORKING TOOLS
+========================================= */
+
+.working-tools {
+    margin-top: 75px;
+}
+
+
+/* =========================================
+   PRICE NOTE
+========================================= */
+
+.pricing-note {
+    width: calc(100% - 80px);
+
+    margin: 75px auto 0;
+
+    text-align: center;
+}
+
+.pricing-note p {
+    color: #606060;
+
+    font-size: 18px;
+    line-height: 1.55;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   WHY WALLET PAYMENTS
+========================================= */
+
+.wallet-benefits {
+    width: calc(100% - 80px);
+
+    margin: 95px auto 0;
+
+    text-align: center;
+}
+
+.wallet-benefits > h2 {
+    font-size: 36px;
+    line-height: 1.1;
+
+    font-weight: 950;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 90px;
+}
+
+
+/* =========================================
+   BENEFIT
+========================================= */
+
+.wallet-benefit {
+    position: relative;
+
+    margin-bottom: 75px;
+
+    text-align: center;
+}
+
+.benefit-check {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 0 52px 0;
+
+    border-radius: 50%;
+
+    background: #5ba51f;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.benefit-content {
+    text-align: center;
+}
+
+.benefit-content h3 {
+    font-size: 23px;
+    line-height: 1.2;
+
+    font-weight: 950;
+
+    margin-bottom: 20px;
+}
+
+.benefit-content p {
+    color: #606060;
+
+    font-size: 19px;
+    line-height: 1.55;
+
+    font-weight: 500;
+
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   GO BACK HOME
+========================================= */
+
+.pricing-home-button {
+    width: calc(100% - 80px);
+
+    margin: 100px auto 60px;
+
+    text-align: center;
+}
+
+.pricing-home-button a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    min-height: 65px;
+
+    padding: 0 30px;
+
+    background: #5ba51f;
+    color: #ffffff;
+
+    border-radius: 22px;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    letter-spacing: 0.3px;
+
+    transition: transform 0.2s ease,
+                opacity 0.2s ease;
+}
+
+.pricing-home-button a span {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.pricing-home-button a:active {
+    transform: scale(0.97);
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .working-tools {
+        margin-top: 72px;
+    }
+
+    .pricing-note {
+        width: calc(100% - 80px);
+        margin-top: 73px;
+    }
+
+    .pricing-note p {
+        font-size: 17px;
+        line-height: 1.55;
+    }
+
+    .wallet-benefits {
+        width: calc(100% - 80px);
+        margin-top: 93px;
+    }
+
+    .wallet-benefits > h2 {
+        font-size: 34px;
+        margin-bottom: 88px;
+    }
+
+    .wallet-benefit {
+        margin-bottom: 76px;
+    }
+
+    .benefit-check {
+        width: 55px;
+        height: 55px;
+
+        margin-bottom: 51px;
+
+        font-size: 33px;
+    }
+
+    .benefit-content h3 {
+        font-size: 22px;
+        margin-bottom: 19px;
+    }
+
+    .benefit-content p {
+        font-size: 18px;
+        line-height: 1.55;
+    }
+
+    /* FINAL BUTTON */
+
+    .pricing-home-button {
+        width: calc(100% - 80px);
+
+        margin-top: 105px;
+        margin-bottom: 55px;
+    }
+
+    .pricing-home-button a {
+        width: 100%;
+
+        min-height: 64px;
+
+        border-radius: 20px;
+
+        font-size: 17px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 430px) {
+
+    .pricing-note {
+        width: calc(100% - 60px);
+    }
+
+    .wallet-benefits {
+        width: calc(100% - 60px);
+    }
+
+    .wallet-benefits > h2 {
+        font-size: 31px;
+    }
+
+    .benefit-content p {
+        font-size: 17px;
+    }
+
+    .pricing-home-button {
+        width: calc(100% - 60px);
+    }
+}
