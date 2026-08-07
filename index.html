@@ -962,6 +962,32 @@ overlay.addEventListener("click", closeMenu);
 document.querySelectorAll(".mobile-menu a").forEach(link => {
     link.addEventListener("click", closeMenu);
 });
+    const menu = document.querySelector(".mobile-menu");
+const overlay = document.querySelector(".menu-overlay");
+const menuBtn = document.querySelector(".menu-btn");
+
+function closeMenu() {
+    menu.classList.remove("active");
+    overlay.classList.remove("active");
+}
+
+menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", closeMenu);
+
+// Close when any menu link is clicked
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+});
+
+// Close when Sign In is clicked
+document.querySelector(".menu-signin").addEventListener("click", closeMenu);
+
+// Close when Get Started is clicked
+document.querySelector(".menu-start").addEventListener("click", closeMenu);
     </script>
 </body>
 </html>
