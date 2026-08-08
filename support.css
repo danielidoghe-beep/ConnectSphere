@@ -1,0 +1,1255 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background: #f7f8fa;
+    color: #111111;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.top-header {
+    height: 120px;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #dedede;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+}
+
+.icon-button {
+    border: 0;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+}
+
+
+/* Hamburger */
+
+.menu-button {
+    width: 58px;
+    height: 58px;
+
+    flex-direction: column;
+    gap: 7px;
+}
+
+.menu-button span {
+    width: 37px;
+    height: 4px;
+    border-radius: 2px;
+    background: #555555;
+}
+
+
+/* Header right */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+
+/* Moon */
+
+.moon-button {
+    width: 50px;
+    height: 50px;
+}
+
+.moon-button svg {
+    width: 42px;
+    height: 42px;
+
+    fill: none;
+    stroke: #555555;
+    stroke-width: 1.8;
+}
+
+
+/* Notifications */
+
+.notification-button {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    border: 0;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-button svg {
+    width: 39px;
+    height: 39px;
+
+    fill: none;
+    stroke: #555555;
+    stroke-width: 1.8;
+}
+
+.notification-count {
+    position: absolute;
+
+    top: -1px;
+    right: -2px;
+
+    min-width: 48px;
+    height: 34px;
+
+    padding: 0 9px;
+
+    border-radius: 20px;
+
+    background: #56a817;
+    color: #000000;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Profile */
+
+.profile-button {
+    width: 66px;
+    height: 66px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #f4a000;
+
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-button span {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.support-page {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 46px 32px 80px;
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.page-heading h1 {
+    font-size: 62px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+}
+
+.page-heading p {
+    margin-top: 17px;
+
+    color: #555555;
+
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   SUPPORT TITLE ROW
+========================================= */
+
+.support-title-row {
+    margin-top: 72px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 28px;
+}
+
+.support-title-text {
+    flex: 1;
+}
+
+.support-title-text h2 {
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -1.8px;
+}
+
+.support-title-text p {
+    margin-top: 22px;
+
+    max-width: 620px;
+
+    color: #555555;
+
+    font-size: 32px;
+    line-height: 1.35;
+}
+
+
+/* New ticket */
+
+.new-ticket-button {
+    flex: 0 0 228px;
+
+    min-height: 128px;
+
+    border: 0;
+    border-radius: 27px;
+
+    background: #56a817;
+    color: #ffffff;
+
+    font-size: 30px;
+    line-height: 1.1;
+    font-weight: 900;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: none;
+}
+
+.new-ticket-button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   TICKETS CONTAINER
+========================================= */
+
+.tickets-container {
+    margin-top: 58px;
+
+    width: 100%;
+
+    border: 1px solid #dddddd;
+    border-radius: 36px;
+
+    background: #ffffff;
+
+    padding: 108px 56px 60px;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-ticket-state {
+    min-height: 710px;
+
+    border: 1px dashed #d9dce0;
+    border-radius: 30px;
+
+    background: #f1f2f4;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 30px;
+}
+
+
+/* Empty icon */
+
+.empty-icon {
+    width: 130px;
+    height: 130px;
+
+    border: 2px solid #e0e1e3;
+    border-radius: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-icon svg {
+    width: 70px;
+    height: 70px;
+
+    fill: none;
+    stroke: #5d5d5d;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Empty title */
+
+.empty-ticket-state h3 {
+    margin-top: 40px;
+
+    color: #555555;
+
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.empty-ticket-state p {
+    max-width: 570px;
+
+    margin-top: 34px;
+
+    color: #555555;
+
+    font-size: 31px;
+    line-height: 1.4;
+}
+
+
+/* Open first ticket */
+
+.open-first-ticket-button {
+    margin-top: 42px;
+
+    min-width: 450px;
+    min-height: 86px;
+
+    border: 0;
+    border-radius: 24px;
+
+    background: #56a817;
+    color: #ffffff;
+
+    font-size: 27px;
+    font-weight: 900;
+
+    padding: 0 34px;
+}
+
+
+/* =========================================
+   TICKET LIST
+========================================= */
+
+.ticket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ticket-list:empty {
+    display: none;
+}
+
+
+/* Ticket card */
+
+.ticket-card {
+    border: 1px solid #dedede;
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    padding: 28px;
+}
+
+.ticket-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.ticket-card h3 {
+    color: #111111;
+
+    font-size: 26px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.ticket-status {
+    flex-shrink: 0;
+
+    padding: 8px 15px;
+
+    border-radius: 20px;
+
+    background: #eef8e8;
+    color: #4e9d16;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.ticket-message {
+    margin-top: 14px;
+
+    color: #555555;
+
+    font-size: 18px;
+    line-height: 1.45;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.ticket-meta {
+    margin-top: 18px;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MODAL BACKDROP
+========================================= */
+
+.modal-backdrop {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.58);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal-backdrop.open {
+    display: flex;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.ticket-modal {
+    width: min(740px, 100%);
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border: 1px solid #bbbbbb;
+    border-radius: 32px;
+
+    padding: 44px 40px 52px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Modal header */
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.modal-header h2 {
+    font-size: 36px;
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.modal-close {
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+    background: transparent;
+
+    color: #666666;
+
+    font-size: 42px;
+    line-height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-top: 40px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 17px;
+
+    font-size: 27px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    border: 2px solid #dedede;
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    color: #222222;
+
+    outline: none;
+
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.form-group input {
+    height: 84px;
+
+    padding: 0 28px;
+}
+
+.form-group textarea {
+    min-height: 265px;
+
+    resize: vertical;
+
+    padding: 25px 28px;
+
+    line-height: 1.35;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #a6a6a6;
+    opacity: 1;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #56a817;
+}
+
+
+/* Error */
+
+.form-error {
+    display: none;
+
+    margin-top: 18px;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    background: #fff0f0;
+    color: #c62828;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.form-error.show {
+    display: block;
+}
+
+
+/* =========================================
+   MODAL BUTTONS
+========================================= */
+
+.modal-actions {
+    margin-top: 42px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+}
+
+.cancel-button,
+.submit-ticket-button {
+    min-height: 128px;
+
+    border-radius: 24px;
+
+    font-size: 27px;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.cancel-button {
+    border: 1px solid #d9dce0;
+
+    background: #f1f2f5;
+    color: #111111;
+}
+
+.submit-ticket-button {
+    position: relative;
+
+    border: 0;
+
+    background: #56a817;
+    color: #ffffff;
+}
+
+.submit-ticket-button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+
+/* Loader */
+
+.button-loader {
+    display: none;
+
+    width: 26px;
+    height: 26px;
+
+    margin: auto;
+
+    border: 3px solid rgba(255, 255, 255, 0.45);
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation: spin 0.7s linear infinite;
+}
+
+.submit-ticket-button.loading #submitButtonText {
+    display: none;
+}
+
+.submit-ticket-button.loading .button-loader {
+    display: block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   SIDE MENU
+========================================= */
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 900;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.side-menu {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    z-index: 950;
+
+    width: min(340px, 85vw);
+
+    background: #ffffff;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.25s ease;
+
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.12);
+}
+
+.side-menu.open {
+    transform: translateX(0);
+}
+
+.side-menu-header {
+    height: 120px;
+
+    padding: 0 25px;
+
+    border-bottom: 1px solid #dedede;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.side-menu-header strong {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.close-menu-button {
+    border: 0;
+    background: transparent;
+
+    font-size: 38px;
+    color: #555555;
+}
+
+.side-navigation {
+    padding: 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.side-navigation a {
+    padding: 18px 20px;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.side-navigation a.active {
+    background: #eef8e8;
+    color: #56a817;
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode {
+    background: #111315;
+    color: #ffffff;
+}
+
+body.dark-mode .top-header,
+body.dark-mode .tickets-container,
+body.dark-mode .ticket-modal,
+body.dark-mode .side-menu,
+body.dark-mode .ticket-card {
+    background: #191c1f;
+    border-color: #303438;
+}
+
+body.dark-mode .page-heading p,
+body.dark-mode .support-title-text p,
+body.dark-mode .empty-ticket-state p,
+body.dark-mode .ticket-message,
+body.dark-mode .ticket-meta {
+    color: #bfc3c7;
+}
+
+body.dark-mode .empty-ticket-state {
+    background: #22262a;
+    border-color: #3a3e42;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #151719;
+    color: #ffffff;
+    border-color: #3b3f43;
+}
+
+body.dark-mode .form-group input::placeholder,
+body.dark-mode .form-group textarea::placeholder {
+    color: #7e8489;
+}
+
+body.dark-mode .cancel-button {
+    background: #25292d;
+    color: #ffffff;
+    border-color: #3b3f43;
+}
+
+body.dark-mode .side-menu-header {
+    border-color: #303438;
+}
+
+body.dark-mode .side-navigation a.active {
+    background: #1f3515;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .top-header {
+        height: 120px;
+        padding: 0 32px;
+    }
+
+    .header-right {
+        gap: 24px;
+    }
+
+    .menu-button {
+        width: 50px;
+    }
+
+    .menu-button span {
+        width: 36px;
+        height: 4px;
+    }
+
+    .moon-button svg {
+        width: 39px;
+        height: 39px;
+    }
+
+    .notification-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .notification-button svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .notification-count {
+        min-width: 45px;
+        height: 31px;
+
+        font-size: 18px;
+
+        top: -4px;
+        right: -7px;
+    }
+
+    .profile-button {
+        width: 66px;
+        height: 66px;
+    }
+
+    .support-page {
+        padding: 48px 32px 70px;
+    }
+
+    .page-heading h1 {
+        font-size: 58px;
+    }
+
+    .page-heading p {
+        font-size: 29px;
+        margin-top: 16px;
+    }
+
+    .support-title-row {
+        margin-top: 70px;
+
+        gap: 22px;
+    }
+
+    .support-title-text h2 {
+        font-size: 45px;
+    }
+
+    .support-title-text p {
+        font-size: 30px;
+        margin-top: 20px;
+    }
+
+    .new-ticket-button {
+        flex-basis: 210px;
+        min-height: 128px;
+
+        font-size: 28px;
+    }
+
+    .tickets-container {
+        margin-top: 58px;
+        padding: 106px 56px 58px;
+        border-radius: 35px;
+    }
+
+    .empty-ticket-state {
+        min-height: 710px;
+    }
+
+    .empty-ticket-state h3 {
+        font-size: 45px;
+    }
+
+    .empty-ticket-state p {
+        font-size: 29px;
+    }
+
+    .open-first-ticket-button {
+        min-width: 100%;
+        font-size: 25px;
+    }
+
+    .ticket-modal {
+        border-radius: 30px;
+
+        padding: 40px 40px 48px;
+    }
+
+    .modal-header h2 {
+        font-size: 34px;
+    }
+
+    .form-group label {
+        font-size: 26px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 22px;
+    }
+
+    .modal-actions {
+        gap: 22px;
+    }
+
+    .cancel-button,
+    .submit-ticket-button {
+        min-height: 125px;
+        font-size: 26px;
+    }
+}
+
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 450px) {
+
+    .top-header {
+        height: 86px;
+        padding: 0 16px;
+    }
+
+    .header-right {
+        gap: 15px;
+    }
+
+    .menu-button {
+        width: 42px;
+        height: 42px;
+        gap: 5px;
+    }
+
+    .menu-button span {
+        width: 25px;
+        height: 3px;
+    }
+
+    .moon-button {
+        width: 38px;
+        height: 38px;
+    }
+
+    .moon-button svg {
+        width: 29px;
+        height: 29px;
+    }
+
+    .notification-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .notification-button svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .notification-count {
+        min-width: 35px;
+        height: 24px;
+
+        padding: 0 6px;
+
+        font-size: 14px;
+
+        top: -3px;
+        right: -8px;
+    }
+
+    .profile-button {
+        width: 48px;
+        height: 48px;
+    }
+
+    .profile-button span {
+        font-size: 23px;
+    }
+
+    .support-page {
+        padding: 44px 32px 60px;
+    }
+
+    .page-heading h1 {
+        font-size: 52px;
+        letter-spacing: -2px;
+    }
+
+    .page-heading p {
+        font-size: 24px;
+        line-height: 1.25;
+    }
+
+    .support-title-row {
+        margin-top: 56px;
+
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .support-title-text h2 {
+        font-size: 37px;
+        letter-spacing: -1.3px;
+    }
+
+    .support-title-text p {
+        margin-top: 16px;
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .new-ticket-button {
+        flex: 0 0 150px;
+
+        min-height: 105px;
+
+        border-radius: 22px;
+
+        font-size: 22px;
+    }
+
+    .tickets-container {
+        margin-top: 48px;
+
+        padding: 74px 25px 40px;
+
+        border-radius: 28px;
+    }
+
+    .empty-ticket-state {
+        min-height: 640px;
+
+        border-radius: 25px;
+
+        padding: 40px 20px;
+    }
+
+    .empty-icon {
+        width: 105px;
+        height: 105px;
+        border-radius: 28px;
+    }
+
+    .empty-icon svg {
+        width: 57px;
+        height: 57px;
+    }
+
+    .empty-ticket-state h3 {
+        margin-top: 32px;
+
+        font-size: 37px;
+    }
+
+    .empty-ticket-state p {
+        margin-top: 26px;
+
+        font-size: 23px;
+        line-height: 1.45;
+    }
+
+    .open-first-ticket-button {
+        margin-top: 32px;
+
+        min-height: 72px;
+
+        border-radius: 20px;
+
+        font-size: 20px;
+    }
+
+    .ticket-card {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .ticket-card h3 {
+        font-size: 21px;
+    }
+
+    .ticket-message {
+        font-size: 16px;
+    }
+
+    .ticket-modal {
+        width: 100%;
+
+        max-height: calc(100vh - 24px);
+
+        padding: 28px 20px 28px;
+
+        border-radius: 26px;
+    }
+
+    .modal-header h2 {
+        font-size: 29px;
+    }
+
+    .modal-close {
+        width: 34px;
+        height: 34px;
+        font-size: 36px;
+    }
+
+    .form-group {
+        margin-top: 30px;
+    }
+
+    .form-group label {
+        margin-bottom: 13px;
+        font-size: 23px;
+    }
+
+    .form-group input {
+        height: 70px;
+        padding: 0 20px;
+        border-radius: 18px;
+        font-size: 19px;
+    }
+
+    .form-group textarea {
+        min-height: 205px;
+        padding: 20px;
+        border-radius: 18px;
+        font-size: 19px;
+    }
+
+    .modal-actions {
+        margin-top: 30px;
+        gap: 14px;
+    }
+
+    .cancel-button,
+    .submit-ticket-button {
+        min-height: 105px;
+
+        border-radius: 20px;
+
+        font-size: 21px;
+    }
+}
