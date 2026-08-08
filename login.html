@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Sign in · Connectsphere</title>
+    <title>Sign in · Connecsphere</title>
     <meta name="description" content="Sign in to your VerifyStackAcct account." />
     <meta name="theme-color" content="#6cad3f" />
 
+    <!-- Fonts: Archivo (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,9 +16,10 @@
     />
 
     <link rel="stylesheet" href="./login.css" />
-    <script src="./scripts/ui.js"></script>
+    <script src="./ui.js"></script>
   </head>
   <body>
+    <!-- Header -->
     <header class="site-header">
       <a class="brand" href="./index.html" aria-label="VerifyStackAcct home">
         <svg class="brand-logo" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
@@ -30,9 +32,11 @@
 
       <div class="header-actions">
         <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode">
+          <!-- moon -->
           <svg class="icon-moon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
+          <!-- sun -->
           <svg class="icon-sun" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -47,11 +51,13 @@
       </div>
     </header>
 
+    <!-- Main -->
     <main class="auth">
       <div class="auth-inner">
         <h1 class="auth-title">Sign in</h1>
         <p class="auth-subtitle">Welcome back to Connectsphere</p>
 
+        <!-- Google -->
         <button id="googleBtn" class="btn-google" type="button">
           <svg class="google-icon" viewBox="0 0 48 48" width="22" height="22" aria-hidden="true">
             <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5Z" />
@@ -64,8 +70,10 @@
 
         <div class="divider"><span>or sign in with email</span></div>
 
+        <!-- Message box (error / success) -->
         <div id="message" class="message" role="alert" aria-live="polite" hidden></div>
 
+        <!-- Form -->
         <form id="authForm" novalidate>
           <div class="field">
             <label for="email">Email</label>
@@ -109,6 +117,7 @@
       </div>
     </main>
 
-    <script type="module" src="./scripts/auth.js"></script>
+    <!-- Firebase auth logic (module) -->
+    <script type="module" src="./auth.js"></script>
   </body>
 </html>
