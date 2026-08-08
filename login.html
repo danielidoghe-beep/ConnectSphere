@@ -20,10 +20,10 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
       background: #ffffff;
-      color: #0b0b0b;
-      -webkit-font-smoothing: antialiased;
+      color: #111111;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
     }
 
     /* =========================
@@ -31,132 +31,113 @@
     ========================= */
 
     .site-header {
+      width: 100%;
       height: 132px;
-      width: 100%;
-      border-bottom: 1px solid #dddddd;
+      border-bottom: 1px solid #e5e5e5;
       display: flex;
       align-items: center;
-      padding: 0 40px;
-    }
-
-    .header-inner {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 0 64px;
+      position: relative;
     }
 
     .brand {
       display: flex;
       align-items: center;
+      gap: 14px;
       text-decoration: none;
-      color: #080808;
+      color: #111111;
     }
 
     .brand-logo {
-      width: 42px;
-      height: 42px;
-      margin-right: 14px;
+      width: 48px;
+      height: 48px;
       flex-shrink: 0;
     }
 
     .brand-name {
-      font-size: 32px;
-      line-height: 1;
+      font-size: 34px;
       font-weight: 800;
-      letter-spacing: -1.4px;
+      letter-spacing: -1.5px;
       white-space: nowrap;
     }
 
-    .header-actions {
+    .header-right {
+      margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 54px;
+      gap: 110px;
     }
 
     /* Moon */
 
-    .theme-button {
-      width: 38px;
-      height: 38px;
+    .moon-button {
+      width: 44px;
+      height: 44px;
       border: 0;
       background: transparent;
-      padding: 0;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0;
     }
 
     .moon-icon {
-      width: 34px;
-      height: 34px;
-      border: 4px solid #5f5f5f;
-      border-radius: 50%;
-      position: relative;
-      transform: rotate(-25deg);
-    }
-
-    .moon-icon::after {
-      content: "";
-      position: absolute;
-      width: 29px;
-      height: 29px;
-      background: #ffffff;
-      border-radius: 50%;
-      top: -8px;
-      right: -8px;
+      width: 38px;
+      height: 38px;
+      stroke: #606060;
+      stroke-width: 2.8;
+      fill: none;
     }
 
     /* Hamburger */
 
     .menu-button {
-      width: 42px;
-      height: 34px;
+      width: 48px;
+      height: 48px;
       border: 0;
       background: transparent;
-      padding: 0;
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 8px;
+      padding: 0;
     }
 
-    .menu-button span {
-      display: block;
-      width: 42px;
+    .menu-line {
+      width: 44px;
       height: 4px;
+      background: #111111;
       border-radius: 5px;
-      background: #0b0b0b;
+      display: block;
     }
 
     /* =========================
-       MAIN
+       LOGIN AREA
     ========================= */
 
     .login-page {
       width: 100%;
-      max-width: 652px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 70px 0 100px;
+      padding: 72px 0 80px;
     }
-
-    /* Heading */
 
     .login-title {
       font-size: 64px;
       line-height: 1;
       font-weight: 800;
-      letter-spacing: -2.8px;
-      margin-bottom: 25px;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
     }
 
     .login-subtitle {
-      font-size: 32px;
-      line-height: 1.15;
-      color: #555555;
+      font-size: 34px;
+      line-height: 1.25;
+      color: #595959;
       font-weight: 400;
-      margin-bottom: 68px;
+      margin-bottom: 70px;
     }
 
     /* =========================
@@ -165,23 +146,27 @@
 
     .google-button {
       width: 100%;
-      height: 80px;
+      height: 78px;
       border: 2px solid #dddddd;
-      border-radius: 9px;
+      border-radius: 8px;
       background: #ffffff;
+      cursor: pointer;
       display: flex;
       align-items: center;
       position: relative;
-      cursor: pointer;
       color: #3f3f3f;
-      font-family: Arial, Helvetica, sans-serif;
       font-size: 30px;
-      font-weight: 400;
+      font-family: inherit;
+      transition: background 0.15s ease;
+    }
+
+    .google-button:hover {
+      background: #fafafa;
     }
 
     .google-icon {
       position: absolute;
-      left: 24px;
+      left: 25px;
       width: 38px;
       height: 38px;
     }
@@ -195,180 +180,24 @@
        DIVIDER
     ========================= */
 
-    .email-divider {
+    .divider {
       width: 100%;
       display: flex;
       align-items: center;
-      margin: 55px 0 62px;
+      gap: 24px;
+      margin: 50px 0 62px;
     }
 
-    .email-divider::before,
-    .email-divider::after {
-      content: "";
+    .divider-line {
       height: 2px;
       background: #dddddd;
       flex: 1;
     }
 
-    .email-divider span {
-      padding: 0 24px;
+    .divider-text {
       color: #555555;
-      font-size: 28px;
-      line-height: 1;
+      font-size: 30px;
       white-space: nowrap;
-    }
-
-    /* =========================
-       FORM
-    ========================= */
-
-    .form-group {
-      width: 100%;
-      margin-bottom: 43px;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 29px;
-      line-height: 1;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
-
-    .input-wrapper {
-      width: 100%;
-      height: 91px;
-      position: relative;
-    }
-
-    .form-input {
-      width: 100%;
-      height: 100%;
-      border: 2px solid #dddddd;
-      border-radius: 17px;
-      background: #ffffff;
-      outline: none;
-      padding: 0 30px;
-      color: #111111;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 29px;
-      font-weight: 400;
-    }
-
-    .form-input::placeholder {
-      color: #a8a8a8;
-      opacity: 1;
-    }
-
-    .form-input:focus {
-      border-color: #aaaaaa;
-    }
-
-    .password-input {
-      padding-right: 85px;
-    }
-
-    /* Eye */
-
-    .password-toggle {
-      position: absolute;
-      top: 50%;
-      right: 25px;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 30px;
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .eye {
-      position: absolute;
-      width: 34px;
-      height: 22px;
-      border: 4px solid #666666;
-      border-radius: 70% 15%;
-      transform: rotate(45deg);
-      left: 2px;
-      top: 3px;
-    }
-
-    .eye::after {
-      content: "";
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #666666;
-      left: 9px;
-      top: 3px;
-    }
-
-    /* =========================
-       REMEMBER / FORGOT
-    ========================= */
-
-    .account-options {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-top: -3px;
-      margin-bottom: 58px;
-    }
-
-    .remember-label {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      cursor: pointer;
-      color: #4f4f4f;
-      font-size: 27px;
-      line-height: 1.05;
-      font-weight: 700;
-    }
-
-    .remember-checkbox {
-      appearance: none;
-      -webkit-appearance: none;
-      width: 31px;
-      height: 31px;
-      border: 3px solid #999999;
-      border-radius: 8px;
-      background: #ffffff;
-      cursor: pointer;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .remember-checkbox:checked {
-      background: #1677e8;
-      border-color: #1677e8;
-    }
-
-    .remember-checkbox:checked::after {
-      content: "";
-      position: absolute;
-      width: 8px;
-      height: 15px;
-      border-right: 3px solid #ffffff;
-      border-bottom: 3px solid #ffffff;
-      transform: rotate(45deg);
-      left: 9px;
-      top: 4px;
-    }
-
-    .forgot-link {
-      color: #579f19;
-      font-size: 27px;
-      line-height: 1.05;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .forgot-link:hover {
-      text-decoration: underline;
     }
 
     /* =========================
@@ -379,27 +208,164 @@
       display: none;
       width: 100%;
       min-height: 120px;
-      border-radius: 17px;
-      padding: 0 36px;
-      align-items: center;
+      border-radius: 16px;
+      padding: 30px 36px;
       margin-bottom: 42px;
       font-size: 29px;
-      line-height: 1.25;
-      font-weight: 500;
+      line-height: 1.3;
+      align-items: center;
     }
 
     .firebase-message.error {
       display: flex;
-      color: #9d2929;
-      background: #fde1e1;
-      border: 2px solid #ef7777;
+      background: #ffe1e1;
+      border: 2px solid #f26b6b;
+      color: #a52c2c;
     }
 
     .firebase-message.success {
       display: flex;
-      color: #1f6d40;
-      background: #d8f8e2;
-      border: 2px solid #5bdb91;
+      background: #d9f9e2;
+      border: 2px solid #55d38a;
+      color: #226b40;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-group {
+      margin-bottom: 42px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      color: #111111;
+    }
+
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 90px;
+      border: 2px solid #dddddd;
+      border-radius: 17px;
+      background: #ffffff;
+      outline: none;
+      padding: 0 32px;
+      font-family: inherit;
+      font-size: 29px;
+      color: #111111;
+      transition: border-color 0.15s ease;
+    }
+
+    .form-input::placeholder {
+      color: #aaaaaa;
+      opacity: 1;
+    }
+
+    .form-input:focus {
+      border-color: #bdbdbd;
+    }
+
+    .password-input {
+      padding-right: 90px;
+    }
+
+    /* Eye */
+
+    .password-toggle {
+      position: absolute;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .eye-icon {
+      width: 38px;
+      height: 38px;
+      stroke: #606060;
+      stroke-width: 2.3;
+      fill: none;
+    }
+
+    /* =========================
+       REMEMBER / FORGOT
+    ========================= */
+
+    .form-options {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: -6px;
+      margin-bottom: 46px;
+    }
+
+    .remember-label {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      cursor: pointer;
+      color: #555555;
+      font-size: 29px;
+      font-weight: 700;
+    }
+
+    .remember-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 32px;
+      height: 32px;
+      border: 3px solid #929292;
+      border-radius: 8px;
+      background: #ffffff;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .remember-checkbox:checked {
+      background: #287fe5;
+      border-color: #287fe5;
+    }
+
+    .remember-checkbox:checked::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 3px;
+      width: 8px;
+      height: 16px;
+      border: solid #ffffff;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    .forgot-link {
+      color: #589e1d;
+      font-size: 29px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
     }
 
     /* =========================
@@ -410,11 +376,11 @@
       width: 100%;
       height: 96px;
       border: 0;
-      border-radius: 17px;
-      background: #55aa0d;
+      border-radius: 16px;
+      background: #56a915;
       color: #ffffff;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 36px;
+      font-family: inherit;
+      font-size: 34px;
       font-weight: 800;
       cursor: pointer;
       transition: opacity 0.15s ease;
@@ -435,15 +401,14 @@
 
     .signup-text {
       text-align: center;
-      margin-top: 51px;
-      color: #555555;
-      font-size: 28px;
-      line-height: 1.2;
-      font-weight: 400;
+      margin-top: 50px;
+      color: #595959;
+      font-size: 29px;
+      line-height: 1.35;
     }
 
     .signup-link {
-      color: #579f19;
+      color: #589e1d;
       font-weight: 700;
       text-decoration: none;
     }
@@ -456,90 +421,71 @@
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 720px) {
+    @media (max-width: 900px) {
 
       .site-header {
         height: 132px;
-        padding: 0 38px;
+        padding: 0 64px;
+      }
+
+      .brand-name {
+        font-size: 32px;
+      }
+
+      .header-right {
+        gap: 70px;
+      }
+
+      .login-page {
+        max-width: none;
+        margin: 0;
+        padding: 72px 64px 80px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .site-header {
+        height: 92px;
+        padding: 0 24px;
       }
 
       .brand-logo {
         width: 40px;
         height: 40px;
-        margin-right: 13px;
       }
 
       .brand-name {
-        font-size: 30px;
-      }
-
-      .header-actions {
-        gap: 40px;
-      }
-
-      .login-page {
-        width: auto;
-        max-width: none;
-        margin: 0 64px;
-        padding-top: 73px;
-      }
-
-      .login-title {
-        font-size: 61px;
-      }
-
-      .login-subtitle {
-        font-size: 31px;
-      }
-    }
-
-    @media (max-width: 560px) {
-
-      .site-header {
-        height: 112px;
-        padding: 0 24px;
-      }
-
-      .brand-logo {
-        width: 34px;
-        height: 34px;
-        margin-right: 10px;
-      }
-
-      .brand-name {
-        font-size: 25px;
+        font-size: 24px;
         letter-spacing: -1px;
       }
 
-      .header-actions {
-        gap: 25px;
+      .header-right {
+        gap: 20px;
       }
 
-      .menu-button {
-        width: 34px;
-        height: 29px;
-      }
-
-      .menu-button span {
-        width: 34px;
-        height: 3px;
+      .moon-button {
+        width: 38px;
+        height: 38px;
       }
 
       .moon-icon {
-        width: 29px;
-        height: 29px;
-        border-width: 3px;
+        width: 32px;
+        height: 32px;
       }
 
-      .moon-icon::after {
-        width: 25px;
-        height: 25px;
+      .menu-button {
+        width: 38px;
+        height: 38px;
+      }
+
+      .menu-line {
+        width: 36px;
+        height: 4px;
       }
 
       .login-page {
-        margin: 0 37px;
-        padding-top: 67px;
-        padding-bottom: 70px;
+        padding: 72px 32px 70px;
       }
 
       .login-title {
@@ -549,61 +495,67 @@
       }
 
       .login-subtitle {
-        font-size: 25px;
-        margin-bottom: 52px;
+        font-size: 28px;
+        margin-bottom: 62px;
       }
 
       .google-button {
-        height: 76px;
-        font-size: 25px;
+        height: 78px;
+        font-size: 26px;
       }
 
       .google-icon {
-        width: 34px;
-        height: 34px;
-        left: 20px;
+        left: 24px;
+        width: 38px;
+        height: 38px;
       }
 
-      .email-divider {
-        margin: 50px 0 55px;
+      .divider {
+        margin: 48px 0 58px;
+        gap: 18px;
       }
 
-      .email-divider span {
-        font-size: 24px;
-        padding: 0 16px;
+      .divider-text {
+        font-size: 25px;
       }
 
       .form-label {
-        font-size: 25px;
-        margin-bottom: 22px;
-      }
-
-      .input-wrapper {
-        height: 88px;
+        font-size: 27px;
+        margin-bottom: 20px;
       }
 
       .form-input {
-        font-size: 24px;
-        padding: 0 28px;
+        height: 90px;
+        font-size: 25px;
+        padding-left: 30px;
       }
 
-      .account-options {
-        margin-bottom: 48px;
+      .form-group {
+        margin-bottom: 40px;
+      }
+
+      .form-options {
+        align-items: center;
+        margin-bottom: 44px;
       }
 
       .remember-label,
       .forgot-link {
-        font-size: 22px;
+        font-size: 23px;
+      }
+
+      .remember-label {
+        gap: 14px;
       }
 
       .remember-checkbox {
-        width: 31px;
-        height: 31px;
+        width: 32px;
+        height: 32px;
       }
 
       .signin-button {
-        height: 92px;
-        font-size: 34px;
+        height: 96px;
+        font-size: 32px;
       }
 
       .signup-text {
@@ -612,9 +564,56 @@
       }
 
       .firebase-message {
-        min-height: 115px;
+        min-height: 120px;
         font-size: 23px;
-        padding: 0 27px;
+        padding: 26px;
+        margin-bottom: 38px;
+      }
+    }
+
+    @media (max-width: 390px) {
+
+      .site-header {
+        padding: 0 18px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+      }
+
+      .brand-logo {
+        width: 36px;
+        height: 36px;
+      }
+
+      .header-right {
+        gap: 12px;
+      }
+
+      .login-page {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .login-title {
+        font-size: 44px;
+      }
+
+      .login-subtitle {
+        font-size: 25px;
+      }
+
+      .google-button {
+        font-size: 22px;
+      }
+
+      .divider-text {
+        font-size: 22px;
+      }
+
+      .remember-label,
+      .forgot-link {
+        font-size: 20px;
       }
     }
   </style>
@@ -627,65 +626,77 @@
   ========================== -->
 
   <header class="site-header">
-    <div class="header-inner">
 
-      <a href="index.html" class="brand">
+    <a href="index.html" class="brand">
 
-        <!-- VerifyStackAcct logo -->
-        <svg
-          class="brand-logo"
-          viewBox="0 0 48 48"
+      <!-- Connectsphere layered logo -->
+      <svg
+        class="brand-logo"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          d="M24 4L43 14L24 24L5 14L24 4Z"
           fill="none"
+          stroke="#56A915"
+          stroke-width="3"
+          stroke-linejoin="round"
+        />
+
+        <path
+          d="M5 23L24 33L43 23"
+          fill="none"
+          stroke="#56A915"
+          stroke-width="3"
+          stroke-linejoin="round"
+        />
+
+        <path
+          d="M5 32L24 42L43 32"
+          fill="none"
+          stroke="#56A915"
+          stroke-width="3"
+          stroke-linejoin="round"
+        />
+      </svg>
+
+      <span class="brand-name">Connectsphere</span>
+
+    </a>
+
+    <div class="header-right">
+
+      <button
+        type="button"
+        class="moon-button"
+        id="themeToggle"
+        aria-label="Toggle dark mode"
+      >
+        <svg
+          class="moon-icon"
+          viewBox="0 0 40 40"
           xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
         >
           <path
-            d="M24 4L43 13.5L24 23L5 13.5L24 4Z"
-            stroke="#58A817"
-            stroke-width="3"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M5 22L24 31.5L43 22"
-            stroke="#58A817"
-            stroke-width="3"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M5 30.5L24 40L43 30.5"
-            stroke="#58A817"
-            stroke-width="3"
-            stroke-linejoin="round"
+            d="M30.5 25.5C27.9 28.3 24.2 30 20.1 30C12.1 30 5.6 23.5 5.6 15.5C5.6 11.4 7.3 7.7 10.1 5.1C9.8 6.2 9.6 7.4 9.6 8.7C9.6 16.7 16.1 23.2 24.1 23.2C26.4 23.2 28.6 22.6 30.5 21.6C30.5 22.9 30.5 24.2 30.5 25.5Z"
           />
         </svg>
+      </button>
 
-        <span class="brand-name">VerifyStackAcct</span>
-      </a>
+      <button
+        type="button"
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu"
+      >
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
 
-      <div class="header-actions">
-
-        <button
-          type="button"
-          class="theme-button"
-          id="themeButton"
-          aria-label="Toggle dark mode"
-        >
-          <span class="moon-icon"></span>
-        </button>
-
-        <button
-          type="button"
-          class="menu-button"
-          id="menuButton"
-          aria-label="Open menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-      </div>
     </div>
+
   </header>
 
 
@@ -698,7 +709,7 @@
     <h1 class="login-title">Sign in</h1>
 
     <p class="login-subtitle">
-      Welcome back to VerifyStackAcct
+      Welcome back to Connecsphere
     </p>
 
 
@@ -710,7 +721,7 @@
       id="googleSignIn"
     >
 
-      <!-- Real Google G SVG -->
+      <!-- Google G icon -->
       <svg
         class="google-icon"
         viewBox="0 0 48 48"
@@ -718,32 +729,42 @@
         aria-hidden="true"
       >
         <path
-          fill="#FFC107"
-          d="M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.2 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20c10 0 19.3-7.2 19.3-20 0-1.2-.1-2.3-.3-3.5Z"
+          fill="#EA4335"
+          d="M24 9.5c3.54 0 6.72 1.22 9.22 3.6l6.85-6.85C35.9 2.65 30.47.5 24 .5 14.61.5 6.52 5.88 2.56 13.75l7.98 6.2C12.46 13.86 17.76 9.5 24 9.5z"
         />
         <path
-          fill="#FF3D00"
-          d="M6.3 14.7l6.6 4.8C14.7 16 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.2 6.1 29.4 4 24 4 16.3 4 9.6 8.3 6.3 14.7Z"
+          fill="#4285F4"
+          d="M46.5 24.5c0-1.64-.15-3.22-.42-4.75H24v9h12.67c-.55 2.98-2.24 5.5-4.77 7.19l7.72 6c4.51-4.16 6.88-10.29 6.88-17.44z"
         />
         <path
-          fill="#4CAF50"
-          d="M24 44c5.3 0 10.1-2 13.7-5.3l-6.3-5.2C29.7 35 27 36 24 36c-5.2 0-9.7-3.6-11.3-8.5l-6.5 5C9.5 39.1 16.2 44 24 44Z"
+          fill="#FBBC05"
+          d="M10.54 28.55A14.48 14.48 0 0 1 9.75 24c0-1.58.28-3.12.79-4.55l-7.98-6.2A23.94 23.94 0 0 0 .5 24c0 3.86.92 7.52 2.56 10.75l7.48-6.2z"
         />
         <path
-          fill="#1976D2"
-          d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.1-3.4 5.5-6.1 6.8l6.3 5.2C39.2 36.8 44 31.1 44 24c0-1.2-.1-2.3-.4-3.5Z"
+          fill="#34A853"
+          d="M24 47.5c6.47 0 11.9-2.15 15.62-5.85l-7.72-6c-2.15 1.44-4.9 2.3-7.9 2.3-6.24 0-11.54-4.36-13.46-10.2l-7.98 6.2C6.52 42.12 14.61 47.5 24 47.5z"
         />
       </svg>
 
-      <span class="google-text">Sign in with Google</span>
+      <span class="google-text">
+        Sign in with Google
+      </span>
 
     </button>
 
 
     <!-- Divider -->
 
-    <div class="email-divider">
-      <span>or sign in with email</span>
+    <div class="divider">
+
+      <span class="divider-line"></span>
+
+      <span class="divider-text">
+        or sign in with email
+      </span>
+
+      <span class="divider-line"></span>
+
     </div>
 
 
@@ -758,100 +779,139 @@
 
     <!-- Email -->
 
-    <div class="form-group">
+    <form id="loginForm">
 
-      <label
-        class="form-label"
-        for="email"
-      >
-        Email
-      </label>
+      <div class="form-group">
 
-      <div class="input-wrapper">
+        <label
+          for="email"
+          class="form-label"
+        >
+          Email
+        </label>
 
         <input
+          type="email"
           id="email"
           class="form-input"
-          type="email"
-          autocomplete="email"
           placeholder="you@example.com"
+          autocomplete="email"
+          required
         >
 
       </div>
 
-    </div>
 
+      <!-- Password -->
 
-    <!-- Password -->
+      <div class="form-group">
 
-    <div class="form-group">
-
-      <label
-        class="form-label"
-        for="password"
-      >
-        Password
-      </label>
-
-      <div class="input-wrapper">
-
-        <input
-          id="password"
-          class="form-input password-input"
-          type="password"
-          autocomplete="current-password"
-          placeholder="Enter your password"
+        <label
+          for="password"
+          class="form-label"
         >
+          Password
+        </label>
 
-        <button
-          type="button"
-          class="password-toggle"
-          id="passwordToggle"
-          aria-label="Show password"
-        >
-          <span class="eye"></span>
-        </button>
+        <div class="input-wrapper">
+
+          <input
+            type="password"
+            id="password"
+            class="form-input password-input"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="password-toggle"
+            id="passwordToggle"
+            aria-label="Show password"
+          >
+
+            <svg
+              class="eye-icon"
+              id="eyeOpen"
+              viewBox="0 0 40 40"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.5 20S9.5 10 20 10s16.5 10 16.5 10S30.5 30 20 30S3.5 20 3.5 20Z"
+              />
+              <circle
+                cx="20"
+                cy="20"
+                r="5"
+              />
+            </svg>
+
+            <svg
+              class="eye-icon"
+              id="eyeClosed"
+              viewBox="0 0 40 40"
+              xmlns="http://www.w3.org/2000/svg"
+              style="display:none;"
+            >
+              <path
+                d="M4 4L36 36"
+              />
+              <path
+                d="M16.5 12.5C17.6 12.2 18.8 12 20 12C30.5 12 36.5 20 36.5 20C36.5 20 34.2 23.1 30.6 25.5"
+              />
+              <path
+                d="M12.3 15.3C7.8 17.5 3.5 20 3.5 20C3.5 20 9.5 30 20 30C22.3 30 24.4 29.5 26.3 28.7"
+              />
+              <path
+                d="M16.5 16.5C14.6 18.4 14.6 21.6 16.5 23.5C18.4 25.4 21.6 25.4 23.5 23.5C25.4 21.6 25.4 18.4 23.5 16.5"
+              />
+            </svg>
+
+          </button>
+
+        </div>
 
       </div>
 
-    </div>
 
+      <!-- Remember / Forgot -->
 
-    <!-- Remember / Forgot -->
+      <div class="form-options">
 
-    <div class="account-options">
+        <label class="remember-label">
 
-      <label class="remember-label">
+          <input
+            type="checkbox"
+            id="rememberMe"
+            class="remember-checkbox"
+          >
 
-        <input
-          type="checkbox"
-          class="remember-checkbox"
-          id="rememberMe"
+          <span>Remember me</span>
+
+        </label>
+
+        <a
+          href="forgot-password.html"
+          class="forgot-link"
         >
+          Forgot password?
+        </a>
 
-        <span>Remember me</span>
+      </div>
 
-      </label>
 
-      <a
-        href="forgot-password.html"
-        class="forgot-link"
+      <!-- Sign in -->
+
+      <button
+        type="submit"
+        class="signin-button"
+        id="signinButton"
       >
-        Forgot password?
-      </a>
+        Sign in
+      </button>
 
-    </div>
-
-
-    <!-- Sign in -->
-
-    <button
-      type="button"
-      class="signin-button"
-      id="signinButton"
-    >
-      Sign in
-    </button>
+    </form>
 
 
     <!-- Sign up -->
@@ -880,10 +940,6 @@
     } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
     import {
-      getAnalytics
-    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
-
-    import {
       getAuth,
       signInWithEmailAndPassword,
       GoogleAuthProvider,
@@ -893,8 +949,6 @@
       browserSessionPersistence
     } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
-
-    /* Firebase configuration */
 
     const firebaseConfig = {
       apiKey: "AIzaSyAKAD0Gxtk4XxMmnR_kpjmy5VLoX72Dtls",
@@ -907,20 +961,17 @@
     };
 
 
-    /* Initialize Firebase */
-
     const app = initializeApp(firebaseConfig);
-
-    try {
-      getAnalytics(app);
-    } catch (error) {
-      console.log("Analytics unavailable.");
-    }
 
     const auth = getAuth(app);
 
 
-    /* Elements */
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const loginForm =
+      document.getElementById("loginForm");
 
     const emailInput =
       document.getElementById("email");
@@ -937,16 +988,22 @@
     const googleSignIn =
       document.getElementById("googleSignIn");
 
+    const firebaseMessage =
+      document.getElementById("firebaseMessage");
+
     const passwordToggle =
       document.getElementById("passwordToggle");
 
-    const firebaseMessage =
-      document.getElementById("firebaseMessage");
+    const eyeOpen =
+      document.getElementById("eyeOpen");
+
+    const eyeClosed =
+      document.getElementById("eyeClosed");
 
 
     /* =========================
        FIREBASE MESSAGE
-    ========================== */
+    ========================= */
 
     function showMessage(message, type) {
 
@@ -955,10 +1012,6 @@
       firebaseMessage.className =
         "firebase-message " + type;
 
-      firebaseMessage.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
     }
 
 
@@ -973,53 +1026,91 @@
 
 
     /* =========================
-       PASSWORD SHOW / HIDE
-    ========================== */
+       FIREBASE ERROR TEXT
+    ========================= */
+
+    function getFirebaseErrorMessage(error) {
+
+      switch (error.code) {
+
+        case "auth/invalid-credential":
+        case "auth/invalid-login-credentials":
+        case "auth/wrong-password":
+        case "auth/user-not-found":
+          return "Invalid email or password";
+
+        case "auth/invalid-email":
+          return "Invalid email address";
+
+        case "auth/user-disabled":
+          return "This account has been disabled";
+
+        case "auth/too-many-requests":
+          return "Too many unsuccessful attempts. Please try again later.";
+
+        case "auth/network-request-failed":
+          return "Network error. Please check your internet connection.";
+
+        case "auth/popup-closed-by-user":
+          return "Google sign-in was cancelled";
+
+        case "auth/popup-blocked":
+          return "Google sign-in was blocked by your browser";
+
+        default:
+          return "Unable to sign in. Please try again.";
+      }
+
+    }
+
+
+    /* =========================
+       PASSWORD VISIBILITY
+    ========================= */
 
     passwordToggle.addEventListener(
       "click",
-      () => {
+      function () {
 
-        const isPassword =
-          passwordInput.type === "password";
+        if (passwordInput.type === "password") {
 
-        passwordInput.type =
-          isPassword ? "text" : "password";
+          passwordInput.type = "text";
 
-        passwordToggle.setAttribute(
-          "aria-label",
-          isPassword
-            ? "Hide password"
-            : "Show password"
-        );
+          eyeOpen.style.display = "none";
+          eyeClosed.style.display = "block";
+
+          passwordToggle.setAttribute(
+            "aria-label",
+            "Hide password"
+          );
+
+        } else {
+
+          passwordInput.type = "password";
+
+          eyeOpen.style.display = "block";
+          eyeClosed.style.display = "none";
+
+          passwordToggle.setAttribute(
+            "aria-label",
+            "Show password"
+          );
+
+        }
 
       }
     );
 
 
     /* =========================
-       REMEMBER ME
-    ========================== */
-
-    const savedEmail =
-      localStorage.getItem("rememberedEmail");
-
-    if (savedEmail) {
-
-      emailInput.value = savedEmail;
-
-      rememberMe.checked = true;
-
-    }
-
-
-    /* =========================
        EMAIL SIGN IN
-    ========================== */
+    ========================= */
 
-    signinButton.addEventListener(
-      "click",
-      async () => {
+    loginForm.addEventListener(
+      "submit",
+      async function (event) {
+
+        event.preventDefault();
 
         hideMessage();
 
@@ -1031,28 +1122,31 @@
 
 
         if (!email || !password) {
-
           showMessage(
             "Please enter your email and password",
             "error"
           );
-
           return;
-
         }
 
 
-        /* Button changes to Signing in... */
+        /*
+          Button changes immediately to:
+          Signing in
+        */
 
         signinButton.disabled = true;
 
         signinButton.textContent =
-          "Signing in...";
+          "Signing in";
 
 
         try {
 
-          /* Firebase persistence */
+          /*
+            Remember me controls Firebase
+            persistence.
+          */
 
           await setPersistence(
             auth,
@@ -1062,126 +1156,66 @@
           );
 
 
-          /* Firebase login */
-
-          await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
-
-
-          /* Remember email */
-
-          if (rememberMe.checked) {
-
-            localStorage.setItem(
-              "rememberedEmail",
-              email
+          const userCredential =
+            await signInWithEmailAndPassword(
+              auth,
+              email,
+              password
             );
 
-          } else {
 
-            localStorage.removeItem(
-              "rememberedEmail"
+          if (userCredential.user) {
+
+            /*
+              EXACT success message style
+              from the design you provided.
+            */
+
+            showMessage(
+              "Login successful! Redirecting...",
+              "success"
+            );
+
+
+            /*
+              Give the user time to see
+              the success message.
+            */
+
+            setTimeout(
+              function () {
+
+                window.location.href =
+                  "dashboard.html";
+
+              },
+              1200
             );
 
           }
 
+        } catch (error) {
 
-          /* Success message */
-
-          showMessage(
-            "Login successful! Redirecting...",
-            "success"
+          console.error(
+            "Firebase sign-in error:",
+            error
           );
 
 
           /*
-             Give the user time to see
-             the green Firebase message.
+            Restore button after failure.
           */
-
-          setTimeout(() => {
-
-            window.location.href =
-              "dashboard.html";
-
-          }, 1200);
-
-
-        } catch (error) {
-
-          console.error(error);
-
-
-          let message =
-            "Invalid email or password";
-
-
-          if (
-            error.code ===
-            "auth/user-not-found"
-          ) {
-
-            message =
-              "Invalid email or password";
-
-          } else if (
-            error.code ===
-            "auth/wrong-password"
-          ) {
-
-            message =
-              "Invalid email or password";
-
-          } else if (
-            error.code ===
-            "auth/invalid-credential"
-          ) {
-
-            message =
-              "Invalid email or password";
-
-          } else if (
-            error.code ===
-            "auth/invalid-email"
-          ) {
-
-            message =
-              "Please enter a valid email address";
-
-          } else if (
-            error.code ===
-            "auth/too-many-requests"
-          ) {
-
-            message =
-              "Too many attempts. Please try again later.";
-
-          } else if (
-            error.code ===
-            "auth/network-request-failed"
-          ) {
-
-            message =
-              "Network error. Please check your connection.";
-
-          }
-
-
-          showMessage(
-            message,
-            "error"
-          );
-
-
-          /* Restore button */
 
           signinButton.disabled = false;
 
           signinButton.textContent =
             "Sign in";
+
+
+          showMessage(
+            getFirebaseErrorMessage(error),
+            "error"
+          );
 
         }
 
@@ -1191,11 +1225,11 @@
 
     /* =========================
        GOOGLE SIGN IN
-    ========================== */
+    ========================= */
 
     googleSignIn.addEventListener(
       "click",
-      async () => {
+      async function () {
 
         hideMessage();
 
@@ -1209,13 +1243,10 @@
         googleSignIn.querySelector(
           ".google-text"
         ).textContent =
-          "Signing in...";
+          "Signing in";
 
 
         try {
-
-          const provider =
-            new GoogleAuthProvider();
 
           await setPersistence(
             auth,
@@ -1224,42 +1255,44 @@
               : browserSessionPersistence
           );
 
-          await signInWithPopup(
-            auth,
-            provider
-          );
+
+          const provider =
+            new GoogleAuthProvider();
 
 
-          showMessage(
-            "Login successful! Redirecting...",
-            "success"
-          );
+          const result =
+            await signInWithPopup(
+              auth,
+              provider
+            );
 
 
-          setTimeout(() => {
-
-            window.location.href =
-              "dashboard.html";
-
-          }, 1200);
-
-
-        } catch (error) {
-
-          console.error(error);
-
-
-          if (
-            error.code !==
-            "auth/popup-closed-by-user"
-          ) {
+          if (result.user) {
 
             showMessage(
-              "Unable to sign in with Google. Please try again.",
-              "error"
+              "Login successful! Redirecting...",
+              "success"
+            );
+
+
+            setTimeout(
+              function () {
+
+                window.location.href =
+                  "dashboard.html";
+
+              },
+              1200
             );
 
           }
+
+        } catch (error) {
+
+          console.error(
+            "Google sign-in error:",
+            error
+          );
 
 
           googleSignIn.disabled = false;
@@ -1269,6 +1302,12 @@
           ).textContent =
             originalText;
 
+
+          showMessage(
+            getFirebaseErrorMessage(error),
+            "error"
+          );
+
         }
 
       }
@@ -1276,44 +1315,46 @@
 
 
     /* =========================
-       HEADER MENU
-    ========================== */
+       DARK MODE BUTTON
+    ========================= */
 
-    document
-      .getElementById("menuButton")
-      .addEventListener(
-        "click",
-        () => {
+    const themeToggle =
+      document.getElementById("themeToggle");
 
-          /*
-             Connect this to your existing
-             slide menu when we add that part.
-          */
+    themeToggle.addEventListener(
+      "click",
+      function () {
 
-          window.location.href =
-            "index.html";
+        document.body.classList.toggle(
+          "dark-mode"
+        );
 
-        }
-      );
+      }
+    );
 
 
     /* =========================
-       THEME BUTTON
-    ========================== */
+       MENU BUTTON
+    ========================= */
 
-    document
-      .getElementById("themeButton")
-      .addEventListener(
-        "click",
-        () => {
+    const menuButton =
+      document.getElementById("menuButton");
 
-          /*
-             Leave the existing design
-             unchanged for now.
-          */
+    menuButton.addEventListener(
+      "click",
+      function () {
 
-        }
-      );
+        /*
+          Connect this to your existing
+          slide menu if your homepage already
+          has one.
+        */
+
+        window.location.href =
+          "index.html";
+
+      }
+    );
 
   </script>
 
