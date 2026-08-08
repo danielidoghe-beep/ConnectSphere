@@ -1,6 +1,7 @@
-/* =========================================
-   VERIFYSTACKACCT - LOGIN PAGE
-   ========================================= */
+/* ================================
+   VERIFYSTACKACCT LOGIN PAGE
+   MOBILE DESIGN
+================================ */
 
 * {
     box-sizing: border-box;
@@ -8,78 +9,84 @@
     padding: 0;
 }
 
-html {
+html,
+body {
     width: 100%;
     min-height: 100%;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
     background: #ffffff;
     color: #111111;
-    font-family: Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
 
-/* =========================================
+/* ================================
    HEADER
-   ========================================= */
+================================ */
 
 .site-header {
     width: 100%;
     height: 132px;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.header-inner {
-    width: 100%;
-    height: 100%;
-    padding: 0 32px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    padding: 0 64px;
+
+    border-bottom: 2px solid #eeeeee;
+    background: #ffffff;
 }
-
-
-/* Brand */
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 13px;
 
-    color: #111111;
     text-decoration: none;
+    color: #111111;
 }
 
-.brand-icon {
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
+.brand-logo {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo svg {
+    width: 100%;
+    height: 100%;
 }
 
 .brand-name {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
-    letter-spacing: -1.4px;
+    letter-spacing: -1.5px;
     white-space: nowrap;
 }
 
 
-/* Header controls */
+/* Header right side */
 
-.header-controls {
+.header-actions {
     display: flex;
     align-items: center;
-    gap: 54px;
+    gap: 55px;
 }
 
-
-/* Moon */
+.theme-toggle,
+.menu-toggle {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
 
 .theme-toggle {
     width: 42px;
@@ -89,160 +96,134 @@ body {
     align-items: center;
     justify-content: center;
 
-    border: 0;
-    background: transparent;
-    color: #5d5d5d;
-
-    cursor: pointer;
-    padding: 0;
+    color: #5b5b5b;
 }
 
 .moon-icon {
-    width: 34px;
-    height: 34px;
+    width: 39px;
+    height: 39px;
 }
 
 
 /* Hamburger */
 
 .menu-toggle {
-    width: 42px;
-    height: 42px;
+    width: 43px;
+    height: 38px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 7px;
-
-    border: 0;
-    background: transparent;
-
-    cursor: pointer;
-    padding: 0;
+    justify-content: space-between;
 }
 
 .menu-toggle span {
+    width: 100%;
+    height: 5px;
+
     display: block;
-    width: 40px;
-    height: 4px;
 
     background: #111111;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 
-/* =========================================
-   MOBILE MENU
-   ========================================= */
+/* ================================
+   LOGIN PAGE
+================================ */
 
-.mobile-menu {
-    display: none;
-}
-
-
-/* =========================================
-   MAIN LOGIN AREA
-   ========================================= */
-
-.signin-page {
+.login-page {
     width: 100%;
-    min-height: calc(100vh - 132px);
 }
 
-.signin-container {
-    width: 100%;
-    max-width: 720px;
+.login-container {
+    width: calc(100% - 128px);
+    max-width: 780px;
 
     margin: 0 auto;
-    padding: 74px 64px 80px;
+    padding-top: 75px;
+    padding-bottom: 90px;
 }
 
 
-/* =========================================
+/* ================================
    HEADING
-   ========================================= */
+================================ */
 
-.signin-heading {
-    margin-bottom: 68px;
-}
-
-.signin-heading h1 {
-    margin: 0 0 18px;
-
+.login-heading h1 {
     font-size: 64px;
-    line-height: 0.98;
-    font-weight: 900;
-    letter-spacing: -3.5px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -3px;
+
+    margin-bottom: 25px;
 }
 
-.signin-heading p {
-    margin: 0;
-
-    color: #5b5b5b;
-
+.login-heading p {
     font-size: 34px;
     line-height: 1.25;
     font-weight: 400;
-    letter-spacing: -0.8px;
+
+    color: #5b5b5b;
+
+    margin-bottom: 67px;
 }
 
 
-/* =========================================
+/* ================================
    GOOGLE BUTTON
-   ========================================= */
+================================ */
 
-.google-signin-button {
-    position: relative;
-
+.google-signin {
     width: 100%;
-    height: 80px;
+    height: 79px;
+
+    position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     border: 2px solid #dddddd;
-    border-radius: 10px;
+    border-radius: 7px;
 
     background: #ffffff;
-    color: #3d3d3d;
+    color: #414141;
 
     font-family: inherit;
-    font-size: 28px;
+    font-size: 31px;
     font-weight: 400;
 
     cursor: pointer;
-    transition: background 0.15s ease;
-}
 
-.google-signin-button:hover {
-    background: #fafafa;
-}
-
-.google-signin-button:active {
-    background: #f5f5f5;
+    padding: 0 30px;
 }
 
 .google-icon {
     position: absolute;
-    left: 27px;
+    left: 24px;
 
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
+}
+
+.google-signin span {
+    line-height: 1;
 }
 
 
-/* =========================================
+/* ================================
    DIVIDER
-   ========================================= */
+================================ */
 
-.signin-divider {
+.login-divider {
     width: 100%;
-    margin: 58px 0 58px;
 
     display: flex;
     align-items: center;
-    gap: 22px;
+    justify-content: center;
+
+    margin-top: 51px;
+    margin-bottom: 62px;
 }
 
 .divider-line {
@@ -252,130 +233,117 @@ body {
 }
 
 .divider-text {
-    flex-shrink: 0;
+    padding: 0 24px;
 
-    color: #555555;
+    color: #5b5b5b;
 
-    font-size: 28px;
+    font-size: 29px;
     line-height: 1;
-    font-weight: 400;
+    white-space: nowrap;
 }
 
 
-/* =========================================
-   FIREBASE MESSAGES
-   ========================================= */
+/* ================================
+   FIREBASE MESSAGE
+================================ */
 
 .firebase-message {
     width: 100%;
-    min-height: 118px;
 
+    padding: 28px 37px;
+
+    margin-top: -8px;
     margin-bottom: 40px;
-    padding: 32px 36px;
 
-    display: flex;
-    align-items: center;
+    border-radius: 18px;
 
-    border-radius: 14px;
-
-    font-size: 28px;
+    font-size: 29px;
     line-height: 1.25;
     font-weight: 500;
 }
 
+.firebase-message[hidden] {
+    display: none;
+}
 
-/* Error */
+.firebase-message.error {
+    color: #9d2929;
+    background: #ffe0e0;
+    border: 2px solid #ff7070;
+}
 
-.firebase-error {
-    color: #a22c2c;
-
-    background: #ffe2e2;
-    border: 2px solid #ef7373;
+.firebase-message.success {
+    color: #1f7042;
+    background: #d9fbe4;
+    border: 2px solid #58d58a;
 }
 
 
-/* Success */
-
-.firebase-success {
-    color: #176a3c;
-
-    background: #d9f8e5;
-    border: 2px solid #5bd18a;
-}
-
-
-/* =========================================
+/* ================================
    FORM
-   ========================================= */
+================================ */
 
-.signin-form {
+.login-form {
     width: 100%;
 }
-
-
-/* Form group */
 
 .form-group {
     width: 100%;
-    margin-bottom: 42px;
+}
+
+.form-group + .form-group {
+    margin-top: 43px;
 }
 
 .form-group label {
     display: block;
 
-    margin-bottom: 20px;
-
-    color: #111111;
+    margin-bottom: 24px;
 
     font-size: 29px;
     line-height: 1;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 
-/* =========================================
+/* ================================
    INPUTS
-   ========================================= */
+================================ */
 
 .form-group input[type="email"],
-.password-wrapper input[type="password"],
-.password-wrapper input[type="text"] {
+.password-wrapper input {
     width: 100%;
-    height: 90px;
-
-    padding: 0 30px;
+    height: 91px;
 
     border: 2px solid #dddddd;
-    border-radius: 17px;
-
-    outline: none;
+    border-radius: 18px;
 
     background: #ffffff;
+
+    padding: 0 32px;
+
     color: #111111;
 
     font-family: inherit;
-    font-size: 29px;
+    font-size: 31px;
     font-weight: 400;
 
-    transition:
-        border-color 0.15s ease,
-        box-shadow 0.15s ease;
+    outline: none;
 }
 
 .form-group input::placeholder {
-    color: #a9a9a9;
+    color: #a8a8a8;
     opacity: 1;
 }
 
 .form-group input:focus {
     border-color: #bdbdbd;
-    box-shadow: 0 0 0 2px rgba(89, 168, 23, 0.08);
 }
 
 
-/* =========================================
+/* ================================
    PASSWORD
-   ========================================= */
+================================ */
 
 .password-wrapper {
     position: relative;
@@ -383,20 +351,17 @@ body {
 }
 
 .password-wrapper input {
-    padding-right: 82px !important;
+    padding-right: 90px;
 }
-
-
-/* Password eye button */
 
 .password-toggle {
     position: absolute;
 
+    right: 23px;
     top: 50%;
-    right: 24px;
 
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
 
     transform: translateY(-50%);
 
@@ -407,57 +372,44 @@ body {
     border: 0;
     background: transparent;
 
-    color: #606060;
+    color: #666666;
 
     cursor: pointer;
-    padding: 0;
 }
 
-.eye-icon {
-    width: 34px;
-    height: 34px;
-}
-
-.eye-hidden {
-    display: none;
+.password-toggle svg {
+    width: 37px;
+    height: 37px;
 }
 
 
-/* =========================================
+/* ================================
    REMEMBER / FORGOT
-   ========================================= */
+================================ */
 
-.form-options {
+.login-options {
     width: 100%;
-    margin-top: -4px;
-    margin-bottom: 48px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    margin-top: 29px;
 }
 
-
-/* Remember */
-
 .remember-option {
-    position: relative;
-
     display: flex;
     align-items: center;
-    gap: 14px;
+
+    position: relative;
 
     cursor: pointer;
-    user-select: none;
 }
 
 .remember-option input {
     position: absolute;
-
-    width: 1px;
-    height: 1px;
-
     opacity: 0;
+    pointer-events: none;
 }
 
 .custom-checkbox {
@@ -465,28 +417,30 @@ body {
     height: 32px;
 
     display: block;
-    flex-shrink: 0;
 
-    border: 2px solid #969696;
+    border: 3px solid #999999;
     border-radius: 8px;
 
-    background: #ffffff;
+    margin-right: 17px;
+
+    position: relative;
 }
 
 .remember-option input:checked + .custom-checkbox {
-    background: #2389ed;
-    border-color: #2389ed;
+    background: #57a617;
+    border-color: #57a617;
 }
 
 .remember-option input:checked + .custom-checkbox::after {
     content: "";
 
-    display: block;
+    position: absolute;
 
-    width: 9px;
-    height: 17px;
+    width: 8px;
+    height: 15px;
 
-    margin: 4px auto 0;
+    left: 9px;
+    top: 4px;
 
     border-right: 3px solid #ffffff;
     border-bottom: 3px solid #ffffff;
@@ -495,22 +449,21 @@ body {
 }
 
 .remember-text {
-    color: #555555;
+    color: #5b5b5b;
 
-    font-size: 27px;
+    font-size: 28px;
     line-height: 1;
-    font-weight: 600;
+
+    font-weight: 700;
 }
 
-
-/* Forgot password */
-
 .forgot-password {
-    color: #59a817;
+    color: #57a617;
 
-    font-size: 27px;
+    font-size: 28px;
     line-height: 1;
-    font-weight: 600;
+
+    font-weight: 700;
 
     text-decoration: none;
 }
@@ -520,171 +473,125 @@ body {
 }
 
 
-/* =========================================
+/* ================================
    SIGN IN BUTTON
-   ========================================= */
+================================ */
 
 .signin-button {
     width: 100%;
     height: 96px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 48px;
 
     border: 0;
-    border-radius: 16px;
+    border-radius: 17px;
 
-    background: #59a817;
+    background: #57a617;
     color: #ffffff;
 
     font-family: inherit;
-    font-size: 32px;
-    line-height: 1;
+    font-size: 34px;
     font-weight: 800;
 
     cursor: pointer;
 
-    transition:
-        background 0.15s ease,
-        opacity 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: opacity 0.15s ease;
 }
 
 .signin-button:hover {
-    background: #4e9815;
-}
-
-.signin-button:active {
-    transform: translateY(1px);
+    opacity: 0.94;
 }
 
 .signin-button:disabled {
     cursor: not-allowed;
-    opacity: 0.75;
+    opacity: 0.85;
 }
 
 
-/* =========================================
-   SIGNING IN STATE
-   ========================================= */
+/* ================================
+   LOADING SPINNER
+================================ */
 
-.signin-loading-text {
-    display: inline-block;
+.signin-loader {
+    width: 25px;
+    height: 25px;
+
+    margin-left: 13px;
+
+    border: 3px solid rgba(255, 255, 255, 0.45);
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation: signinSpin 0.75s linear infinite;
 }
 
-.signin-loading-text[hidden] {
+.signin-loader[hidden] {
     display: none;
 }
 
+@keyframes signinSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
 
-/* =========================================
+
+/* ================================
    SIGN UP
-   ========================================= */
+================================ */
 
-.signup-prompt {
-    width: 100%;
-
-    margin-top: 54px;
+.signup-text {
+    margin-top: 53px;
 
     text-align: center;
 
     color: #5b5b5b;
 
-    font-size: 27px;
-    line-height: 1.35;
-    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.3;
 }
 
-.signup-prompt a {
-    color: #59a817;
+.signup-text a {
+    color: #57a617;
 
     font-weight: 700;
 
     text-decoration: none;
 }
 
-.signup-prompt a:hover {
+.signup-text a:hover {
     text-decoration: underline;
 }
 
 
-/* =========================================
-   HIDDEN
-   ========================================= */
-
-[hidden] {
-    display: none !important;
-}
-
-
-/* =========================================
-   TABLET
-   ========================================= */
+/* ================================
+   TABLET / SMALLER SCREENS
+================================ */
 
 @media (max-width: 700px) {
 
     .site-header {
-        height: 132px;
+        height: 108px;
+        padding: 0 36px;
     }
 
-    .header-inner {
-        padding: 0 32px;
+    .brand-logo {
+        width: 39px;
+        height: 39px;
     }
 
     .brand-name {
         font-size: 27px;
-    }
-
-    .header-controls {
-        gap: 36px;
-    }
-
-    .signin-container {
-        max-width: 100%;
-        padding: 74px 64px 80px;
-    }
-
-    .signin-heading h1 {
-        font-size: 62px;
-    }
-
-    .signin-heading p {
-        font-size: 32px;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 520px) {
-
-    .site-header {
-        height: 132px;
-    }
-
-    .header-inner {
-        padding: 0 28px;
-    }
-
-    .brand {
-        gap: 10px;
-    }
-
-    .brand-icon {
-        width: 42px;
-        height: 42px;
-    }
-
-    .brand-name {
-        font-size: 25px;
         letter-spacing: -1.2px;
     }
 
-    .header-controls {
-        gap: 24px;
+    .header-actions {
+        gap: 32px;
     }
 
     .theme-toggle {
@@ -693,244 +600,210 @@ body {
     }
 
     .moon-icon {
-        width: 32px;
-        height: 32px;
-    }
-
-    .menu-toggle {
-        width: 38px;
-        height: 38px;
-        gap: 6px;
-    }
-
-    .menu-toggle span {
-        width: 38px;
-        height: 4px;
-    }
-
-
-    /* Main */
-
-    .signin-container {
-        width: 100%;
-        padding: 74px 32px 70px;
-    }
-
-
-    /* Heading */
-
-    .signin-heading {
-        margin-bottom: 68px;
-    }
-
-    .signin-heading h1 {
-        margin-bottom: 20px;
-
-        font-size: 52px;
-        line-height: 1;
-        letter-spacing: -2.8px;
-    }
-
-    .signin-heading p {
-        font-size: 30px;
-        line-height: 1.25;
-        letter-spacing: -0.6px;
-    }
-
-
-    /* Google */
-
-    .google-signin-button {
-        height: 80px;
-
-        border-radius: 9px;
-
-        font-size: 27px;
-    }
-
-    .google-icon {
-        left: 25px;
-        width: 38px;
-        height: 38px;
-    }
-
-
-    /* Divider */
-
-    .signin-divider {
-        margin: 58px 0 58px;
-        gap: 18px;
-    }
-
-    .divider-text {
-        font-size: 26px;
-    }
-
-
-    /* Messages */
-
-    .firebase-message {
-        min-height: 118px;
-
-        margin-bottom: 40px;
-        padding: 28px 30px;
-
-        border-radius: 14px;
-
-        font-size: 26px;
-    }
-
-
-    /* Form */
-
-    .form-group {
-        margin-bottom: 42px;
-    }
-
-    .form-group label {
-        margin-bottom: 20px;
-
-        font-size: 28px;
-    }
-
-
-    /* Inputs */
-
-    .form-group input[type="email"],
-    .password-wrapper input[type="password"],
-    .password-wrapper input[type="text"] {
-        height: 90px;
-
-        padding: 0 30px;
-
-        border-radius: 17px;
-
-        font-size: 28px;
-    }
-
-
-    /* Password */
-
-    .password-toggle {
-        right: 21px;
-    }
-
-
-    /* Remember / Forgot */
-
-    .form-options {
-        margin-top: -3px;
-        margin-bottom: 48px;
-    }
-
-    .remember-option {
-        gap: 13px;
-    }
-
-    .custom-checkbox {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-    }
-
-    .remember-text {
-        font-size: 25px;
-    }
-
-    .forgot-password {
-        font-size: 25px;
-    }
-
-
-    /* Button */
-
-    .signin-button {
-        height: 96px;
-
-        border-radius: 16px;
-
-        font-size: 31px;
-    }
-
-
-    /* Sign up */
-
-    .signup-prompt {
-        margin-top: 52px;
-
-        font-size: 26px;
-    }
-
-}
-
-
-/* =========================================
-   SMALL PHONES
-   ========================================= */
-
-@media (max-width: 390px) {
-
-    .header-inner {
-        padding: 0 22px;
-    }
-
-    .brand-name {
-        font-size: 22px;
-    }
-
-    .brand-icon {
-        width: 38px;
-        height: 38px;
-    }
-
-    .header-controls {
-        gap: 17px;
-    }
-
-    .signin-container {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-
-    .signin-heading h1 {
-        font-size: 48px;
-    }
-
-    .signin-heading p {
-        font-size: 27px;
-    }
-
-    .google-signin-button {
-        font-size: 23px;
-    }
-
-    .google-icon {
-        left: 20px;
         width: 34px;
         height: 34px;
     }
 
+    .menu-toggle {
+        width: 39px;
+        height: 34px;
+    }
+
+    .menu-toggle span {
+        height: 4px;
+    }
+
+    .login-container {
+        width: calc(100% - 72px);
+        padding-top: 62px;
+    }
+
+    .login-heading h1 {
+        font-size: 54px;
+    }
+
+    .login-heading p {
+        font-size: 29px;
+        margin-bottom: 55px;
+    }
+
+    .google-signin {
+        height: 75px;
+        font-size: 27px;
+    }
+
     .divider-text {
-        font-size: 22px;
+        font-size: 26px;
     }
 
     .form-group label {
-        font-size: 25px;
+        font-size: 27px;
     }
 
     .form-group input[type="email"],
-    .password-wrapper input[type="password"],
-    .password-wrapper input[type="text"] {
-        font-size: 24px;
+    .password-wrapper input {
+        height: 88px;
+        font-size: 27px;
     }
 
     .remember-text,
     .forgot-password {
-        font-size: 21px;
+        font-size: 25px;
     }
 
-    .signup-prompt {
+    .signin-button {
+        height: 91px;
+        font-size: 32px;
+    }
+
+    .signup-text {
+        font-size: 25px;
+    }
+}
+
+
+/* ================================
+   VERY SMALL MOBILE
+================================ */
+
+@media (max-width: 430px) {
+
+    .site-header {
+        height: 101px;
+        padding: 0 28px;
+    }
+
+    .brand {
+        gap: 9px;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-name {
         font-size: 23px;
     }
 
+    .header-actions {
+        gap: 25px;
+    }
+
+    .theme-toggle {
+        width: 31px;
+        height: 31px;
+    }
+
+    .moon-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-toggle {
+        width: 36px;
+        height: 31px;
+    }
+
+    .login-container {
+        width: calc(100% - 56px);
+        padding-top: 60px;
+    }
+
+    .login-heading h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+        margin-bottom: 22px;
+    }
+
+    .login-heading p {
+        font-size: 26px;
+        line-height: 1.25;
+        margin-bottom: 48px;
+    }
+
+    .google-signin {
+        height: 73px;
+        font-size: 25px;
+        padding-left: 55px;
+    }
+
+    .google-icon {
+        left: 22px;
+        width: 31px;
+        height: 31px;
+    }
+
+    .login-divider {
+        margin-top: 48px;
+        margin-bottom: 55px;
+    }
+
+    .divider-text {
+        padding: 0 16px;
+        font-size: 24px;
+    }
+
+    .form-group + .form-group {
+        margin-top: 39px;
+    }
+
+    .form-group label {
+        font-size: 25px;
+        margin-bottom: 21px;
+    }
+
+    .form-group input[type="email"],
+    .password-wrapper input {
+        height: 90px;
+        border-radius: 17px;
+        padding-left: 29px;
+        font-size: 25px;
+    }
+
+    .password-wrapper input {
+        padding-right: 75px;
+    }
+
+    .password-toggle {
+        right: 18px;
+    }
+
+    .password-toggle svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .login-options {
+        margin-top: 27px;
+    }
+
+    .custom-checkbox {
+        width: 31px;
+        height: 31px;
+        margin-right: 13px;
+    }
+
+    .remember-text,
+    .forgot-password {
+        font-size: 23px;
+    }
+
+    .signin-button {
+        height: 92px;
+        margin-top: 47px;
+        border-radius: 17px;
+        font-size: 31px;
+    }
+
+    .signup-text {
+        margin-top: 51px;
+        font-size: 23px;
+    }
+
+    .firebase-message {
+        padding: 24px 25px;
+        font-size: 22px;
+        border-radius: 16px;
+    }
 }
