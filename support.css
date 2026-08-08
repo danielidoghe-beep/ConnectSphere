@@ -15,12 +15,10 @@ html {
 
 body {
     min-height: 100vh;
+    width: 100%;
     background: #f7f8fa;
     color: #111111;
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
@@ -45,8 +43,9 @@ a {
 ========================================= */
 
 .top-header {
-    height: 120px;
     width: 100%;
+    height: 60px;
+
     background: #ffffff;
     border-bottom: 1px solid #dedede;
 
@@ -54,7 +53,7 @@ a {
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 32px;
+    padding: 0 16px;
 }
 
 .icon-button {
@@ -69,43 +68,50 @@ a {
 }
 
 
-/* Hamburger */
+/* =========================================
+   HAMBURGER
+========================================= */
 
 .menu-button {
-    width: 58px;
-    height: 58px;
+    width: 36px;
+    height: 36px;
 
     flex-direction: column;
-    gap: 7px;
+    gap: 4px;
 }
 
 .menu-button span {
-    width: 37px;
-    height: 4px;
-    border-radius: 2px;
+    width: 24px;
+    height: 3px;
+
+    border-radius: 3px;
     background: #555555;
 }
 
 
-/* Header right */
+/* =========================================
+   HEADER RIGHT
+========================================= */
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 38px;
+    gap: 14px;
 }
 
 
-/* Moon */
+/* =========================================
+   MOON
+========================================= */
 
 .moon-button {
-    width: 50px;
-    height: 50px;
+    width: 34px;
+    height: 34px;
 }
 
 .moon-button svg {
-    width: 42px;
-    height: 42px;
+    width: 27px;
+    height: 27px;
 
     fill: none;
     stroke: #555555;
@@ -113,13 +119,15 @@ a {
 }
 
 
-/* Notifications */
+/* =========================================
+   NOTIFICATIONS
+========================================= */
 
 .notification-button {
     position: relative;
 
-    width: 58px;
-    height: 58px;
+    width: 38px;
+    height: 38px;
 
     border: 0;
     background: transparent;
@@ -130,8 +138,8 @@ a {
 }
 
 .notification-button svg {
-    width: 39px;
-    height: 39px;
+    width: 27px;
+    height: 27px;
 
     fill: none;
     stroke: #555555;
@@ -141,20 +149,20 @@ a {
 .notification-count {
     position: absolute;
 
-    top: -1px;
-    right: -2px;
+    top: -2px;
+    right: -7px;
 
-    min-width: 48px;
-    height: 34px;
+    min-width: 30px;
+    height: 21px;
 
-    padding: 0 9px;
+    padding: 0 5px;
 
     border-radius: 20px;
 
     background: #56a817;
     color: #000000;
 
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 900;
 
     display: flex;
@@ -163,17 +171,18 @@ a {
 }
 
 
-/* Profile */
+/* =========================================
+   PROFILE
+========================================= */
 
 .profile-button {
-    width: 66px;
-    height: 66px;
+    width: 48px;
+    height: 48px;
 
     border: 0;
     border-radius: 50%;
 
     background: #f4a000;
-
     color: #ffffff;
 
     display: flex;
@@ -182,7 +191,7 @@ a {
 }
 
 .profile-button span {
-    font-size: 32px;
+    font-size: 23px;
     font-weight: 500;
 }
 
@@ -193,11 +202,11 @@ a {
 
 .support-page {
     width: 100%;
-    max-width: 1000px;
+    max-width: 780px;
 
     margin: 0 auto;
 
-    padding: 46px 32px 80px;
+    padding: 30px 16px 50px;
 }
 
 
@@ -206,19 +215,20 @@ a {
 ========================================= */
 
 .page-heading h1 {
-    font-size: 62px;
+    font-size: 32px;
     line-height: 1;
     font-weight: 900;
-    letter-spacing: -2.5px;
+
+    letter-spacing: -1.4px;
 }
 
 .page-heading p {
-    margin-top: 17px;
+    margin-top: 9px;
 
     color: #555555;
 
-    font-size: 32px;
-    line-height: 1.2;
+    font-size: 18px;
+    line-height: 1.3;
 }
 
 
@@ -227,52 +237,57 @@ a {
 ========================================= */
 
 .support-title-row {
-    margin-top: 72px;
+    margin-top: 48px;
 
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
 
-    gap: 28px;
+    gap: 12px;
 }
 
 .support-title-text {
     flex: 1;
+    min-width: 0;
 }
 
 .support-title-text h2 {
-    font-size: 48px;
-    line-height: 1;
+    font-size: 25px;
+    line-height: 1.05;
+
     font-weight: 900;
-    letter-spacing: -1.8px;
+    letter-spacing: -1px;
 }
 
 .support-title-text p {
-    margin-top: 22px;
+    margin-top: 13px;
 
-    max-width: 620px;
+    max-width: 250px;
 
     color: #555555;
 
-    font-size: 32px;
-    line-height: 1.35;
+    font-size: 18px;
+    line-height: 1.4;
 }
 
 
-/* New ticket */
+/* =========================================
+   NEW TICKET BUTTON
+========================================= */
 
 .new-ticket-button {
-    flex: 0 0 228px;
+    flex: 0 0 110px;
 
-    min-height: 128px;
+    width: 110px;
+    min-height: 76px;
 
     border: 0;
-    border-radius: 27px;
+    border-radius: 18px;
 
     background: #56a817;
     color: #ffffff;
 
-    font-size: 30px;
+    font-size: 16px;
     line-height: 1.1;
     font-weight: 900;
 
@@ -281,7 +296,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    box-shadow: none;
+    text-align: center;
 }
 
 .new-ticket-button:active {
@@ -294,16 +309,16 @@ a {
 ========================================= */
 
 .tickets-container {
-    margin-top: 58px;
-
     width: 100%;
 
+    margin-top: 38px;
+
     border: 1px solid #dddddd;
-    border-radius: 36px;
+    border-radius: 22px;
 
     background: #ffffff;
 
-    padding: 108px 56px 60px;
+    padding: 54px 25px 40px;
 }
 
 
@@ -312,10 +327,11 @@ a {
 ========================================= */
 
 .empty-ticket-state {
-    min-height: 710px;
+    width: 100%;
+    min-height: 440px;
 
     border: 1px dashed #d9dce0;
-    border-radius: 30px;
+    border-radius: 18px;
 
     background: #f1f2f4;
 
@@ -326,18 +342,20 @@ a {
 
     text-align: center;
 
-    padding: 50px 30px;
+    padding: 30px 20px;
 }
 
 
-/* Empty icon */
+/* =========================================
+   EMPTY ICON
+========================================= */
 
 .empty-icon {
-    width: 130px;
-    height: 130px;
+    width: 76px;
+    height: 76px;
 
     border: 2px solid #e0e1e3;
-    border-radius: 35px;
+    border-radius: 22px;
 
     display: flex;
     align-items: center;
@@ -345,60 +363,69 @@ a {
 }
 
 .empty-icon svg {
-    width: 70px;
-    height: 70px;
+    width: 42px;
+    height: 42px;
 
     fill: none;
     stroke: #5d5d5d;
+
     stroke-width: 2.2;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
 
-/* Empty title */
+/* =========================================
+   EMPTY TITLE
+========================================= */
 
 .empty-ticket-state h3 {
-    margin-top: 40px;
+    margin-top: 25px;
 
     color: #555555;
 
-    font-size: 48px;
+    font-size: 27px;
     line-height: 1;
+
     font-weight: 900;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
 }
 
 .empty-ticket-state p {
-    max-width: 570px;
+    max-width: 285px;
 
-    margin-top: 34px;
+    margin-top: 23px;
 
     color: #555555;
 
-    font-size: 31px;
-    line-height: 1.4;
+    font-size: 18px;
+    line-height: 1.45;
 }
 
 
-/* Open first ticket */
+/* =========================================
+   OPEN FIRST TICKET
+========================================= */
 
 .open-first-ticket-button {
-    margin-top: 42px;
+    width: 100%;
+    max-width: 240px;
 
-    min-width: 450px;
-    min-height: 86px;
+    margin-top: 27px;
+
+    min-height: 61px;
 
     border: 0;
-    border-radius: 24px;
+    border-radius: 18px;
 
     background: #56a817;
     color: #ffffff;
 
-    font-size: 27px;
+    font-size: 17px;
+    line-height: 1.1;
     font-weight: 900;
 
-    padding: 0 34px;
+    padding: 0 20px;
 }
 
 
@@ -409,7 +436,7 @@ a {
 .ticket-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
 }
 
 .ticket-list:empty {
@@ -417,15 +444,19 @@ a {
 }
 
 
-/* Ticket card */
+/* =========================================
+   TICKET CARD
+========================================= */
 
 .ticket-card {
+    width: 100%;
+
     border: 1px solid #dedede;
-    border-radius: 24px;
+    border-radius: 16px;
 
     background: #ffffff;
 
-    padding: 28px;
+    padding: 18px;
 }
 
 .ticket-card-top {
@@ -433,37 +464,38 @@ a {
     align-items: flex-start;
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 12px;
 }
 
 .ticket-card h3 {
     color: #111111;
 
-    font-size: 26px;
-    line-height: 1.2;
+    font-size: 18px;
+    line-height: 1.25;
+
     font-weight: 800;
 }
 
 .ticket-status {
     flex-shrink: 0;
 
-    padding: 8px 15px;
+    padding: 6px 10px;
 
     border-radius: 20px;
 
     background: #eef8e8;
     color: #4e9d16;
 
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 800;
 }
 
 .ticket-message {
-    margin-top: 14px;
+    margin-top: 10px;
 
     color: #555555;
 
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.45;
 
     white-space: pre-wrap;
@@ -471,11 +503,11 @@ a {
 }
 
 .ticket-meta {
-    margin-top: 18px;
+    margin-top: 12px;
 
     color: #777777;
 
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
@@ -497,7 +529,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    padding: 20px;
+    padding: 12px;
 }
 
 .modal-backdrop.open {
@@ -510,52 +542,58 @@ a {
 ========================================= */
 
 .ticket-modal {
-    width: min(740px, 100%);
+    width: 100%;
+    max-width: 370px;
 
-    max-height: calc(100vh - 40px);
+    max-height: calc(100vh - 24px);
 
     overflow-y: auto;
 
     background: #ffffff;
 
     border: 1px solid #bbbbbb;
-    border-radius: 32px;
+    border-radius: 22px;
 
-    padding: 44px 40px 52px;
+    padding: 25px 20px 28px;
 
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 
-/* Modal header */
+/* =========================================
+   MODAL HEADER
+========================================= */
 
 .modal-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 12px;
 }
 
 .modal-header h2 {
-    font-size: 36px;
+    font-size: 25px;
     line-height: 1.1;
+
     font-weight: 900;
-    letter-spacing: -1px;
+    letter-spacing: -0.7px;
 }
 
 .modal-close {
-    width: 42px;
-    height: 42px;
+    flex-shrink: 0;
+
+    width: 32px;
+    height: 32px;
 
     border: 0;
     background: transparent;
 
     color: #666666;
 
-    font-size: 42px;
-    line-height: 36px;
+    font-size: 32px;
+    line-height: 28px;
 
     display: flex;
     align-items: center;
@@ -568,16 +606,17 @@ a {
 ========================================= */
 
 .form-group {
-    margin-top: 40px;
+    margin-top: 27px;
 }
 
 .form-group label {
     display: block;
 
-    margin-bottom: 17px;
+    margin-bottom: 10px;
 
-    font-size: 27px;
+    font-size: 18px;
     line-height: 1;
+
     font-weight: 800;
 }
 
@@ -586,30 +625,29 @@ a {
     width: 100%;
 
     border: 2px solid #dedede;
-    border-radius: 22px;
+    border-radius: 17px;
 
     background: #ffffff;
-
     color: #222222;
 
     outline: none;
 
-    font-size: 23px;
+    font-size: 16px;
     font-weight: 600;
 }
 
 .form-group input {
-    height: 84px;
+    height: 60px;
 
-    padding: 0 28px;
+    padding: 0 18px;
 }
 
 .form-group textarea {
-    min-height: 265px;
+    min-height: 190px;
 
     resize: vertical;
 
-    padding: 25px 28px;
+    padding: 17px 18px;
 
     line-height: 1.35;
 }
@@ -626,21 +664,23 @@ a {
 }
 
 
-/* Error */
+/* =========================================
+   FORM ERROR
+========================================= */
 
 .form-error {
     display: none;
 
-    margin-top: 18px;
+    margin-top: 12px;
 
-    padding: 14px 16px;
+    padding: 10px 12px;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
     background: #fff0f0;
     color: #c62828;
 
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 700;
 }
 
@@ -654,21 +694,21 @@ a {
 ========================================= */
 
 .modal-actions {
-    margin-top: 42px;
+    margin-top: 28px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    gap: 24px;
+    gap: 12px;
 }
 
 .cancel-button,
 .submit-ticket-button {
-    min-height: 128px;
+    min-height: 76px;
 
-    border-radius: 24px;
+    border-radius: 17px;
 
-    font-size: 27px;
+    font-size: 17px;
     font-weight: 900;
     line-height: 1.1;
 }
@@ -695,13 +735,15 @@ a {
 }
 
 
-/* Loader */
+/* =========================================
+   LOADER
+========================================= */
 
 .button-loader {
     display: none;
 
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
 
     margin: auto;
 
@@ -734,6 +776,7 @@ a {
 
 .menu-overlay {
     position: fixed;
+
     inset: 0;
 
     z-index: 900;
@@ -760,7 +803,7 @@ a {
 
     z-index: 950;
 
-    width: min(340px, 85vw);
+    width: min(300px, 85vw);
 
     background: #ffffff;
 
@@ -776,9 +819,9 @@ a {
 }
 
 .side-menu-header {
-    height: 120px;
+    height: 60px;
 
-    padding: 0 25px;
+    padding: 0 18px;
 
     border-bottom: 1px solid #dedede;
 
@@ -788,7 +831,7 @@ a {
 }
 
 .side-menu-header strong {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 900;
 }
 
@@ -796,24 +839,24 @@ a {
     border: 0;
     background: transparent;
 
-    font-size: 38px;
+    font-size: 30px;
     color: #555555;
 }
 
 .side-navigation {
-    padding: 25px 18px;
+    padding: 18px 14px;
 
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .side-navigation a {
-    padding: 18px 20px;
+    padding: 13px 15px;
 
-    border-radius: 12px;
+    border-radius: 10px;
 
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
 }
 
@@ -882,374 +925,144 @@ body.dark-mode .side-navigation a.active {
 
 
 /* =========================================
-   MOBILE
+   TABLET / DESKTOP
 ========================================= */
 
-@media (max-width: 700px) {
+@media (min-width: 701px) {
 
     .top-header {
-        height: 120px;
-        padding: 0 32px;
-    }
-
-    .header-right {
-        gap: 24px;
-    }
-
-    .menu-button {
-        width: 50px;
-    }
-
-    .menu-button span {
-        width: 36px;
-        height: 4px;
-    }
-
-    .moon-button svg {
-        width: 39px;
-        height: 39px;
-    }
-
-    .notification-button {
-        width: 50px;
-        height: 50px;
-    }
-
-    .notification-button svg {
-        width: 34px;
-        height: 34px;
-    }
-
-    .notification-count {
-        min-width: 45px;
-        height: 31px;
-
-        font-size: 18px;
-
-        top: -4px;
-        right: -7px;
-    }
-
-    .profile-button {
-        width: 66px;
-        height: 66px;
+        height: 80px;
+        padding: 0 30px;
     }
 
     .support-page {
-        padding: 48px 32px 70px;
+        max-width: 780px;
+        padding: 44px 30px 70px;
     }
 
     .page-heading h1 {
-        font-size: 58px;
+        font-size: 42px;
     }
 
     .page-heading p {
-        font-size: 29px;
-        margin-top: 16px;
+        font-size: 23px;
     }
 
     .support-title-row {
-        margin-top: 70px;
-
-        gap: 22px;
+        margin-top: 58px;
     }
 
     .support-title-text h2 {
-        font-size: 45px;
+        font-size: 32px;
     }
 
     .support-title-text p {
-        font-size: 30px;
-        margin-top: 20px;
+        font-size: 22px;
+        max-width: 380px;
     }
 
     .new-ticket-button {
-        flex-basis: 210px;
-        min-height: 128px;
-
-        font-size: 28px;
+        flex-basis: 150px;
+        width: 150px;
+        min-height: 86px;
+        font-size: 20px;
     }
 
     .tickets-container {
-        margin-top: 58px;
-        padding: 106px 56px 58px;
-        border-radius: 35px;
+        margin-top: 42px;
+        padding: 72px 38px 42px;
+        border-radius: 28px;
     }
 
     .empty-ticket-state {
-        min-height: 710px;
+        min-height: 520px;
     }
 
     .empty-ticket-state h3 {
-        font-size: 45px;
-    }
-
-    .empty-ticket-state p {
-        font-size: 29px;
-    }
-
-    .open-first-ticket-button {
-        min-width: 100%;
-        font-size: 25px;
-    }
-
-    .ticket-modal {
-        border-radius: 30px;
-
-        padding: 40px 40px 48px;
-    }
-
-    .modal-header h2 {
         font-size: 34px;
     }
 
-    .form-group label {
-        font-size: 26px;
-    }
-
-    .form-group input,
-    .form-group textarea {
+    .empty-ticket-state p {
         font-size: 22px;
+        max-width: 390px;
     }
 
-    .modal-actions {
-        gap: 22px;
-    }
-
-    .cancel-button,
-    .submit-ticket-button {
-        min-height: 125px;
-        font-size: 26px;
+    .open-first-ticket-button {
+        max-width: 300px;
+        min-height: 65px;
     }
 }
 
 
 /* =========================================
-   SMALL PHONES
+   VERY SMALL PHONES
 ========================================= */
 
-@media (max-width: 450px) {
+@media (max-width: 350px) {
 
     .top-header {
-        height: 86px;
-        padding: 0 16px;
+        padding: 0 12px;
     }
 
     .header-right {
-        gap: 15px;
-    }
-
-    .menu-button {
-        width: 42px;
-        height: 42px;
-        gap: 5px;
-    }
-
-    .menu-button span {
-        width: 25px;
-        height: 3px;
-    }
-
-    .moon-button {
-        width: 38px;
-        height: 38px;
-    }
-
-    .moon-button svg {
-        width: 29px;
-        height: 29px;
-    }
-
-    .notification-button {
-        width: 40px;
-        height: 40px;
-    }
-
-    .notification-button svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    .notification-count {
-        min-width: 35px;
-        height: 24px;
-
-        padding: 0 6px;
-
-        font-size: 14px;
-
-        top: -3px;
-        right: -8px;
-    }
-
-    .profile-button {
-        width: 48px;
-        height: 48px;
-    }
-
-    .profile-button span {
-        font-size: 23px;
+        gap: 10px;
     }
 
     .support-page {
-        padding: 44px 32px 60px;
+        padding-left: 14px;
+        padding-right: 14px;
     }
 
     .page-heading h1 {
-        font-size: 52px;
-        letter-spacing: -2px;
-    }
-
-    .page-heading p {
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .support-title-row {
-        margin-top: 56px;
-
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    .support-title-text h2 {
-        font-size: 37px;
-        letter-spacing: -1.3px;
-    }
-
-    .support-title-text p {
-        margin-top: 16px;
-        font-size: 24px;
-        line-height: 1.4;
-    }
-
-    .new-ticket-button {
-        flex: 0 0 150px;
-
-        min-height: 105px;
-
-        border-radius: 22px;
-
-        font-size: 22px;
-    }
-
-    .tickets-container {
-        margin-top: 48px;
-
-        padding: 74px 25px 40px;
-
-        border-radius: 28px;
-    }
-
-    .empty-ticket-state {
-        min-height: 640px;
-
-        border-radius: 25px;
-
-        padding: 40px 20px;
-    }
-
-    .empty-icon {
-        width: 105px;
-        height: 105px;
-        border-radius: 28px;
-    }
-
-    .empty-icon svg {
-        width: 57px;
-        height: 57px;
-    }
-
-    .empty-ticket-state h3 {
-        margin-top: 32px;
-
-        font-size: 37px;
-    }
-
-    .empty-ticket-state p {
-        margin-top: 26px;
-
-        font-size: 23px;
-        line-height: 1.45;
-    }
-
-    .open-first-ticket-button {
-        margin-top: 32px;
-
-        min-height: 72px;
-
-        border-radius: 20px;
-
-        font-size: 20px;
-    }
-
-    .ticket-card {
-        padding: 22px;
-        border-radius: 20px;
-    }
-
-    .ticket-card h3 {
-        font-size: 21px;
-    }
-
-    .ticket-message {
-        font-size: 16px;
-    }
-
-    .ticket-modal {
-        width: 100%;
-
-        max-height: calc(100vh - 24px);
-
-        padding: 28px 20px 28px;
-
-        border-radius: 26px;
-    }
-
-    .modal-header h2 {
         font-size: 29px;
     }
 
-    .modal-close {
-        width: 34px;
-        height: 34px;
-        font-size: 36px;
+    .page-heading p {
+        font-size: 17px;
     }
 
-    .form-group {
-        margin-top: 30px;
-    }
-
-    .form-group label {
-        margin-bottom: 13px;
+    .support-title-text h2 {
         font-size: 23px;
     }
 
-    .form-group input {
-        height: 70px;
-        padding: 0 20px;
-        border-radius: 18px;
-        font-size: 19px;
+    .support-title-text p {
+        font-size: 17px;
     }
 
-    .form-group textarea {
-        min-height: 205px;
-        padding: 20px;
-        border-radius: 18px;
-        font-size: 19px;
+    .new-ticket-button {
+        flex-basis: 100px;
+        width: 100px;
+        min-height: 72px;
+        font-size: 15px;
+    }
+
+    .tickets-container {
+        padding: 45px 18px 30px;
+    }
+
+    .empty-ticket-state {
+        min-height: 410px;
+        padding: 25px 14px;
+    }
+
+    .empty-ticket-state h3 {
+        font-size: 25px;
+    }
+
+    .empty-ticket-state p {
+        font-size: 17px;
+    }
+
+    .open-first-ticket-button {
+        font-size: 16px;
     }
 
     .modal-actions {
-        margin-top: 30px;
-        gap: 14px;
+        grid-template-columns: 1fr;
     }
 
     .cancel-button,
     .submit-ticket-button {
-        min-height: 105px;
-
-        border-radius: 20px;
-
-        font-size: 21px;
+        min-height: 60px;
     }
 }
