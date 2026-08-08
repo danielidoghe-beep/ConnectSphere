@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
+
+    <title>Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PAGE
+    ====================================================== -->
+
+    <div class="app">
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="header">
+
+            <!-- MENU -->
+            <button
+                type="button"
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
+            <!-- RIGHT HEADER CONTROLS -->
+            <div class="header-controls">
+
+                <!-- WALLET -->
+                <div class="header-wallet">
+                    <span id="headerWalletBalance">₦0</span>
+                </div>
+
+
+                <!-- THEME -->
+                <button
+                    type="button"
+                    class="header-icon-button theme-button"
+                    id="themeButton"
+                    aria-label="Toggle theme"
+                >
+
+                    <svg
+                        class="moon-icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M21 12.79A9 9 0 1 1 11.21 3
+                               7 7 0 0 0 21 12.79Z"
+                        />
+                    </svg>
+
+                </button>
+
+
+                <!-- NOTIFICATIONS -->
+                <div class="notification-wrapper">
+
+                    <button
+                        type="button"
+                        class="header-icon-button notification-button"
+                        id="notificationButton"
+                        aria-label="Notifications"
+                        aria-expanded="false"
+                    >
+
+                        <svg
+                            class="bell-icon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M18 8a6 6 0 0 0-12 0
+                                   c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                            />
+
+                            <path
+                                d="M10 21h4"
+                            />
+                        </svg>
+
+
+                        <span
+                            class="notification-badge"
+                            id="notificationBadge"
+                        >
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <!-- =====================================
+                         NOTIFICATION DROPDOWN
+                    ====================================== -->
+
+                    <div
+                        class="notification-dropdown"
+                        id="notificationDropdown"
+                        aria-hidden="true"
+                    >
+
+                        <div class="notification-dropdown-top">
+
+                            <h2>
+                                Notifications
+                            </h2>
+
+                            <button
+                                type="button"
+                                id="markAllReadButton"
+                                class="mark-read-button"
+                            >
+                                Mark all read
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="notification-list"
+                            id="notificationList"
+                        >
+
+                            <div class="notification-loading">
+                                Loading notifications...
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="notifications.html"
+                            class="view-all-notifications"
+                        >
+                            View all notifications
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROFILE -->
+                <button
+                    type="button"
+                    class="profile-button"
+                    id="profileButton"
+                    aria-label="Profile"
+                >
+
+                    <span id="profileInitial">
+                        U
+                    </span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             MOBILE SIDE MENU
+        ================================================== -->
+
+        <div
+            class="menu-overlay"
+            id="menuOverlay"
+        ></div>
+
+
+        <aside
+            class="side-menu"
+            id="sideMenu"
+            aria-hidden="true"
+        >
+
+            <div class="side-menu-header">
+
+                <div class="side-menu-brand">
+                    VerifyStackAcct
+                </div>
+
+                <button
+                    type="button"
+                    class="close-menu-button"
+                    id="closeMenuButton"
+                    aria-label="Close menu"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M6 6l12 12"></path>
+                        <path d="M18 6L6 18"></path>
+                    </svg>
+                </button>
+
+            </div>
+
+
+            <nav class="side-navigation">
+
+                <a
+                    href="dashboard.html"
+                    class="side-navigation-link active"
+                >
+                    <span>Dashboard</span>
+                </a>
+
+                <a
+                    href="logs.html"
+                    class="side-navigation-link"
+                >
+                    <span>Buy Logs</span>
+                </a>
+
+                <a
+                    href="tools.html"
+                    class="side-navigation-link"
+                >
+                    <span>Buy Tools</span>
+                </a>
+
+                <a
+                    href="wallet.html"
+                    class="side-navigation-link"
+                >
+                    <span>Wallet</span>
+                </a>
+
+                <a
+                    href="orders.html"
+                    class="side-navigation-link"
+                >
+                    <span>Orders</span>
+                </a>
+
+                <a
+                    href="support.html"
+                    class="side-navigation-link"
+                >
+                    <span>Support</span>
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="side-navigation-link"
+                >
+                    <span>Profile</span>
+                </a>
+
+            </nav>
+
+
+            <button
+                type="button"
+                class="side-logout-button"
+                id="logoutButton"
+            >
+                Sign out
+            </button>
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main">
+
+            <!-- WELCOME -->
+            <section class="welcome-section">
+
+                <h1 id="welcomeMessage">
+                    Welcome back
+                </h1>
+
+                <p>
+                    Here's what's going on with your account
+                </p>
+
+            </section>
+
+
+            <!-- =============================================
+                 SUMMARY CARDS
+            ============================================== -->
+
+            <section class="summary-section">
+
+
+                <!-- WALLET -->
+                <article class="summary-card">
+
+                    <p class="summary-label">
+                        Wallet balance
+                    </p>
+
+                    <h2 id="walletBalance">
+                        ₦0
+                    </h2>
+
+                    <a
+                        href="wallet.html"
+                        class="summary-link"
+                    >
+                        View wallet
+                        <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- PURCHASES -->
+                <article class="summary-card">
+
+                    <p class="summary-label">
+                        Total purchases
+                    </p>
+
+                    <h2 id="totalPurchases">
+                        0
+                    </h2>
+
+                    <a
+                        href="orders.html"
+                        class="summary-link"
+                    >
+                        View orders
+                        <span>→</span>
+                    </a>
+
+                </article>
+
+
+                <!-- INVENTORY -->
+                <article class="summary-card">
+
+                    <p class="summary-label">
+                        Available inventory
+                    </p>
+
+                    <h2 id="inventoryTotal">
+                        0
+                    </h2>
+
+                    <p
+                        class="inventory-breakdown"
+                        id="inventoryBreakdown"
+                    >
+                        0 logs · 0 tools
+                    </p>
+
+                </article>
+
+            </section>
+
+
+            <!-- =============================================
+                 QUICK ACTIONS
+            ============================================== -->
+
+            <section class="content-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        QUICK ACTIONS
+                    </h2>
+
+                </div>
+
+
+                <div class="quick-actions-grid">
+
+
+                    <!-- BUY LOGS -->
+                    <a
+                        href="logs.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon logs-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <rect
+                                    x="4"
+                                    y="3"
+                                    width="16"
+                                    height="18"
+                                    rx="2"
+                                />
+
+                                <path d="M8 8h8"></path>
+                                <path d="M8 12h8"></path>
+                                <path d="M8 16h5"></path>
+                            </svg>
+
+                        </div>
+
+                        <h3>
+                            Buy Logs
+                        </h3>
+
+                        <p>
+                            Social media accounts, VPNs,
+                            proxies, etc.
+                        </p>
+
+                    </a>
+
+
+                    <!-- BUY TOOLS -->
+                    <a
+                        href="tools.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon tools-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M14.7 6.3a4 4 0 0 0
+                                       5 5L12 19l-3-3 7.7-7.7a4 4
+                                       0 0 0-2-5Z"
+                                />
+
+                                <path
+                                    d="m6 14-3 3 4 4 3-3"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                        <h3>
+                            Buy Tools
+                        </h3>
+
+                        <p>
+                            Updates & pictures
+                        </p>
+
+                    </a>
+
+
+                    <!-- TOP UP -->
+                    <a
+                        href="wallet.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon wallet-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <rect
+                                    x="3"
+                                    y="6"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                />
+
+                                <path
+                                    d="M3 9h18"
+                                />
+
+                                <path
+                                    d="M16 14h3"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                        <h3>
+                            Top Up Wallet
+                        </h3>
+
+                        <p>
+                            Add funds to your balance
+                        </p>
+
+                    </a>
+
+
+                    <!-- SUPPORT -->
+                    <a
+                        href="support.html"
+                        class="quick-action-card"
+                    >
+
+                        <div class="quick-action-icon support-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M4 5a2 2 0 0 1 2-2h12
+                                       a2 2 0 0 1 2 2v10a2 2
+                                       0 0 1-2 2h-6l-4 4v-4H6
+                                       a2 2 0 0 1-2-2Z"
+                                />
+
+                                <path d="M8 9h8"></path>
+                                <path d="M8 13h5"></path>
+
+                            </svg>
+
+                        </div>
+
+                        <h3>
+                            Get Support
+                        </h3>
+
+                        <p>
+                            Open a support ticket and chat
+                            with our team
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 SUPPORT TICKETS
+            ============================================== -->
+
+            <section class="content-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        SUPPORT TICKETS
+                    </h2>
+
+                </div>
+
+
+                <div class="support-card">
+
+                    <div class="support-empty">
+
+                        <div class="support-empty-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M4 5a2 2 0 0 1 2-2h12
+                                       a2 2 0 0 1 2 2v10a2 2
+                                       0 0 1-2 2h-6l-4 4v-4H6
+                                       a2 2 0 0 1-2-2Z"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                        <p>
+                            Manage your support tickets in the
+                            dedicated support page.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="support.html"
+                        class="support-button"
+                    >
+                        GO TO SUPPORT
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 RECENT ORDERS
+            ============================================== -->
+
+            <section class="content-section">
+
+                <div class="section-heading orders-heading">
+
+                    <h2>
+                        RECENT ORDERS
+                    </h2>
+
+                    <a href="orders.html">
+                        VIEW ALL
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="orders-container"
+                    id="recentOrders"
+                >
+
+                    <div class="orders-loading">
+                        Loading orders...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 QUICK HELP
+            ============================================== -->
+
+            <section class="quick-help-section">
+
+                <div class="quick-help-card">
+
+                    <h2>
+                        Need quick help?
+                    </h2>
+
+                    <p>
+                        Reach support directly if you want a
+                        faster response outside tickets.
+                    </p>
+
+
+                    <a
+                        href="#"
+                        id="whatsappLink"
+                        class="contact-button whatsapp-button"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M20 11.5a8.5 8.5 0 0 1-12.7
+                                   7.4L4 20l1.2-3.1A8.5 8.5 0
+                                   1 1 20 11.5Z"
+                            />
+
+                            <path
+                                d="M9 8.5c.2-.4.4-.4.7-.4h.5
+                                   c.2 0 .4.1.5.4l.7 1.6c.1.2
+                                   .1.4-.1.6l-.6.7c.4.8 1.1
+                                   1.5 1.9 1.9l.7-.6c.2-.2.4
+                                  -.2.6-.1l1.6.7c.3.1.4.3.4.5
+                                   v.5c0 .3 0 .5-.4.7-.5.3-1.3
+                                   .3-2.1 0-1.4-.5-2.8-1.4-3.8
+                                   -2.5-1-1-2-2.4-2.5-3.8-.3-.8
+                                   -.3-1.6 0-2.1Z"
+                            />
+
+                        </svg>
+
+                        <span>
+                            Chat on WhatsApp
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        id="telegramLink"
+                        class="contact-button telegram-button"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M21 4 3.7 10.7c-.8.3-.8
+                                   1.3-.1 1.6l4.4 1.6 1.7 5.2
+                                   c.2.7 1.1.8 1.5.2l2.5-3.1
+                                   4.8 3.5c.6.4 1.4.1 1.6-.6L21.9
+                                   5c.2-.7-.3-1.3-.9-1Z"
+                            />
+
+                            <path
+                                d="m8 13.9 9.8-6.2"
+                            />
+
+                        </svg>
+
+                        <span>
+                            Open Telegram
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        id="supportEmail"
+                        class="support-email"
+                    >
+                        support@example.com
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ================================================
+             TOAST / FIREBASE MESSAGE
+        ================================================= -->
+
+        <div
+            class="firebase-toast"
+            id="firebaseToast"
+            aria-hidden="true"
+        >
+
+            <div class="firebase-toast-icon" id="toastIcon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M20 6 9 17l-5-5"
+                    />
+                </svg>
+
+            </div>
+
+
+            <div class="firebase-toast-content">
+
+                <strong id="toastTitle">
+                    Success
+                </strong>
+
+                <p id="toastMessage">
+                    Operation completed successfully.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="toast-close"
+                id="toastClose"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DASHBOARD JAVASCRIPT
+    ====================================================== -->
+
+    <script type="module" src="dashboard.js"></script>
+
+</body>
+</html>
