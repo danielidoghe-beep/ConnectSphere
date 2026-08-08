@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet | VerifyStackAcct</title>
+  <link rel="stylesheet" href="wallet.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="topbar-right">
+
+      <div class="currency-pill">₦0</div>
+
+      <button class="icon-btn moon-btn" id="themeBtn" aria-label="Toggle theme">
+        ☾
+      </button>
+
+      <button class="notification-btn" id="notificationBtn" aria-label="Notifications">
+        <span class="notification-icon">♟</span>
+        <span class="notification-count" id="notificationCount">0</span>
+      </button>
+
+      <button class="profile-btn" id="profileBtn" aria-label="Profile">
+        <span id="profileInitial">D</span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- NOTIFICATION DROPDOWN -->
+  <div class="notification-dropdown" id="notificationDropdown">
+
+    <div class="notification-header">
+      <h2>Notifications</h2>
+      <button id="markReadBtn">Mark all read</button>
+    </div>
+
+    <div class="notification-list" id="notificationList">
+      <div class="empty-notifications">
+        No notifications
+      </div>
+    </div>
+
+    <button class="view-notifications" id="viewNotificationsBtn">
+      View all notifications
+    </button>
+
+  </div>
+
+
+  <!-- MAIN -->
+  <main class="wallet-container">
+
+    <section class="page-heading">
+      <h1>Wallet</h1>
+      <p>Manage your balance and transactions</p>
+    </section>
+
+
+    <!-- BALANCE -->
+    <section class="balance-card">
+
+      <div class="balance-label">
+        Available balance
+      </div>
+
+      <div class="balance-amount" id="walletBalance">
+        ₦0
+      </div>
+
+      <p>
+        Funds never expire · Used instantly on all purchases
+      </p>
+
+    </section>
+
+
+    <!-- TOP UP -->
+    <section class="topup-card">
+
+      <h2>Top up wallet</h2>
+
+      <p class="topup-description">
+        Funds are credited instantly via card, or via bank transfer to a virtual account
+      </p>
+
+
+      <!-- PAYMENT METHODS -->
+      <div class="payment-methods">
+
+        <button
+          class="payment-method active"
+          id="bankTransferBtn"
+          type="button"
+        >
+          <span class="payment-method-icon">♧</span>
+          <span>Bank<br>Transfer</span>
+        </button>
+
+        <button
+          class="payment-method"
+          id="cardPaymentBtn"
+          type="button"
+        >
+          <span class="payment-method-icon">▣</span>
+          <span>Card<br>Payment</span>
+        </button>
+
+      </div>
+
+
+      <!-- BANK TRANSFER FORM -->
+      <div id="bankTransferForm">
+
+        <label for="amount">
+          Amount (₦)
+        </label>
+
+        <input
+          type="number"
+          id="amount"
+          min="1000"
+          step="100"
+          placeholder="0"
+          inputmode="numeric"
+        >
+
+        <div class="minimum-text">
+          Minimum ₦1,000
+        </div>
+
+
+        <!-- QUICK AMOUNTS -->
+        <div class="quick-amounts">
+
+          <button type="button" data-amount="1000">
+            ₦1,000
+          </button>
+
+          <button type="button" data-amount="2000">
+            ₦2,000
+          </button>
+
+          <button type="button" data-amount="5000">
+            ₦5,000
+          </button>
+
+          <button type="button" data-amount="10000">
+            ₦10,000
+          </button>
+
+        </div>
+
+
+        <button
+          class="pay-btn"
+          id="payBankBtn"
+          type="button"
+        >
+          PAY WITH BANK TRANSFER
+        </button>
+
+        <div class="secured">
+          Secured by manual deposit
+        </div>
+
+      </div>
+
+
+      <!-- CARD COMING SOON -->
+      <div class="coming-soon-box" id="cardComingSoon">
+
+        <div class="coming-soon-icon">▣</div>
+
+        <h3>Card Payment</h3>
+
+        <p>
+          Card payments are coming soon.
+        </p>
+
+        <span>
+          Coming soon
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- RECENT TRANSACTIONS -->
+    <section class="transactions-section">
+
+      <div class="section-heading">
+        <h2>RECENT TRANSACTIONS</h2>
+
+        <button id="viewAllTransactions">
+          VIEW ALL
+        </button>
+      </div>
+
+
+      <div id="transactionsList">
+
+        <div class="loading-transactions">
+          Loading transactions...
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- TOP UP MODAL -->
+  <div class="modal-overlay" id="topupModal">
+
+    <div class="topup-modal">
+
+      <button
+        class="modal-close"
+        id="closeModalBtn"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+
+      <div class="modal-content">
+
+        <h2>Complete your top-up</h2>
+
+        <p class="modal-subtitle">
+          Transfer the exact amount below to complete your wallet top-up.
+        </p>
+
+
+        <!-- AMOUNT -->
+        <div class="modal-row">
+
+          <div>
+            <span>Amount</span>
+            <strong id="modalAmount">₦0</strong>
+          </div>
+
+        </div>
+
+
+        <!-- REFERENCE -->
+        <div class="reference-row">
+
+          <div>
+            <span>Reference</span>
+            <strong id="modalReference">
+              Generating...
+            </strong>
+          </div>
+
+          <button id="copyReferenceBtn">
+            Copy
+          </button>
+
+        </div>
+
+
+        <!-- BANK DETAILS -->
+        <div class="transfer-box">
+
+          <h3>
+            Transfer to this account
+          </h3>
+
+          <div class="bank-detail">
+            <span>Bank</span>
+            <strong id="bankName">Loading...</strong>
+          </div>
+
+          <div class="bank-detail">
+            <span>Account Number</span>
+            <strong id="accountNumber">Loading...</strong>
+          </div>
+
+          <div class="bank-detail">
+            <span>Account Name</span>
+            <strong id="accountName">Loading...</strong>
+          </div>
+
+          <div class="bank-detail">
+            <span>Amount to send</span>
+            <strong id="transferAmount">₦0</strong>
+          </div>
+
+        </div>
+
+
+        <!-- INSTRUCTIONS -->
+        <div class="instructions">
+
+          <h3>Instructions</h3>
+
+          <ol>
+            <li>
+              Open your banking app and make a transfer.
+            </li>
+
+            <li>
+              Send the exact amount shown above.
+            </li>
+
+            <li>
+              Use the reference when required.
+            </li>
+
+            <li>
+              After payment, send your payment proof through WhatsApp.
+            </li>
+          </ol>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+        <button
+          class="cancel-btn"
+          id="cancelBtn"
+          type="button"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          class="whatsapp-btn"
+          id="whatsappBtn"
+          type="button"
+        >
+          <span>◉</span>
+          SEND PROOF ON WHATSAPP
+        </button>
+
+
+        <div class="modal-secured">
+          Secured by manual deposit
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+
+  <script type="module" src="wallet.js"></script>
+
+</body>
+</html>
