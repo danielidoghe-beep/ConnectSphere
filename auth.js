@@ -31,7 +31,7 @@ const firebaseConfig = {
 };
 
 // Where to send users after a successful login.
-const REDIRECT_URL = "./index.html";
+const REDIRECT_URL = "./dashboard.html";
 // ------------------------------------------------------------
 
 const app = initializeApp(firebaseConfig);
