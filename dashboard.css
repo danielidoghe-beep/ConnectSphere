@@ -1,0 +1,1458 @@
+/* =========================================================
+   Connecsphere — DASHBOARD
+   COMPLETE CSS
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f8fa;
+    color: #111111;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+svg {
+    display: block;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    width: 100%;
+    height: 64px;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
+.menu-button {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 5px;
+
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    background: #151515;
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   HEADER CONTROLS
+========================================================= */
+
+.header-controls {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+/* =========================================================
+   HEADER WALLET
+========================================================= */
+
+.header-wallet {
+    min-width: 57px;
+    height: 32px;
+
+    padding: 0 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eeeeee;
+
+    border-radius: 18px;
+
+    color: #5aaf18;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   HEADER ICON BUTTONS
+========================================================= */
+
+.header-icon-button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #454545;
+}
+
+.theme-button {
+    padding: 5px;
+}
+
+.moon-icon {
+    width: 22px;
+    height: 22px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.notification-button {
+    position: relative;
+}
+
+.bell-icon {
+    width: 21px;
+    height: 21px;
+
+    fill: none;
+    stroke: #333333;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   NOTIFICATION BADGE
+========================================================= */
+
+.notification-badge {
+    min-width: 17px;
+    height: 17px;
+
+    padding: 0 4px;
+
+    position: absolute;
+    top: 0;
+    right: -1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #61ad17;
+    color: #ffffff;
+
+    border: 2px solid #ffffff;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-button {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f4a300;
+
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   NOTIFICATION WRAPPER
+========================================================= */
+
+.notification-wrapper {
+    position: relative;
+}
+
+
+/* =========================================================
+   NOTIFICATION DROPDOWN
+========================================================= */
+
+.notification-dropdown {
+    width: min(355px, calc(100vw - 24px));
+
+    position: absolute;
+
+    top: 45px;
+    right: -45px;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 16px 45px rgba(0, 0, 0, 0.12);
+
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-7px);
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s ease;
+}
+
+.notification-dropdown.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   NOTIFICATION HEADER
+========================================================= */
+
+.notification-dropdown-top {
+    min-height: 61px;
+
+    padding: 16px 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.notification-dropdown-top h2 {
+    color: #111111;
+
+    font-size: 19px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.mark-read-button {
+    color: #5aad17;
+
+    background: transparent;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   NOTIFICATION LIST
+========================================================= */
+
+.notification-list {
+    max-height: 350px;
+
+    padding: 10px;
+
+    overflow-y: auto;
+}
+
+.notification-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   NOTIFICATION ITEM
+========================================================= */
+
+.notification-item {
+    padding: 13px 14px;
+
+    margin-bottom: 8px;
+
+    background: #fff6e8;
+
+    border-radius: 13px;
+}
+
+.notification-item:last-child {
+    margin-bottom: 0;
+}
+
+.notification-item.unread {
+    border-left: 3px solid #61ad17;
+}
+
+.notification-title {
+    margin-bottom: 5px;
+
+    color: #1888df;
+
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.notification-message {
+    color: #4c4c4c;
+
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.notification-time {
+    margin-top: 7px;
+
+    color: #777777;
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.notification-loading,
+.notification-empty {
+    padding: 24px 12px;
+
+    text-align: center;
+
+    color: #777777;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   VIEW ALL NOTIFICATIONS
+========================================================= */
+
+.view-all-notifications {
+    display: block;
+
+    padding: 15px 17px;
+
+    border-top: 1px solid #eeeeee;
+
+    color: #5aad17;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   SIDE MENU
+========================================================= */
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 190;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.side-menu {
+    width: min(290px, 82vw);
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 200;
+
+    background: #ffffff;
+
+    padding: 18px;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.25s ease;
+
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.open {
+    transform: translateX(0);
+}
+
+.side-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.side-menu-brand {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.close-menu-button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.close-menu-button svg {
+    width: 21px;
+    height: 21px;
+
+    fill: none;
+    stroke: #333333;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+
+/* =========================================================
+   SIDE NAVIGATION
+========================================================= */
+
+.side-navigation {
+    padding-top: 17px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.side-navigation-link {
+    padding: 13px 12px;
+
+    border-radius: 9px;
+
+    color: #444444;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.side-navigation-link:hover,
+.side-navigation-link.active {
+    background: #eef8e8;
+    color: #55a815;
+}
+
+.side-logout-button {
+    margin-top: auto;
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 9px;
+
+    background: #f4f4f4;
+
+    color: #222222;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+    width: 100%;
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    padding: 21px 17px 55px;
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome-section {
+    margin-bottom: 19px;
+}
+
+.welcome-section h1 {
+    color: #111111;
+
+    font-size: 27px;
+    line-height: 1.12;
+
+    font-weight: 900;
+
+    letter-spacing: -0.8px;
+
+    margin-bottom: 6px;
+}
+
+.welcome-section p {
+    color: #555555;
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   SUMMARY SECTION
+========================================================= */
+
+.summary-section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+========================================================= */
+
+.summary-card {
+    width: 100%;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 12px;
+}
+
+.summary-label {
+    color: #5d5d5d;
+
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 500;
+
+    margin-bottom: 11px;
+}
+
+.summary-card h2 {
+    color: #111111;
+
+    font-size: 29px;
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 15px;
+}
+
+.summary-link {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 4px;
+
+    color: #444444;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.summary-link span {
+    color: #61ad17;
+}
+
+.inventory-breakdown {
+    color: #666666;
+
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   CONTENT SECTION
+========================================================= */
+
+.content-section {
+    width: 100%;
+
+    margin-top: 28px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    color: #111111;
+
+    font-size: 13px;
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: 0.4px;
+}
+
+.orders-heading > a {
+    color: #59a916;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   QUICK ACTION GRID
+========================================================= */
+
+.quick-actions-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   QUICK ACTION CARD
+========================================================= */
+
+.quick-action-card {
+    min-height: 151px;
+
+    padding: 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 11px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.quick-action-card:active {
+    transform: scale(0.985);
+}
+
+.quick-action-icon {
+    width: 34px;
+    height: 34px;
+
+    margin-bottom: 11px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quick-action-icon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.logs-icon {
+    background: #edf3ff;
+    color: #397ff0;
+}
+
+.tools-icon {
+    background: #f5edff;
+    color: #9c42e8;
+}
+
+.wallet-icon {
+    background: #ecf9ef;
+    color: #1ca54d;
+}
+
+.support-icon {
+    background: #fff0e6;
+    color: #f07820;
+}
+
+.quick-action-card h3 {
+    color: #111111;
+
+    font-size: 13px;
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    margin-bottom: 6px;
+}
+
+.quick-action-card p {
+    color: #666666;
+
+    font-size: 10.5px;
+    line-height: 1.42;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   SUPPORT CARD
+========================================================= */
+
+.support-card {
+    padding: 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 11px;
+}
+
+.support-empty {
+    padding: 17px;
+
+    background: #f4f5f6;
+
+    border: 1px dashed #d8dadd;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 12px;
+}
+
+.support-empty-icon {
+    width: 29px;
+    height: 29px;
+
+    flex: 0 0 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.support-empty-icon svg {
+    width: 19px;
+    height: 19px;
+
+    fill: none;
+
+    stroke: #777777;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.support-empty p {
+    color: #666666;
+
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.support-button {
+    min-height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #61ad17;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   ORDERS
+========================================================= */
+
+.orders-container {
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 11px;
+
+    overflow: hidden;
+}
+
+.orders-loading,
+.orders-empty {
+    padding: 22px 16px;
+
+    text-align: center;
+
+    color: #777777;
+
+    font-size: 11px;
+}
+
+.order-item {
+    padding: 14px 15px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.order-item:last-child {
+    border-bottom: 0;
+}
+
+.order-left {
+    min-width: 0;
+}
+
+.order-title {
+    color: #111111;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-bottom: 4px;
+}
+
+.order-date {
+    color: #777777;
+
+    font-size: 10px;
+}
+
+.order-right {
+    text-align: right;
+
+    flex-shrink: 0;
+}
+
+.order-status {
+    display: inline-flex;
+
+    padding: 4px 7px;
+
+    border-radius: 20px;
+
+    background: #edf8e8;
+
+    color: #4c9f13;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.order-price {
+    margin-top: 5px;
+
+    color: #111111;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   QUICK HELP
+========================================================= */
+
+.quick-help-section {
+    margin-top: 76px;
+}
+
+.quick-help-card {
+    padding: 25px 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #dedede;
+
+    border-radius: 12px;
+}
+
+.quick-help-card h2 {
+    color: #111111;
+
+    font-size: 17px;
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    margin-bottom: 9px;
+}
+
+.quick-help-card > p {
+    color: #666666;
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   CONTACT BUTTONS
+========================================================= */
+
+.contact-button {
+    width: 100%;
+    min-height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-bottom: 9px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.contact-button svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.whatsapp-button {
+    background: #20d766;
+    color: #ffffff;
+}
+
+.telegram-button {
+    background: #ffffff;
+    color: #111111;
+
+    border: 1px solid #dedede;
+}
+
+.support-email {
+    display: block;
+
+    margin-top: 17px;
+
+    text-align: center;
+
+    color: #555555;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FIREBASE TOAST
+========================================================= */
+
+.firebase-toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 20px;
+
+    width: min(390px, calc(100vw - 30px));
+
+    transform:
+        translate(-50%, 120px);
+
+    z-index: 500;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 13px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.14);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.firebase-toast.show {
+    transform:
+        translate(-50%, 0);
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.firebase-toast-icon {
+    width: 32px;
+    height: 32px;
+
+    flex: 0 0 32px;
+
+    border-radius: 50%;
+
+    background: #eaf7e4;
+
+    color: #56a914;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.firebase-toast-icon svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.firebase-toast.error .firebase-toast-icon {
+    background: #fff0f0;
+    color: #d93636;
+}
+
+.firebase-toast-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.firebase-toast-content strong {
+    display: block;
+
+    color: #111111;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-bottom: 3px;
+}
+
+.firebase-toast-content p {
+    color: #666666;
+
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.toast-close {
+    color: #777777;
+
+    background: transparent;
+
+    font-size: 20px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark {
+    background: #111111;
+    color: #f5f5f5;
+}
+
+body.dark .header,
+body.dark .summary-card,
+body.dark .quick-action-card,
+body.dark .support-card,
+body.dark .orders-container,
+body.dark .quick-help-card,
+body.dark .notification-dropdown,
+body.dark .firebase-toast,
+body.dark .side-menu {
+    background: #1b1b1b;
+
+    border-color: #333333;
+}
+
+body.dark .welcome-section h1,
+body.dark .section-heading h2,
+body.dark .summary-card h2,
+body.dark .quick-action-card h3,
+body.dark .quick-help-card h2,
+body.dark .notification-dropdown-top h2,
+body.dark .firebase-toast-content strong,
+body.dark .order-title {
+    color: #f5f5f5;
+}
+
+body.dark .welcome-section p,
+body.dark .summary-label,
+body.dark .inventory-breakdown,
+body.dark .quick-action-card p,
+body.dark .support-empty p,
+body.dark .quick-help-card > p,
+body.dark .support-email,
+body.dark .order-date,
+body.dark .notification-message {
+    color: #aaaaaa;
+}
+
+body.dark .summary-link {
+    color: #cccccc;
+}
+
+body.dark .notification-dropdown-top,
+body.dark .view-all-notifications,
+body.dark .order-item {
+    border-color: #333333;
+}
+
+body.dark .notification-item {
+    background: #292118;
+}
+
+body.dark .support-empty {
+    background: #252525;
+    border-color: #3a3a3a;
+}
+
+body.dark .telegram-button {
+    background: #1b1b1b;
+    color: #f5f5f5;
+    border-color: #333333;
+}
+
+body.dark .header-wallet {
+    background: #292929;
+}
+
+body.dark .moon-icon,
+body.dark .bell-icon {
+    stroke: #dddddd;
+}
+
+body.dark .menu-button span {
+    background: #dddddd;
+}
+
+body.dark .close-menu-button svg {
+    stroke: #dddddd;
+}
+
+body.dark .side-navigation-link {
+    color: #cccccc;
+}
+
+body.dark .side-navigation-link:hover,
+body.dark .side-navigation-link.active {
+    background: #203019;
+    color: #70bf27;
+}
+
+body.dark .side-logout-button {
+    background: #292929;
+    color: #eeeeee;
+}
+
+body.dark .firebase-toast-content strong {
+    color: #f5f5f5;
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media (min-width: 601px) {
+
+    .header {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .main {
+        max-width: 760px;
+
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .summary-section {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+    .summary-card {
+        min-height: 151px;
+    }
+
+    .quick-actions-grid {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+
+    .quick-action-card {
+        min-height: 170px;
+    }
+
+    .notification-dropdown {
+        right: -10px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .header {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .header-controls {
+        gap: 7px;
+    }
+
+    .header-wallet {
+        min-width: 49px;
+        padding: 0 8px;
+
+        font-size: 11px;
+    }
+
+    .profile-button {
+        width: 33px;
+        height: 33px;
+
+        font-size: 14px;
+    }
+
+    .main {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .welcome-section h1 {
+        font-size: 25px;
+    }
+
+    .quick-action-card {
+        min-height: 145px;
+        padding: 13px;
+    }
+
+    .quick-action-card p {
+        font-size: 10px;
+    }
+
+    .notification-dropdown {
+        right: -48px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
