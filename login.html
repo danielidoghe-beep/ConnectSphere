@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sign In - Connectphere</title>
+    <title>Sign in - VerifyStackAcct</title>
 
-    <!-- CSS will be added next -->
+    <!-- Login page CSS -->
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -20,127 +17,88 @@
     ========================== -->
     <header class="site-header">
 
-        <div class="header-inner">
+        <a href="index.html" class="brand">
+            <span class="brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26 4L5 15.5L26 27L47 15.5L26 4Z"
+                          fill="none"
+                          stroke="#57A617"
+                          stroke-width="3.5"
+                          stroke-linejoin="round"/>
 
-            <!-- Logo -->
-            <a href="index.html" class="brand" aria-label="VerifyStackAcct Home">
+                    <path d="M5 25L26 36.5L47 25"
+                          fill="none"
+                          stroke="#57A617"
+                          stroke-width="3.5"
+                          stroke-linejoin="round"/>
+
+                    <path d="M5 34.5L26 46L47 34.5"
+                          fill="none"
+                          stroke="#57A617"
+                          stroke-width="3.5"
+                          stroke-linejoin="round"/>
+                </svg>
+            </span>
+
+            <span class="brand-name">VerifyStackAcct</span>
+        </a>
+
+
+        <div class="header-actions">
+
+            <!-- Dark mode button -->
+            <button
+                type="button"
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Toggle dark mode">
 
                 <svg
-                    class="brand-icon"
-                    viewBox="0 0 48 48"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M24 4L4 14L24 24L44 14L24 4Z"
-                        fill="none"
-                        stroke="#59A817"
-                        stroke-width="3"
-                        stroke-linejoin="round"
-                    />
+                    class="moon-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
 
                     <path
-                        d="M4 23L24 33L44 23"
-                        fill="none"
-                        stroke="#59A817"
-                        stroke-width="3"
-                        stroke-linejoin="round"
-                    />
-
-                    <path
-                        d="M4 32L24 42L44 32"
-                        fill="none"
-                        stroke="#59A817"
-                        stroke-width="3"
-                        stroke-linejoin="round"
-                    />
+                        d="M20.5 15.5C19.2 16.1 17.8 16.4 16.3 16.3C11.8 16 8 12.2 7.7 7.7C7.6 6.2 7.9 4.8 8.5 3.5C4.5 5 2 8.8 2.4 13.1C2.9 18 7 21.7 11.9 21.7C16.2 21.7 19.9 19.2 21.4 15.2C21.1 15.3 20.8 15.4 20.5 15.5Z"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
                 </svg>
-
-                <span class="brand-name">VerifyStackAcct</span>
-
-            </a>
+            </button>
 
 
-            <!-- Header controls -->
-            <div class="header-controls">
+            <!-- Mobile menu -->
+            <button
+                type="button"
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open menu">
 
-                <!-- Dark mode button -->
-                <button
-                    type="button"
-                    class="theme-toggle"
-                    id="themeToggle"
-                    aria-label="Toggle dark mode"
-                >
-                    <svg
-                        class="moon-icon"
-                        viewBox="0 0 32 32"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M26.5 20.7C24.9 21.4 23.2 21.8 21.3 21.8C14.8 21.8 9.5 16.5 9.5 10C9.5 8.1 9.9 6.4 10.6 4.8C5.8 6.8 2.5 11.4 2.5 16.8C2.5 23.9 8.3 29.5 15.4 29.5C20.8 29.5 25.4 26.2 27.4 21.4C27.1 21.2 26.8 21 26.5 20.7Z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                </button>
-
-
-                <!-- Mobile menu -->
-                <button
-                    type="button"
-                    class="menu-toggle"
-                    id="menuToggle"
-                    aria-label="Open menu"
-                    aria-expanded="false"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-            </div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
         </div>
-
     </header>
 
 
     <!-- =========================
-         MOBILE MENU
+         LOGIN PAGE
     ========================== -->
-    <nav
-        class="mobile-menu"
-        id="mobileMenu"
-        aria-hidden="true"
-    >
+    <main class="login-page">
 
-        <a href="index.html">Home</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="signin.html">Sign in</a>
-        <a href="signup.html">Get started</a>
-        <a href="faq.html">FAQ</a>
-
-    </nav>
-
-
-    <!-- =========================
-         MAIN SIGN-IN CONTENT
-    ========================== -->
-    <main class="signin-page">
-
-        <section class="signin-container">
+        <section class="login-container">
 
             <!-- Heading -->
-            <div class="signin-heading">
-
+            <div class="login-heading">
                 <h1>Sign in</h1>
 
-                <p>Welcome back to VerifyStackAcct</p>
-
+                <p>
+                    Welcome back to VerifyStackAcct
+                </p>
             </div>
 
 
@@ -149,47 +107,43 @@
             ========================== -->
             <button
                 type="button"
-                class="google-signin-button"
-                id="googleSignInButton"
-            >
+                class="google-signin"
+                id="googleSignInBtn">
 
-                <!-- Real Google G logo -->
+                <!-- Official Google G logo -->
                 <svg
                     class="google-icon"
+                    width="32"
+                    height="32"
                     viewBox="0 0 48 48"
                     xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                >
-                    <path
-                        fill="#EA4335"
-                        d="M24 9.5c3.54 0 6.72 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.61 0 6.52 5.38 2.56 13.22l7.98 6.19C12.43 13.21 17.74 9.5 24 9.5z"
-                    />
+                    aria-hidden="true">
 
                     <path
-                        fill="#4285F4"
-                        d="M46.98 24.55c0-1.64-.15-3.22-.42-4.74H24v9h12.94c-.56 3-2.26 5.54-4.82 7.24l7.73 6c4.51-4.17 7.13-10.32 7.13-17.5z"
-                    />
+                        fill="#FFC107"
+                        d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.2 6.1 29.4 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.2-.1-2.4-.4-3.5Z"/>
 
                     <path
-                        fill="#FBBC05"
-                        d="M10.54 28.59A14.43 14.43 0 0 1 9.5 24c0-1.59.36-3.13 1.04-4.59l-7.98-6.19A23.94 23.94 0 0 0 0 24c0 3.87.93 7.54 2.56 10.78l7.98-6.19z"
-                    />
+                        fill="#FF3D00"
+                        d="M6.3 14.7l6.6 4.8C14.7 16 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.2 6.1 29.4 4 24 4c-7.7 0-14.3 4.3-17.7 10.7Z"/>
 
                     <path
-                        fill="#34A853"
-                        d="M24 48c6.48 0 11.91-2.14 15.85-5.85l-7.73-6c-2.14 1.44-4.86 2.29-8.12 2.29-6.26 0-11.57-3.71-13.46-8.91l-7.98 6.19C6.52 42.62 14.61 48 24 48z"
-                    />
+                        fill="#4CAF50"
+                        d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.6 35.1 27 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.6 5.1C9.5 39.5 16.2 44 24 44Z"/>
+
+                    <path
+                        fill="#1976D2"
+                        d="M43.6 20.5H42V20H24v8h11.3c-1.1 3.2-3.7 5.5-7.1 6.8l6.2 5.2C38.1 36.8 44 31.2 44 24c0-1.2-.1-2.4-.4-3.5Z"/>
                 </svg>
 
                 <span>Sign in with Google</span>
-
             </button>
 
 
             <!-- =========================
-                 DIVIDER
+                 EMAIL DIVIDER
             ========================== -->
-            <div class="signin-divider">
+            <div class="login-divider">
 
                 <span class="divider-line"></span>
 
@@ -203,41 +157,25 @@
 
 
             <!-- =========================
-                 FIREBASE MESSAGE AREA
+                 FIREBASE MESSAGE
+                 Hidden until needed
             ========================== -->
-
-            <!-- Error message -->
             <div
-                class="firebase-message firebase-error"
-                id="firebaseError"
+                id="firebaseMessage"
+                class="firebase-message"
                 role="alert"
                 aria-live="polite"
-                hidden
-            >
-                Invalid email or password
-            </div>
+                hidden>
 
+                <span id="firebaseMessageText"></span>
 
-            <!-- Success message -->
-            <div
-                class="firebase-message firebase-success"
-                id="firebaseSuccess"
-                role="status"
-                aria-live="polite"
-                hidden
-            >
-                Login successful! Redirecting...
             </div>
 
 
             <!-- =========================
                  EMAIL/PASSWORD FORM
             ========================== -->
-            <form
-                class="signin-form"
-                id="signinForm"
-                novalidate
-            >
+            <form id="loginForm" class="login-form">
 
                 <!-- Email -->
                 <div class="form-group">
@@ -250,10 +188,9 @@
                         type="email"
                         id="email"
                         name="email"
-                        autocomplete="email"
                         placeholder="you@example.com"
-                        required
-                    >
+                        autocomplete="email"
+                        required>
 
                 </div>
 
@@ -271,77 +208,38 @@
                             type="password"
                             id="password"
                             name="password"
-                            autocomplete="current-password"
                             placeholder="Enter your password"
-                            required
-                        >
+                            autocomplete="current-password"
+                            required>
 
                         <!-- Password visibility -->
                         <button
                             type="button"
                             class="password-toggle"
                             id="passwordToggle"
-                            aria-label="Show password"
-                        >
+                            aria-label="Show password">
 
                             <!-- Eye icon -->
                             <svg
-                                class="eye-icon eye-visible"
-                                viewBox="0 0 32 32"
+                                id="eyeIcon"
+                                viewBox="0 0 24 24"
+                                fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true"
-                            >
+                                aria-hidden="true">
+
                                 <path
-                                    d="M2.5 16C5.8 9.7 10.5 6.5 16 6.5S26.2 9.7 29.5 16C26.2 22.3 21.5 25.5 16 25.5S5.8 22.3 2.5 16Z"
-                                    fill="none"
+                                    d="M2.5 12C2.5 12 6 5.5 12 5.5C18 5.5 21.5 12 21.5 12C21.5 12 18 18.5 12 18.5C6 18.5 2.5 12 2.5 12Z"
                                     stroke="currentColor"
-                                    stroke-width="2.3"
-                                    stroke-linejoin="round"
-                                />
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"/>
 
                                 <circle
-                                    cx="16"
-                                    cy="16"
-                                    r="4"
-                                    fill="none"
+                                    cx="12"
+                                    cy="12"
+                                    r="3"
                                     stroke="currentColor"
-                                    stroke-width="2.3"
-                                />
-                            </svg>
-
-
-                            <!-- Hidden eye-off icon -->
-                            <svg
-                                class="eye-icon eye-hidden"
-                                viewBox="0 0 32 32"
-                                xmlns="http://www.w3.org/2000/svg"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M4 4L28 28"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.5"
-                                    stroke-linecap="round"
-                                />
-
-                                <path
-                                    d="M13.7 7C14.45 6.68 15.22 6.5 16 6.5C21.5 6.5 26.2 9.7 29.5 16C28.15 18.58 26.55 20.6 24.7 22.08"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.3"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-
-                                <path
-                                    d="M9.3 9.92C6.72 11.32 4.45 13.35 2.5 16C5.8 22.3 10.5 25.5 16 25.5C17.9 25.5 19.67 25.15 21.3 24.47"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2.3"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
+                                    stroke-width="2"/>
                             </svg>
 
                         </button>
@@ -352,15 +250,14 @@
 
 
                 <!-- Remember / Forgot -->
-                <div class="form-options">
+                <div class="login-options">
 
                     <label class="remember-option">
 
                         <input
                             type="checkbox"
                             id="rememberMe"
-                            name="rememberMe"
-                        >
+                            name="rememberMe">
 
                         <span class="custom-checkbox"></span>
 
@@ -373,9 +270,10 @@
 
                     <a
                         href="forgot-password.html"
-                        class="forgot-password"
-                    >
+                        class="forgot-password">
+
                         Forgot password?
+
                     </a>
 
                 </div>
@@ -387,22 +285,16 @@
                 <button
                     type="submit"
                     class="signin-button"
-                    id="signinButton"
-                >
+                    id="signinButton">
 
-                    <span
-                        class="signin-button-text"
-                        id="signinButtonText"
-                    >
+                    <span id="signinButtonText">
                         Sign in
                     </span>
 
                     <span
-                        class="signin-loading-text"
-                        id="signinLoadingText"
-                        hidden
-                    >
-                        Signing in...
+                        id="signinLoader"
+                        class="signin-loader"
+                        hidden>
                     </span>
 
                 </button>
@@ -413,9 +305,9 @@
             <!-- =========================
                  SIGN UP
             ========================== -->
-            <p class="signup-prompt">
+            <p class="signup-text">
 
-                <span>Don't have an account?</span>
+                Don't have an account?
 
                 <a href="signup.html">
                     Sign up
@@ -428,10 +320,7 @@
     </main>
 
 
-    <!-- =========================
-         JAVASCRIPT WILL BE ADDED
-         AFTER THE CSS
-    ========================== -->
+    <!-- Firebase / login functionality will be added in the next part -->
     <script type="module" src="login.js"></script>
 
 </body>
