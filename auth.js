@@ -12,8 +12,9 @@ import {
   browserSessionPersistence,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
+  signInWithRedirect,
+getRedirectResult,
+GoogleAuthProvider,
   sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
@@ -31,7 +32,7 @@ const firebaseConfig = {
 };
 
 // Where to send users after a successful login.
-const REDIRECT_URL = "./dashboard.html";
+const ADMIN_EMAIL = "danielidoghe@gmail.com";
 // ------------------------------------------------------------
 
 const app = initializeApp(firebaseConfig);
@@ -107,9 +108,14 @@ function setLoading(isLoading) {
       ? "Sign in"
       : "Sign up";
 }
+function redirect(user) {
+  const email = (user?.email || "").toLowerCase().trim();
 
-function redirect() {
-  window.location.href = REDIRECT_URL;
+  if (email === ADMIN_EMAIL.toLowerCase().trim()) {
+    window.location.href = "./admin.html";
+  } else {
+    window.location.href = "./dashboard.html";
+  }
 }
 
 // ---------- Show / hide password ----------
@@ -164,8 +170,16 @@ form.addEventListener("submit", async (e) => {
     );
 
     if (mode === "signin") {
-      await signInWithEmailAndPassword(auth, email, password);
-      showMessage("Login successful! Redirecting...", "success");
+      const userCredential =
+  await signInWithEmailAndPassword(auth, email, password);
+
+showMessage("Login successful! Redirecting...", "success");
+
+setTimeout(() => {
+  redirect(userCredential.user);
+}, 1200);
+
+return;
     } else {
       await createUserWithEmailAndPassword(auth, email, password);
       showMessage("Account created! Redirecting...", "success");
@@ -177,19 +191,23 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-// ---------- Google sign in ----------
+// ---------- Google sign in with redirect ----------
 googleBtn.addEventListener("click", async () => {
   clearMessage();
   setLoading(true);
+
   try {
     await setPersistence(
       auth,
-      rememberInput.checked ? browserLocalPersistence : browserSessionPersistence,
+      rememberInput.checked
+        ? browserLocalPersistence
+        : browserSessionPersistence
     );
-    await signInWithPopup(auth, googleProvider);
-    showMessage("Login successful! Redirecting...", "success");
-    setTimeout(redirect, 1200);
+
+    await signInWithRedirect(auth, googleProvider);
+
   } catch (error) {
+    console.error("Google redirect error:", error);
     showMessage(friendlyError(error), "error");
     setLoading(false);
   }
@@ -211,3 +229,24 @@ forgotBtn.addEventListener("click", async () => {
     showMessage(friendlyError(error), "error");
   }
 });
+// ---------- Handle Google redirect result ----------
+getRedirectResult(auth)
+  .then((result) => {
+    if (!result || !result.user) {
+      return;
+    }
+
+    showMessage(
+      "Login successful! Redirecting...",
+      "success"
+    );
+
+    setTimeout(() => {
+      redirect(result.user);
+    }, 1200);
+  })
+  .catch((error) => {
+    console.error("Google redirect result error:", error);
+    showMessage(friendlyError(error), "error");
+    setLoading(false);
+  });
