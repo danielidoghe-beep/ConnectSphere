@@ -1,822 +1,560 @@
-/* =========================================
-   FIREBASE IMPORTS
-========================================= */
+/* =========================================================
+   ORDERS PAGE
+   Firebase-powered order history
+========================================================= */
 
 import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-
-import {
-    getAuth,
-    onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-
-import {
-    getFirestore,
     collection,
     query,
     where,
-    onSnapshot,
-    doc,
-    getDoc
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+    getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    db,
+    auth
+} from "./firebase-config.js";
 
 
-/* =========================================
-   FIREBASE CONFIGURATION
-========================================= */
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAKAD0Gxtk4XxMmnR_kpjmy5VLoX72Dtls",
-    authDomain: "connectsphere-7a679.firebaseapp.com",
-    projectId: "connectsphere-7a679",
-    storageBucket: "connectsphere-7a679.firebasestorage.app",
-    messagingSenderId: "748741698521",
-    appId: "1:748741698521:web:ea08d28f31a4d8638c2fc8",
-    measurementId: "G-WRQ5GX3KMZ"
-};
-
-
-/* =========================================
-   INITIALIZE FIREBASE
-========================================= */
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
-
-
-/* =========================================
+/* =========================================================
    ELEMENTS
-========================================= */
+========================================================= */
 
-const ordersList =
-    document.getElementById("ordersList");
-
-const emptyOrders =
-    document.getElementById("emptyOrders");
-
-const walletBalance =
-    document.getElementById("walletBalance");
-
-const profileInitial =
-    document.getElementById("profileInitial");
-
-const darkModeButton =
-    document.getElementById("darkModeButton");
-
-const menuButton =
-    document.getElementById("menuButton");
-
-const closeMenuButton =
-    document.getElementById("closeMenuButton");
-
-const menuOverlay =
-    document.getElementById("menuOverlay");
-
-const sideMenu =
-    document.getElementById("sideMenu");
-
-const orderModalBackdrop =
-    document.getElementById("orderModalBackdrop");
-
-const closeOrderModal =
-    document.getElementById("closeOrderModal");
-
-const orderModalContent =
-    document.getElementById("orderModalContent");
+const ordersList = document.getElementById("ordersList");
+const emptyOrders = document.getElementById("emptyOrders");
 
 
-/* =========================================
-   DARK MODE
-========================================= */
+/* =========================================================
+   START
+========================================================= */
 
-const savedTheme =
-    localStorage.getItem("ordersTheme");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-}
+    if (!ordersList || !emptyOrders) {
+        console.error(
+            "Orders page elements were not found."
+        );
+        return;
+    }
 
-darkModeButton.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark-mode");
-
-    localStorage.setItem(
-        "ordersTheme",
-        document.body.classList.contains("dark-mode")
-            ? "dark"
-            : "light"
-    );
+    listenForUser();
 });
 
 
-/* =========================================
-   SIDE MENU
-========================================= */
+/* =========================================================
+   WAIT FOR FIREBASE AUTH
+========================================================= */
 
-function openMenu() {
+function listenForUser() {
 
-    sideMenu.classList.add("open");
+    onAuthStateChanged(auth, async (user) => {
 
-    menuOverlay.classList.add("open");
+        if (!user) {
 
-    sideMenu.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-}
+            /*
+             * No signed-in user.
+             *
+             * We keep the page looking exactly like
+             * the empty design.
+             */
 
-function closeMenu() {
+            showEmptyOrders();
 
-    sideMenu.classList.remove("open");
-
-    menuOverlay.classList.remove("open");
-
-    sideMenu.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-}
-
-menuButton.addEventListener(
-    "click",
-    openMenu
-);
-
-closeMenuButton.addEventListener(
-    "click",
-    closeMenu
-);
-
-menuOverlay.addEventListener(
-    "click",
-    closeMenu
-);
-
-
-/* =========================================
-   PROFILE
-========================================= */
-
-function getInitial(user) {
-
-    if (!user) {
-        return "D";
-    }
-
-    const name =
-        user.displayName ||
-        user.email ||
-        "D";
-
-    return name
-        .trim()
-        .charAt(0)
-        .toUpperCase() || "D";
-}
-
-
-/* =========================================
-   FORMAT NAIRA
-========================================= */
-
-function formatNaira(value) {
-
-    const amount =
-        Number(value) || 0;
-
-    return "₦" +
-        amount.toLocaleString(
-            "en-NG",
-            {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 2
-            }
-        );
-}
-
-
-/* =========================================
-   DATE FORMAT
-========================================= */
-
-function formatDate(value) {
-
-    if (!value) {
-        return "";
-    }
-
-    let date;
-
-    if (
-        value &&
-        typeof value.toDate === "function"
-    ) {
-        date = value.toDate();
-    }
-
-    else if (
-        value instanceof Date
-    ) {
-        date = value;
-    }
-
-    else if (
-        typeof value === "number"
-    ) {
-        date = new Date(value);
-    }
-
-    else if (
-        typeof value === "string"
-    ) {
-        date = new Date(value);
-    }
-
-    else {
-        return "";
-    }
-
-    if (
-        Number.isNaN(date.getTime())
-    ) {
-        return "";
-    }
-
-    return date.toLocaleString(
-        "en-NG",
-        {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit"
-        }
-    );
-}
-
-
-/* =========================================
-   ESCAPE HTML
-========================================= */
-
-function escapeHtml(value) {
-
-    return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-
-/* =========================================
-   LOAD USER PROFILE
-========================================= */
-
-async function loadUserProfile(user) {
-
-    if (!user) {
-        return;
-    }
-
-    profileInitial.textContent =
-        getInitial(user);
-
-    try {
-
-        const userRef =
-            doc(
-                db,
-                "users",
-                user.uid
-            );
-
-        const userSnap =
-            await getDoc(userRef);
-
-        if (!userSnap.exists()) {
             return;
         }
 
-        const data =
-            userSnap.data();
+        await loadOrders(user.uid);
+    });
+}
+
+
+/* =========================================================
+   LOAD USER ORDERS
+========================================================= */
+
+async function loadOrders(userId) {
+
+    try {
+
+        clearOrders();
+
+        hideEmptyOrders();
 
         /*
-         * Supports common balance field names
-         * without requiring another edit.
+         * Only retrieve orders belonging to
+         * the currently logged-in user.
          */
 
-        const balance =
-            data.balance ??
-            data.walletBalance ??
-            data.wallet ??
-            0;
+        const ordersRef = collection(db, "orders");
 
-        walletBalance.textContent =
-            formatNaira(balance);
+        const ordersQuery = query(
+            ordersRef,
+            where("userId", "==", userId)
+        );
+
+        const snapshot = await getDocs(ordersQuery);
+
+
+        /* =====================================================
+           NO ORDERS
+        ===================================================== */
+
+        if (snapshot.empty) {
+
+            showEmptyOrders();
+
+            return;
+        }
+
+
+        /* =====================================================
+           CONVERT FIREBASE DOCUMENTS TO ARRAY
+        ===================================================== */
+
+        const orders = [];
+
+        snapshot.forEach((documentSnapshot) => {
+
+            const data = documentSnapshot.data();
+
+            orders.push({
+                id: documentSnapshot.id,
+                ...data
+            });
+        });
+
+
+        /* =====================================================
+           SORT NEWEST FIRST
+        ===================================================== */
+
+        orders.sort((a, b) => {
+
+            const dateA = getDateValue(a.createdAt);
+            const dateB = getDateValue(b.createdAt);
+
+            return dateB - dateA;
+        });
+
+
+        /* =====================================================
+           DISPLAY ORDERS
+        ===================================================== */
+
+        orders.forEach((order) => {
+
+            createOrderCard(order);
+        });
+
+
+        /*
+         * Safety check.
+         */
+
+        if (orders.length === 0) {
+
+            showEmptyOrders();
+        }
 
     } catch (error) {
 
+        console.error(
+            "Unable to load orders:",
+            error
+        );
+
         /*
-         * If the profile cannot be read,
-         * the visual design remains exactly
-         * as the screenshot.
+         * Do NOT show the ugly
+         * "Unable to load orders"
+         * design that was appearing before.
+         *
+         * Keep the page clean.
          */
 
-        walletBalance.textContent = "₦0";
+        showEmptyOrders();
     }
 }
 
 
-/* =========================================
-   CLEAR CURRENT ORDERS
-========================================= */
+/* =========================================================
+   CREATE ORDER CARD
+========================================================= */
 
-function clearOrders() {
+function createOrderCard(order) {
 
-    const cards =
-        ordersList.querySelectorAll(
-            ".order-card"
-        );
+    const card = document.createElement("div");
 
-    cards.forEach(card => {
-        card.remove();
-    });
-}
+    card.className = "order-card";
 
 
-/* =========================================
-   SHOW EMPTY STATE
-========================================= */
+    /* =====================================================
+       PRODUCT NAME
+    ===================================================== */
 
-function showEmptyState() {
-
-    clearOrders();
-
-    emptyOrders.style.display =
-        "flex";
-}
-
-
-/* =========================================
-   RENDER ORDERS
-========================================= */
-
-function renderOrders(orders) {
-
-    clearOrders();
-
-    if (!orders.length) {
-
-        emptyOrders.style.display =
-            "flex";
-
-        return;
-    }
-
-    emptyOrders.style.display =
-        "none";
+    const productName =
+        order.productName ||
+        order.product ||
+        order.itemName ||
+        order.title ||
+        "Purchased item";
 
 
-    orders.forEach(order => {
+    /* =====================================================
+       STATUS
+    ===================================================== */
 
-        const data =
-            order.data;
+    const status =
+        order.status ||
+        "Processing";
 
-        const card =
-            document.createElement("article");
 
-        card.className =
-            "order-card";
+    /* =====================================================
+       ORDER ID
+    ===================================================== */
 
-        const productName =
-            data.productName ||
-            data.product ||
-            data.itemName ||
-            data.name ||
-            "Purchase";
+    const orderId =
+        order.orderId ||
+        order.reference ||
+        order.transactionId ||
+        order.id;
 
-        const amount =
-            data.amount ??
-            data.price ??
-            data.total ??
-            0;
 
-        const status =
-            data.status ||
-            "Completed";
+    /* =====================================================
+       AMOUNT
+    ===================================================== */
 
-        const createdAt =
-            data.createdAt ||
-            data.timestamp ||
-            data.date ||
-            null;
+    const amount =
+        order.amount ??
+        order.total ??
+        order.price ??
+        0;
 
-        const reference =
-            data.reference ||
-            data.orderId ||
-            order.id;
 
-        card.innerHTML = `
+    /* =====================================================
+       DATE
+    ===================================================== */
 
-            <div class="order-card-header">
+    const date =
+        formatDate(order.createdAt);
 
-                <h3 class="order-name">
-                    ${escapeHtml(productName)}
-                </h3>
 
-                <span class="order-status">
-                    ${escapeHtml(status)}
-                </span>
+    /* =====================================================
+       MAIN CARD
+    ===================================================== */
 
+    card.innerHTML = `
+
+        <div class="order-card-top">
+
+            <div class="order-product">
+                ${escapeHTML(productName)}
             </div>
 
-            <div class="order-info">
-
-                Reference:
-                ${escapeHtml(reference)}
-
-                ${
-                    createdAt
-                        ? `<br>${escapeHtml(
-                            formatDate(createdAt)
-                        )}`
-                        : ""
-                }
-
-            </div>
-
-            <div class="order-amount">
-                ${formatNaira(amount)}
-            </div>
-
-        `;
-
-        card.addEventListener(
-            "click",
-            () => openOrderDetails(
-                data,
-                order.id
-            )
-        );
-
-        ordersList.appendChild(card);
-    });
-}
-
-
-/* =========================================
-   OPEN ORDER DETAILS
-========================================= */
-
-function openOrderDetails(
-    data,
-    documentId
-) {
-
-    const rows = [];
-
-    const ignoredFields = new Set([
-        "userId",
-        "uid"
-    ]);
-
-    Object.entries(data).forEach(
-        ([key, value]) => {
-
-            if (
-                ignoredFields.has(key) ||
-                value === undefined ||
-                value === null
-            ) {
-                return;
-            }
-
-            let displayValue = value;
-
-            if (
-                value &&
-                typeof value.toDate === "function"
-            ) {
-                displayValue =
-                    formatDate(value);
-            }
-
-            else if (
-                typeof value === "object"
-            ) {
-                try {
-                    displayValue =
-                        JSON.stringify(value);
-                } catch {
-                    displayValue =
-                        String(value);
-                }
-            }
-
-            rows.push(`
-                <div class="order-detail-row">
-
-                    <div class="order-detail-label">
-                        ${escapeHtml(key)}
-                    </div>
-
-                    <div class="order-detail-value">
-                        ${escapeHtml(displayValue)}
-                    </div>
-
-                </div>
-            `);
-        }
-    );
-
-    rows.push(`
-        <div class="order-detail-row">
-
-            <div class="order-detail-label">
-                Order document
-            </div>
-
-            <div class="order-detail-value">
-                ${escapeHtml(documentId)}
+            <div class="order-status">
+                ${escapeHTML(status)}
             </div>
 
         </div>
-    `);
-
-    orderModalContent.innerHTML =
-        rows.join("");
-
-    orderModalBackdrop.classList.add(
-        "open"
-    );
-
-    orderModalBackdrop.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-}
 
 
-/* =========================================
-   CLOSE ORDER MODAL
-========================================= */
+        <div class="order-details">
 
-function closeOrderDetails() {
+            <div class="order-detail">
 
-    orderModalBackdrop.classList.remove(
-        "open"
-    );
+                <strong>Order ID:</strong>
 
-    orderModalBackdrop.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-}
+                ${escapeHTML(orderId)}
 
-closeOrderModal.addEventListener(
-    "click",
-    closeOrderDetails
-);
+            </div>
 
-orderModalBackdrop.addEventListener(
-    "click",
-    event => {
 
-        if (
-            event.target ===
-            orderModalBackdrop
-        ) {
-            closeOrderDetails();
+            <div class="order-detail">
+
+                <strong>Amount:</strong>
+
+                ₦${formatAmount(amount)}
+
+            </div>
+
+
+            ${
+                date
+                    ? `
+                        <div class="order-detail">
+
+                            <strong>Date:</strong>
+
+                            ${escapeHTML(date)}
+
+                        </div>
+                    `
+                    : ""
+            }
+
+        </div>
+
+    `;
+
+
+    /* =====================================================
+       OPTIONAL LOGIN INFORMATION
+    ===================================================== */
+
+    const username =
+        order.username ||
+        order.email ||
+        order.loginUsername ||
+        "";
+
+    const password =
+        order.password ||
+        order.loginPassword ||
+        "";
+
+
+    /*
+     * Only create the login box if the
+     * Firebase order actually contains
+     * login information.
+     */
+
+    if (username || password) {
+
+        const loginBox =
+            document.createElement("div");
+
+        loginBox.className =
+            "order-login-box";
+
+
+        if (username) {
+
+            const usernameRow =
+                document.createElement("div");
+
+            usernameRow.innerHTML = `
+                <strong>Username:</strong>
+                ${escapeHTML(username)}
+            `;
+
+            loginBox.appendChild(usernameRow);
         }
+
+
+        if (password) {
+
+            const passwordRow =
+                document.createElement("div");
+
+            passwordRow.innerHTML = `
+                <strong>Password:</strong>
+                ${escapeHTML(password)}
+            `;
+
+            loginBox.appendChild(passwordRow);
+        }
+
+
+        card.appendChild(loginBox);
     }
-);
 
 
-/* =========================================
-   LISTEN TO USER ORDERS
-========================================= */
+    /* =====================================================
+       ADD TO PAGE
+    ===================================================== */
 
-let unsubscribeOrders = null;
+    ordersList.appendChild(card);
+}
 
-function listenForOrders(user) {
 
-    if (unsubscribeOrders) {
-        unsubscribeOrders();
-        unsubscribeOrders = null;
-    }
+/* =========================================================
+   SHOW EMPTY ORDERS
+========================================================= */
 
-    if (!user) {
+function showEmptyOrders() {
 
-        showEmptyState();
-
+    if (!emptyOrders) {
         return;
+    }
+
+    emptyOrders.style.display = "block";
+
+    if (ordersList) {
+        ordersList.innerHTML = "";
+        ordersList.style.display = "none";
+    }
+}
+
+
+/* =========================================================
+   HIDE EMPTY ORDERS
+========================================================= */
+
+function hideEmptyOrders() {
+
+    if (!emptyOrders) {
+        return;
+    }
+
+    emptyOrders.style.display = "none";
+
+    if (ordersList) {
+        ordersList.style.display = "flex";
+    }
+}
+
+
+/* =========================================================
+   CLEAR ORDERS
+========================================================= */
+
+function clearOrders() {
+
+    if (!ordersList) {
+        return;
+    }
+
+    ordersList.innerHTML = "";
+}
+
+
+/* =========================================================
+   GET FIREBASE DATE VALUE
+========================================================= */
+
+function getDateValue(timestamp) {
+
+    if (!timestamp) {
+        return 0;
     }
 
 
     /*
-     * Orders are expected in:
-     *
-     * orders/{orderDocument}
-     *
-     * with:
-     *
-     * userId: signed-in user's UID
-     *
-     * The purchase system should create the
-     * order using the same UID.
+     * Firebase Timestamp
      */
 
-    const ordersRef =
-        collection(
-            db,
-            "orders"
-        );
+    if (
+        typeof timestamp.toDate === "function"
+    ) {
 
-    const ordersQuery =
-        query(
-            ordersRef,
-            where(
-                "userId",
-                "==",
-                user.uid
-            )
-        );
+        return timestamp.toDate().getTime();
+    }
 
 
-    unsubscribeOrders =
-        onSnapshot(
-            ordersQuery,
+    /*
+     * JavaScript Date
+     */
 
-            snapshot => {
+    if (
+        timestamp instanceof Date
+    ) {
 
-                const orders =
-                    snapshot.docs.map(
-                        orderDoc => ({
-                            id: orderDoc.id,
-                            data: orderDoc.data()
-                        })
-                    );
+        return timestamp.getTime();
+    }
 
-                orders.sort(
-                    (a, b) => {
 
-                        const aTime =
-                            getTimestamp(
-                                a.data
-                            );
+    /*
+     * Number timestamp
+     */
 
-                        const bTime =
-                            getTimestamp(
-                                b.data
-                            );
+    if (
+        typeof timestamp === "number"
+    ) {
 
-                        return bTime - aTime;
-                    }
-                );
+        return timestamp;
+    }
 
-                renderOrders(orders);
-            },
 
-            error => {
+    /*
+     * String date
+     */
 
-                /*
-                 * Do NOT show the ugly
-                 * "Unable to load orders"
-                 * design from the previous version.
-                 *
-                 * If there is no readable order,
-                 * keep the exact empty-state design.
-                 */
+    const date =
+        new Date(timestamp);
 
-                console.error(
-                    "Orders listener error:",
-                    error
-                );
+    if (
+        !Number.isNaN(date.getTime())
+    ) {
 
-                showEmptyState();
-            }
-        );
+        return date.getTime();
+    }
+
+
+    return 0;
 }
 
 
-/* =========================================
-   GET ORDER TIMESTAMP
-========================================= */
+/* =========================================================
+   FORMAT DATE
+========================================================= */
 
-function getTimestamp(data) {
+function formatDate(timestamp) {
 
     const value =
-        data.createdAt ||
-        data.timestamp ||
-        data.date;
+        getDateValue(timestamp);
 
     if (!value) {
-        return 0;
+        return "";
     }
 
-    if (
-        value &&
-        typeof value.toMillis === "function"
-    ) {
-        return value.toMillis();
-    }
-
-    if (
-        value &&
-        typeof value.toDate === "function"
-    ) {
-        return value.toDate().getTime();
-    }
-
-    if (
-        typeof value === "number"
-    ) {
-        return value;
-    }
 
     const date =
         new Date(value);
 
-    return Number.isNaN(
-        date.getTime()
-    )
-        ? 0
-        : date.getTime();
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }
+    );
 }
 
 
-/* =========================================
-   AUTH STATE
-========================================= */
+/* =========================================================
+   FORMAT MONEY
+========================================================= */
 
-onAuthStateChanged(
-    auth,
-    async user => {
+function formatAmount(amount) {
 
-        if (user) {
+    const number =
+        Number(amount);
 
-            profileInitial.textContent =
-                getInitial(user);
 
-            await loadUserProfile(user);
+    if (
+        Number.isNaN(number)
+    ) {
 
-            listenForOrders(user);
-
-        } else {
-
-            profileInitial.textContent =
-                "D";
-
-            walletBalance.textContent =
-                "₦0";
-
-            showEmptyState();
-        }
+        return "0";
     }
-);
 
 
-/* =========================================
-   CLEANUP
-========================================= */
-
-window.addEventListener(
-    "beforeunload",
-    () => {
-
-        if (unsubscribeOrders) {
-            unsubscribeOrders();
+    return number.toLocaleString(
+        "en-NG",
+        {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
         }
-    }
-);
+    );
+}
+
+
+/* =========================================================
+   ESCAPE FIREBASE DATA
+========================================================= */
+
 function escapeHTML(value) {
-    return String(value)
+
+    return String(value ?? "")
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
-}
-
-function formatFirebaseDate(timestamp) {
-
-    if (!timestamp) {
-        return "";
-    }
-
-    const date = timestamp.toDate
-        ? timestamp.toDate()
-        : new Date(timestamp);
-
-    return date.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric"
-    });
 }
