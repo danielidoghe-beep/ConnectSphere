@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <button class="menu-button" id="menuButton" type="button" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="header-right">
+
+        <div class="balance-pill" id="balanceAmount">
+            ₦0
+        </div>
+
+        <button class="header-icon moon-button" id="themeButton" type="button">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 15.5A8.5 8.5 0 0 1 8.5 4
+                         A8.5 8.5 0 1 0 20 15.5Z"/>
+            </svg>
+        </button>
+
+        <button class="header-icon notification-button" type="button">
+            <svg viewBox="0 0 24 24">
+                <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+                <path d="M10 21h4"/>
+            </svg>
+
+            <span id="notificationCount">0</span>
+        </button>
+
+        <button class="profile-avatar-header" id="headerProfileButton" type="button">
+            <span id="headerInitial">?</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="profile-page">
+
+    <section class="page-heading">
+        <h1>Profile</h1>
+        <p>Manage your account details</p>
+    </section>
+
+
+    <!-- ACCOUNT -->
+
+    <section class="profile-card">
+
+        <div class="card-heading">
+            <h2>Account</h2>
+            <p>Your public profile information</p>
+        </div>
+
+
+        <div class="profile-summary">
+
+            <div class="profile-photo-wrapper">
+
+                <div class="profile-photo" id="profilePhoto">
+                    <span id="profileInitial">?</span>
+                </div>
+
+                <button
+                    class="camera-button"
+                    id="cameraButton"
+                    type="button"
+                    aria-label="Change profile photo"
+                >
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 7h3l2-2h6l2 2h3v12H4Z"/>
+                        <circle cx="12" cy="13" r="3"/>
+                    </svg>
+                </button>
+
+            </div>
+
+
+            <div class="profile-summary-text">
+                <strong id="profileName">Loading...</strong>
+                <span id="profileEmail">Loading...</span>
+                <p>Click the camera to change your photo</p>
+            </div>
+
+        </div>
+
+
+        <form id="profileForm">
+
+            <div class="form-field">
+                <label for="firstName">First name</label>
+                <input
+                    id="firstName"
+                    type="text"
+                    autocomplete="given-name"
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="lastName">Last name</label>
+                <input
+                    id="lastName"
+                    type="text"
+                    autocomplete="family-name"
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="email">Email</label>
+
+                <input
+                    id="email"
+                    type="email"
+                    readonly
+                >
+
+                <small>Email cannot be changed</small>
+            </div>
+
+
+            <button
+                class="green-button small-button"
+                id="saveProfileButton"
+                type="submit"
+            >
+                Save changes
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PASSWORD -->
+
+    <section class="profile-card">
+
+        <div class="card-heading">
+            <h2>Password</h2>
+            <p>Set a password to sign in with email and password</p>
+        </div>
+
+
+        <form id="passwordForm">
+
+            <div class="form-field current-password-field">
+                <label for="currentPassword">Current password</label>
+
+                <input
+                    id="currentPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="••••••••"
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="newPassword">New password</label>
+
+                <input
+                    id="newPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="••••••••"
+                >
+            </div>
+
+
+            <div class="form-field">
+                <label for="confirmPassword">Confirm password</label>
+
+                <input
+                    id="confirmPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="••••••••"
+                >
+            </div>
+
+
+            <button
+                class="green-button small-button"
+                id="passwordButton"
+                type="submit"
+            >
+                Set password
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ACTIVE SESSIONS -->
+
+    <section class="profile-card sessions-card">
+
+        <div class="card-heading">
+            <h2>Active sessions</h2>
+            <p>Manage your signed-in devices and sessions</p>
+        </div>
+
+
+        <div id="sessionsContainer" class="sessions-container">
+
+            <div class="sessions-loading">
+                Loading sessions...
+            </div>
+
+        </div>
+
+
+        <button
+            class="green-button small-button"
+            id="logoutOtherSessionsButton"
+            type="button"
+        >
+            Log out of all other sessions
+        </button>
+
+    </section>
+
+
+    <!-- ACCOUNT STATUS -->
+
+    <section class="profile-card account-status-card">
+
+        <div class="card-heading">
+            <h2>Account status</h2>
+            <p>Email verification and account security status</p>
+        </div>
+
+
+        <div class="account-status-content">
+
+            <strong
+                id="emailVerificationStatus"
+                class="verification-status"
+            >
+                Checking...
+            </strong>
+
+
+            <p id="joinedDate">
+                Joined date loading...
+            </p>
+
+
+            <p id="signInMethod">
+                Sign-in method loading...
+            </p>
+
+
+            <button
+                class="delete-button"
+                id="deleteAccountButton"
+                type="button"
+            >
+                DELETE ACCOUNT
+            </button>
+
+
+            <p class="delete-warning">
+                This permanently deletes your account and all profile data.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- SIDE MENU -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="side-menu-header">
+        <strong>Account</strong>
+
+        <button
+            class="close-menu"
+            id="closeMenuButton"
+            type="button"
+        >
+            ×
+        </button>
+    </div>
+
+
+    <nav class="side-navigation">
+
+        <a href="index.html">Home</a>
+        <a href="wallet.html">Wallet</a>
+        <a href="orders.html">Orders</a>
+        <a href="support.html">Support</a>
+        <a class="active" href="profile.html">Profile</a>
+
+    </nav>
+
+</aside>
+
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<script type="module" src="profile.js"></script>
+
+</body>
+</html>
