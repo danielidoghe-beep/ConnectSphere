@@ -10,18 +10,24 @@
     <title>Orders</title>
 
     <link rel="stylesheet" href="orders.css">
+
+    <!-- Firebase -->
+    <script type="module" src="orders.js"></script>
 </head>
 
 <body>
 
-    <!-- =========================
+    <!-- =========================================
          HEADER
-    ========================== -->
+    ========================================== -->
+
     <header class="top-header">
 
+        <!-- Hamburger -->
         <button
             class="menu-button"
             id="menuButton"
+            type="button"
             aria-label="Open menu"
         >
             <span></span>
@@ -29,43 +35,65 @@
             <span></span>
         </button>
 
+
+        <!-- Header right -->
         <div class="header-right">
 
-            <div class="balance-pill" id="balancePill">
-                <span id="headerBalance">₦0</span>
+            <!-- Wallet -->
+            <div class="wallet-balance">
+                <span id="walletBalance">₦0</span>
             </div>
 
+
+            <!-- Dark mode -->
             <button
                 class="moon-button"
-                id="themeButton"
+                id="darkModeButton"
+                type="button"
                 aria-label="Toggle dark mode"
             >
-                <svg viewBox="0 0 24 24">
-                    <path d="M21 15.2A8.5 8.5 0 0 1 8.8 3a8.5 8.5 0 1 0 12.2 12.2Z"></path>
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M20.5 14.8A8.5 8.5 0 0 1 9.2 3.5
+                           A8.5 8.5 0 1 0 20.5 14.8Z"
+                    ></path>
                 </svg>
             </button>
 
+
+            <!-- Notifications -->
             <button
                 class="notification-button"
+                type="button"
                 aria-label="Notifications"
             >
-                <svg viewBox="0 0 24 24">
-                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M18 9a6 6 0 0 0-12 0
+                           c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                    ></path>
+
                     <path d="M10 21h4"></path>
                 </svg>
 
-                <span
-                    class="notification-count"
-                    id="notificationCount"
-                >0</span>
+                <span class="notification-count">99+</span>
             </button>
 
+
+            <!-- Profile -->
             <button
                 class="profile-button"
                 id="profileButton"
+                type="button"
                 aria-label="Profile"
             >
-                <span id="profileLetter">D</span>
+                <span id="profileInitial">D</span>
             </button>
 
         </div>
@@ -73,9 +101,9 @@
     </header>
 
 
-    <!-- =========================
+    <!-- =========================================
          SIDE MENU
-    ========================== -->
+    ========================================== -->
 
     <div
         class="menu-overlay"
@@ -85,15 +113,17 @@
     <aside
         class="side-menu"
         id="sideMenu"
+        aria-hidden="true"
     >
 
         <div class="side-menu-header">
 
-            <strong>Menu</strong>
+            <strong>MENU</strong>
 
             <button
                 class="close-menu-button"
                 id="closeMenuButton"
+                type="button"
                 aria-label="Close menu"
             >
                 ×
@@ -124,12 +154,13 @@
     </aside>
 
 
-    <!-- =========================
-         PAGE
-    ========================== -->
+    <!-- =========================================
+         MAIN PAGE
+    ========================================== -->
 
     <main class="orders-page">
 
+        <!-- Page heading -->
         <section class="page-heading">
 
             <h1>Orders</h1>
@@ -139,74 +170,39 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =====================================
              RECENT ORDERS
-        ========================== -->
+        ====================================== -->
 
         <section class="orders-container">
 
-            <div class="orders-header">
-
-                <h2>RECENT ORDERS</h2>
-
-                <button
-                    class="refresh-button"
-                    id="refreshOrdersButton"
-                    aria-label="Refresh orders"
-                >
-                    ↻
-                </button>
-
-            </div>
+            <h2>RECENT ORDERS</h2>
 
 
-            <!-- Loading -->
-            <div
-                class="orders-loading"
-                id="ordersLoading"
-            >
-                <div class="loading-spinner"></div>
-
-                <p>Loading your orders...</p>
-            </div>
-
-
-            <!-- Empty -->
-            <div
-                class="empty-orders"
-                id="emptyOrders"
-                hidden
-            >
-
-                <h3>No orders yet</h3>
-
-                <p>
-                    You have not made any purchases yet.
-                </p>
-
-            </div>
-
-
-            <!-- Orders -->
+            <!-- Dynamic orders -->
             <div
                 class="orders-list"
                 id="ordersList"
-            ></div>
-
-
-            <!-- Firebase/auth problem -->
-            <div
-                class="orders-message"
-                id="ordersMessage"
-                hidden
             >
-                <p id="ordersMessageText"></p>
 
-                <button
-                    id="retryOrdersButton"
+                <!--
+                    The empty state is displayed when
+                    the signed-in user has no orders.
+                -->
+
+                <div
+                    class="empty-orders"
+                    id="emptyOrders"
                 >
-                    TRY AGAIN
-                </button>
+
+                    <h3>No orders yet</h3>
+
+                    <p>
+                        You have not made any purchases yet.
+                    </p>
+
+                </div>
+
             </div>
 
         </section>
@@ -214,11 +210,48 @@
     </main>
 
 
-    <!-- =========================
-         FIREBASE
-    ========================== -->
+    <!-- =========================================
+         ORDER DETAILS MODAL
+    ========================================== -->
 
-    <script type="module" src="orders.js"></script>
+    <div
+        class="order-modal-backdrop"
+        id="orderModalBackdrop"
+        aria-hidden="true"
+    >
+
+        <div
+            class="order-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="orderModalTitle"
+        >
+
+            <div class="order-modal-header">
+
+                <h2 id="orderModalTitle">
+                    Order details
+                </h2>
+
+                <button
+                    id="closeOrderModal"
+                    class="order-modal-close"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <div
+                class="order-modal-content"
+                id="orderModalContent"
+            ></div>
+
+        </div>
+
+    </div>
 
 </body>
 </html>
