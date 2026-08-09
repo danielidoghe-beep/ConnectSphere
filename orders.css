@@ -1,305 +1,207 @@
-/* =========================================
-   ORDERS PAGE
-========================================= */
+/* ============================================================
+   ORDERS PAGE STYLES
+   Depends on wallet.css (shared tokens, topbar, page, cards).
+   Link wallet.css BEFORE orders.css in the HTML.
+   ============================================================ */
 
-.orders-page {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 46px 32px 80px;
+/* Status badges specific to orders (wallet.css covers pending/approved/declined) */
+.status.completed,
+.status.delivered {
+  color: #2c7a2c;
+  background: #e6f4e2;
+}
+html.theme-dark .status.completed,
+html.theme-dark .status.delivered {
+  background: #1f2f1a;
+}
+.status.cancelled,
+.status.declined {
+  color: #c23b3b;
+  background: #fbe6e6;
+}
+html.theme-dark .status.cancelled { background: #3a1e1e; }
+
+.orders-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.orders-head .card-title {
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  margin: 0;
 }
 
-/* Page heading */
-
-.orders-page .page-heading h1 {
-    font-size: 62px;
-    line-height: 1;
-    font-weight: 900;
-    letter-spacing: -2.5px;
+/* ---- Empty state ---- */
+.empty-order {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+}
+.empty-title {
+  font-family: "Sora", "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0 0 6px;
+}
+.empty-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
 }
 
-.orders-page .page-heading p {
-    margin-top: 17px;
-    color: #555;
-    font-size: 32px;
-    line-height: 1.2;
+/* ---- Order list ---- */
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-
-/* =========================================
-   ORDERS OUTER BOX
-========================================= */
-
-.orders-container {
-    width: 100%;
-    margin-top: 68px;
-
-    padding: 58px 48px 82px;
-
-    background: #fff;
-
-    border: 1px solid #dddddd;
-    border-radius: 34px;
+.order-item {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
 }
 
-
-/* =========================================
-   RECENT ORDERS
-========================================= */
-
-.orders-header h2 {
-    margin: 0;
-
-    color: #111;
-
-    font-size: 36px;
-    line-height: 1.05;
-    font-weight: 900;
-    letter-spacing: -1px;
+.order-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
-
-/* =========================================
-   EMPTY ORDERS
-========================================= */
-
-.empty-orders {
-    width: 100%;
-
-    margin-top: 42px;
-
-    padding: 40px 48px;
-
-    background: #fff;
-
-    border: 2px solid #e0e0e0;
-    border-radius: 24px;
+.order-thumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  flex-shrink: 0;
 }
 
-.empty-orders h3 {
-    margin: 0;
+.order-info { flex: 1; min-width: 0; }
 
-    color: #111;
-
-    font-size: 32px;
-    line-height: 1.15;
-    font-weight: 800;
+.order-title {
+  font-family: "Sora", "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+.order-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
 }
 
-.empty-orders p {
-    margin-top: 14px;
-
-    color: #555;
-
-    font-size: 26px;
-    line-height: 1.25;
+.order-price {
+  font-family: "Sora", "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  white-space: nowrap;
 }
 
-
-/* =========================================
-   FIREBASE ORDER LIST
-========================================= */
-
-.orders-list {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-
-    margin-top: 42px;
+.order-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.order-meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-all;
 }
 
+/* ---- Delivered secret credits block ---- */
+.creds {
+  background: var(--line-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.creds-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 0 12px;
+  color: var(--text);
+}
+.creds-title svg { color: var(--green); }
 
-/* =========================================
-   INDIVIDUAL ORDER
-========================================= */
+.cred-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.cred-row:first-of-type { border-top: none; padding-top: 0; }
 
-.order-card {
-    width: 100%;
-
-    padding: 30px 32px;
-
-    background: #fff;
-
-    border: 2px solid #e0e0e0;
-    border-radius: 24px;
+.cred-label {
+  color: var(--muted);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.cred-value-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.cred-value {
+  font-family: "Inter", monospace;
+  font-weight: 600;
+  font-size: 15px;
+  word-break: break-all;
+  text-align: right;
+}
+.cred-value.masked {
+  letter-spacing: 0.15em;
 }
 
-.order-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.cred-btn {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  display: inline-flex;
+}
+.cred-btn:active { background: var(--line); }
+.cred-btn.green { color: var(--green); }
 
-    gap: 20px;
+.creds-note {
+  margin: 12px 0 0;
+  color: var(--orange);
+  font-size: 12px;
+  line-height: 1.4;
 }
 
-.order-product {
-    color: #111;
-
-    font-size: 27px;
-    font-weight: 800;
-    line-height: 1.2;
+/* Pending order: secret credits not yet delivered */
+.creds-pending {
+  background: #fdf0df;
+  border: 1px solid #f5d9b3;
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: #b9701c;
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
 }
-
-.order-status {
-    flex-shrink: 0;
-
-    padding: 8px 16px;
-
-    border-radius: 20px;
-
-    background: #eef8e8;
-    color: #56a817;
-
-    font-size: 15px;
-    font-weight: 800;
-}
-
-.order-details {
-    margin-top: 22px;
-
-    display: grid;
-    gap: 10px;
-}
-
-.order-detail {
-    color: #555;
-
-    font-size: 19px;
-    line-height: 1.35;
-}
-
-.order-detail strong {
-    color: #111;
-}
-
-.order-login-box {
-    margin-top: 22px;
-
-    padding: 20px;
-
-    background: #f7f8fa;
-
-    border: 1px solid #dedede;
-    border-radius: 18px;
-}
-
-.order-login-box div {
-    margin-bottom: 8px;
-
-    color: #333;
-
-    font-size: 18px;
-}
-
-.order-login-box div:last-child {
-    margin-bottom: 0;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-    .orders-page {
-        padding: 48px 32px 70px;
-    }
-
-    .orders-page .page-heading h1 {
-        font-size: 58px;
-    }
-
-    .orders-page .page-heading p {
-        font-size: 29px;
-    }
-
-    .orders-container {
-        margin-top: 68px;
-
-        padding: 58px 48px 82px;
-
-        border-radius: 34px;
-    }
-
-    .orders-header h2 {
-        font-size: 35px;
-    }
-
-    .empty-orders {
-        margin-top: 42px;
-        padding: 40px 48px;
-    }
-
-    .empty-orders h3 {
-        font-size: 31px;
-    }
-
-    .empty-orders p {
-        font-size: 25px;
-    }
-}
-
-
-/* =========================================
-   SMALL PHONES
-========================================= */
-
-@media (max-width: 450px) {
-
-    .orders-page {
-        padding: 44px 32px 60px;
-    }
-
-    .orders-page .page-heading h1 {
-        font-size: 52px;
-        letter-spacing: -2px;
-    }
-
-    .orders-page .page-heading p {
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .orders-container {
-        margin-top: 66px;
-
-        padding: 56px 48px 82px;
-
-        border-radius: 34px;
-    }
-
-    .orders-header h2 {
-        font-size: 35px;
-        line-height: 1.05;
-    }
-
-    .empty-orders {
-        margin-top: 42px;
-
-        padding: 40px 48px;
-
-        border-radius: 24px;
-    }
-
-    .empty-orders h3 {
-        font-size: 31px;
-    }
-
-    .empty-orders p {
-        font-size: 24px;
-        line-height: 1.3;
-    }
-
-    .order-card {
-        padding: 24px;
-    }
-
-    .order-card-top {
-        flex-direction: column;
-    }
-
-    .order-product {
-        font-size: 23px;
-    }
-}
+html.theme-dark .creds-pending { background: #3a2c14; border-color: #5a441f; }
