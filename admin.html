@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>ConnectSphere Admin</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+    <script
+        type="module"
+        src="admin.js"
+    ></script>
+</head>
+
+<body>
+
+<header class="admin-header">
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open menu"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="admin-title">
+        Admin
+    </div>
+
+    <button
+        class="logout-button"
+        id="logoutButton"
+        type="button"
+    >
+        Logout
+    </button>
+
+</header>
+
+
+<main class="admin-page">
+
+    <section class="page-heading">
+
+        <h1>Admin Panel</h1>
+
+        <p>
+            Manage ConnectSphere
+        </p>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+            <span>Total users</span>
+            <strong id="totalUsers">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Total orders</span>
+            <strong id="totalOrders">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>This month</span>
+            <strong id="monthlySpent">₦0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Pending deposits</span>
+            <strong id="pendingDeposits">0</strong>
+        </div>
+
+    </section>
+
+
+    <!-- DEPOSITS -->
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>Pending deposits</h2>
+                <p>Review user top-up requests.</p>
+            </div>
+
+        </div>
+
+        <div
+            class="admin-list"
+            id="depositsList"
+        >
+            <div class="loading">
+                Loading deposits...
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- TOP USERS -->
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>Top users</h2>
+                <p>Users with the highest purchases.</p>
+            </div>
+
+        </div>
+
+        <div
+            class="admin-list"
+            id="topUsersList"
+        >
+            <div class="loading">
+                Loading users...
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ALL USERS -->
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>All users</h2>
+                <p>Manage registered users.</p>
+            </div>
+
+        </div>
+
+        <input
+            class="admin-search"
+            id="userSearch"
+            type="search"
+            placeholder="Search users..."
+        >
+
+        <div
+            class="admin-list"
+            id="usersList"
+        >
+            <div class="loading">
+                Loading users...
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ADD PRODUCT -->
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>Add product</h2>
+                <p>Add an item to the store.</p>
+            </div>
+
+        </div>
+
+        <form id="productForm">
+
+            <input
+                id="productName"
+                type="text"
+                placeholder="Product name"
+                required
+            >
+
+            <input
+                id="productCategory"
+                type="text"
+                placeholder="Category"
+                required
+            >
+
+            <input
+                id="productPrice"
+                type="number"
+                min="0"
+                placeholder="Price"
+                required
+            >
+
+            <input
+                id="productImage"
+                type="url"
+                placeholder="Image URL"
+            >
+
+            <textarea
+                id="productDescription"
+                placeholder="Product description"
+                required
+            ></textarea>
+
+            <button
+                class="primary-button"
+                type="submit"
+                id="addProductButton"
+            >
+                Add product
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- SEND NOTIFICATION -->
+
+    <section class="admin-section">
+
+        <div class="section-heading">
+
+            <div>
+                <h2>Send notification</h2>
+                <p>Send a message to every user.</p>
+            </div>
+
+        </div>
+
+        <form id="notificationForm">
+
+            <input
+                id="notificationTitle"
+                type="text"
+                placeholder="Notification title"
+                required
+            >
+
+            <textarea
+                id="notificationMessage"
+                placeholder="Notification message"
+                required
+            ></textarea>
+
+            <button
+                class="primary-button"
+                type="submit"
+                id="sendNotificationButton"
+            >
+                Send to all users
+            </button>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<!-- SIDE MENU -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+></div>
+
+<aside
+    class="side-menu"
+    id="sideMenu"
+>
+
+    <button
+        id="closeMenuButton"
+        class="close-menu"
+        type="button"
+    >
+        ×
+    </button>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="store.html">
+            Logs Store
+        </a>
+
+        <a href="tools.html">
+            Tools Store
+        </a>
+
+        <a href="wallet.html">
+            Wallet
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+        <a href="notifications.html">
+            Notifications
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+</body>
+</html>
