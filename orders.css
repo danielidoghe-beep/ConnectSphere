@@ -15,7 +15,6 @@ html {
 
 body {
     min-height: 100vh;
-
     background: #f7f8fa;
     color: #111111;
 
@@ -25,25 +24,16 @@ body {
         sans-serif;
 
     overflow-x: hidden;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
-}
-
-button,
-input,
-textarea {
-    font: inherit;
 }
 
 button {
+    font: inherit;
     cursor: pointer;
 }
 
-button:focus-visible {
-    outline: 3px solid rgba(86, 168, 23, 0.35);
-    outline-offset: 3px;
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -57,8 +47,8 @@ a {
 ========================================= */
 
 .top-header {
-    width: 100%;
     height: 120px;
+    width: 100%;
 
     background: #ffffff;
 
@@ -69,42 +59,36 @@ a {
     justify-content: space-between;
 
     padding: 0 32px;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.icon-button {
-    border: 0;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0;
 }
 
 
 /* =========================================
-   HAMBURGER
+   MENU
 ========================================= */
 
 .menu-button {
     width: 58px;
     height: 58px;
 
+    border: 0;
+    background: transparent;
+
+    display: flex;
     flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
 
     gap: 7px;
 }
 
 .menu-button span {
+    display: block;
+
     width: 37px;
     height: 4px;
 
-    border-radius: 2px;
+    border-radius: 3px;
 
     background: #555555;
 }
@@ -118,34 +102,34 @@ a {
     display: flex;
     align-items: center;
 
-    gap: 38px;
+    gap: 30px;
 }
 
 
 /* =========================================
-   CURRENCY
+   BALANCE
 ========================================= */
 
-.currency-pill {
-    min-width: 88px;
-    height: 66px;
+.balance-pill {
+    min-width: 92px;
+    height: 56px;
 
-    padding: 0 18px;
+    padding: 0 20px;
 
-    border-radius: 40px;
+    border-radius: 30px;
 
-    background: #e5e5e5;
-
-    color: #56a817;
+    background: #e4e4e4;
 
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
-    font-size: 27px;
+.balance-pill span {
+    color: #4d9f13;
+
+    font-size: 22px;
     font-weight: 900;
-
-    white-space: nowrap;
 }
 
 
@@ -156,17 +140,26 @@ a {
 .moon-button {
     width: 50px;
     height: 50px;
+
+    border: 0;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .moon-button svg {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
 
     fill: none;
 
     stroke: #555555;
 
     stroke-width: 1.8;
+
+    stroke-linecap: round;
 }
 
 
@@ -177,11 +170,10 @@ a {
 .notification-button {
     position: relative;
 
-    width: 58px;
-    height: 58px;
+    width: 55px;
+    height: 55px;
 
     border: 0;
-
     background: transparent;
 
     display: flex;
@@ -190,34 +182,36 @@ a {
 }
 
 .notification-button svg {
-    width: 39px;
-    height: 39px;
+    width: 38px;
+    height: 38px;
 
     fill: none;
 
     stroke: #555555;
 
-    stroke-width: 1.8;
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
 }
 
 .notification-count {
     position: absolute;
 
-    top: -1px;
-    right: -2px;
+    top: -3px;
+    right: -4px;
 
-    min-width: 48px;
-    height: 34px;
+    min-width: 46px;
+    height: 32px;
 
-    padding: 0 9px;
+    padding: 0 8px;
 
     border-radius: 20px;
 
-    background: #56a817;
+    background: #55a815;
 
     color: #000000;
 
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
 
     display: flex;
@@ -235,7 +229,6 @@ a {
     height: 66px;
 
     border: 0;
-
     border-radius: 50%;
 
     background: #f4a000;
@@ -259,7 +252,6 @@ a {
 
 .orders-page {
     width: 100%;
-
     max-width: 1000px;
 
     margin: 0 auto;
@@ -274,7 +266,6 @@ a {
 
 .page-heading h1 {
     font-size: 62px;
-
     line-height: 1;
 
     font-weight: 900;
@@ -288,7 +279,6 @@ a {
     color: #555555;
 
     font-size: 32px;
-
     line-height: 1.2;
 }
 
@@ -298,51 +288,57 @@ a {
 ========================================= */
 
 .orders-container {
+    position: relative;
+
     width: 100%;
 
-    margin-top: 72px;
+    margin-top: 70px;
 
     padding: 58px 48px 78px;
+
+    background: #ffffff;
 
     border: 1px solid #dddddd;
 
     border-radius: 36px;
-
-    background: #ffffff;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
 }
 
 
 /* =========================================
-   ORDERS HEADING
+   ORDERS HEADER
 ========================================= */
 
-.orders-heading-row {
+.orders-header {
     display: flex;
 
-    align-items: center;
-
+    align-items: flex-start;
     justify-content: space-between;
 
     gap: 20px;
 }
 
-.orders-heading-row h2 {
-    font-size: 36px;
+.orders-header h2 {
+    max-width: 400px;
 
-    line-height: 1;
+    font-size: 38px;
+
+    line-height: 1.05;
 
     font-weight: 900;
 
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
 }
 
+
+/* =========================================
+   REFRESH
+========================================= */
+
 .refresh-button {
-    width: 48px;
-    height: 48px;
+    width: 62px;
+    height: 62px;
+
+    flex-shrink: 0;
 
     border: 1px solid #dddddd;
 
@@ -350,22 +346,17 @@ a {
 
     background: #ffffff;
 
-    color: #56a817;
+    color: #55a815;
 
-    font-size: 28px;
+    font-size: 35px;
+    line-height: 1;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
 }
 
-.refresh-button:hover {
+.refresh-button:active {
     transform: rotate(90deg);
 }
 
@@ -375,42 +366,43 @@ a {
 ========================================= */
 
 .orders-loading {
-    min-height: 250px;
+    min-height: 360px;
 
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
-
-    gap: 20px;
-
-    color: #666666;
 
     text-align: center;
 }
 
 .orders-loading p {
-    font-size: 20px;
+    margin-top: 25px;
+
+    color: #555555;
+
+    font-size: 28px;
 }
 
+
+/* Spinner */
+
 .loading-spinner {
-    width: 42px;
-    height: 42px;
-
-    border: 4px solid #e4e4e4;
-
-    border-top-color: #56a817;
+    width: 68px;
+    height: 68px;
 
     border-radius: 50%;
+
+    border: 7px solid #e1e1e1;
+
+    border-top-color: #55a815;
 
     animation: ordersSpin 0.8s linear infinite;
 }
 
 @keyframes ordersSpin {
-
     to {
         transform: rotate(360deg);
     }
@@ -418,58 +410,48 @@ a {
 
 
 /* =========================================
-   EMPTY ORDERS
+   EMPTY STATE
 ========================================= */
 
 .empty-orders {
     margin-top: 42px;
 
-    width: 100%;
+    min-height: 155px;
 
-    min-height: 154px;
-
-    border: 1px solid #dedede;
-
-    border-radius: 24px;
+    padding: 36px 48px;
 
     background: #ffffff;
 
-    padding: 38px 48px;
+    border: 2px solid #e0e0e0;
 
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
+    border-radius: 24px;
 }
 
 .empty-orders h3 {
     color: #111111;
 
-    font-size: 30px;
-
+    font-size: 32px;
     line-height: 1.1;
 
     font-weight: 800;
 }
 
 .empty-orders p {
-    margin-top: 12px;
+    margin-top: 13px;
 
     color: #555555;
 
-    font-size: 25px;
-
-    line-height: 1.3;
+    font-size: 27px;
+    line-height: 1.25;
 }
 
 
 /* =========================================
-   ORDER LIST
+   ORDERS LIST
 ========================================= */
 
 .orders-list {
-    margin-top: 32px;
+    margin-top: 28px;
 
     display: flex;
 
@@ -486,141 +468,61 @@ a {
 .order-card {
     width: 100%;
 
-    border: 1px solid #dedede;
-
-    border-radius: 24px;
+    padding: 28px 30px;
 
     background: #ffffff;
 
-    padding: 27px 28px;
+    border: 1px solid #dedede;
 
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.15s ease;
+    border-radius: 22px;
 }
-
-.order-card:hover {
-    transform: translateY(-1px);
-}
-
-
-/* =========================================
-   ORDER TOP
-========================================= */
 
 .order-card-top {
     display: flex;
 
-    align-items: flex-start;
-
-    gap: 22px;
-}
-
-.order-icon {
-    width: 64px;
-    height: 64px;
-
-    flex: 0 0 64px;
-
-    border-radius: 16px;
-
-    background: #f7f8fa;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.order-icon svg {
-    width: 31px;
-    height: 31px;
-
-    fill: none;
-
-    stroke: #555555;
-
-    stroke-width: 1.8;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-}
-
-.order-main {
-    min-width: 0;
-
-    flex: 1;
-}
-
-.order-main h3 {
-    color: #111111;
-
-    font-size: 25px;
-
-    line-height: 1.25;
-
-    font-weight: 800;
-
-    word-break: break-word;
-}
-
-.order-type {
-    display: inline-block;
-
-    margin-top: 7px;
-
-    color: #56a817;
-
-    font-size: 15px;
-
-    font-weight: 800;
-
-    text-transform: uppercase;
-}
-
-.order-details {
-    margin-top: 11px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-    color: #666666;
-
-    font-size: 15px;
-
-    line-height: 1.35;
-
-    word-break: break-word;
-}
-
-
-/* =========================================
-   ORDER BOTTOM
-========================================= */
-
-.order-card-bottom {
-    margin-top: 24px;
-
-    padding-top: 20px;
-
-    border-top: 1px solid #eeeeee;
-
-    display: flex;
-
-    align-items: center;
-
     justify-content: space-between;
+    align-items: flex-start;
 
     gap: 20px;
 }
 
-.order-amount {
+.order-title {
+    color: #111111;
+
+    font-size: 24px;
+    line-height: 1.2;
+
+    font-weight: 800;
+}
+
+.order-status {
+    flex-shrink: 0;
+
+    padding: 8px 14px;
+
+    border-radius: 18px;
+
+    background: #eef8e8;
+
+    color: #4d9f13;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.order-details {
+    margin-top: 14px;
+
+    color: #555555;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+}
+
+.order-price {
+    margin-top: 18px;
+
     color: #111111;
 
     font-size: 24px;
@@ -628,101 +530,49 @@ a {
     font-weight: 900;
 }
 
-.order-status {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 35px;
-
-    padding: 7px 14px;
-
-    border-radius: 20px;
-
-    background: #eef8e8;
-
-    color: #4e9d16;
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    text-transform: capitalize;
-}
-
-.order-status.pending {
-    background: #fff4e5;
-
-    color: #a15c00;
-}
-
-.order-status.completed,
-.order-status.success,
-.order-status.paid {
-    background: #eef8e8;
-
-    color: #4e9d16;
-}
-
-.order-status.cancelled,
-.order-status.canceled,
-.order-status.failed {
-    background: #fff0f0;
-
-    color: #c62828;
-}
-
 
 /* =========================================
-   ERROR
+   ERROR / MESSAGE
 ========================================= */
 
-.orders-error {
-    margin-top: 35px;
+.orders-message {
+    margin-top: 30px;
 
-    padding: 32px;
-
-    border: 1px solid #f0caca;
-
-    border-radius: 22px;
-
-    background: #fff7f7;
+    padding: 30px;
 
     text-align: center;
+
+    border: 1px solid #efcaca;
+
+    border-radius: 24px;
+
+    background: #fff7f7;
 }
 
-.orders-error h3 {
-    font-size: 25px;
+.orders-message p {
+    color: #555555;
 
-    font-weight: 900;
+    font-size: 22px;
+
+    line-height: 1.35;
 }
 
-.orders-error p {
-    margin-top: 10px;
+.orders-message button {
+    margin-top: 22px;
 
-    color: #666666;
+    min-height: 60px;
 
-    font-size: 17px;
-}
-
-.orders-error button {
-    margin-top: 20px;
-
-    min-height: 55px;
-
-    padding: 0 25px;
+    padding: 0 30px;
 
     border: 0;
 
-    border-radius: 14px;
+    border-radius: 18px;
 
-    background: #56a817;
+    background: #55a815;
 
     color: #ffffff;
 
-    font-size: 16px;
+    font-size: 18px;
 
     font-weight: 900;
 }
@@ -771,8 +621,7 @@ a {
 
     transition: transform 0.25s ease;
 
-    box-shadow:
-        5px 0 25px rgba(0, 0, 0, 0.12);
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.12);
 }
 
 .side-menu.open {
@@ -789,7 +638,6 @@ a {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 }
 
@@ -804,9 +652,9 @@ a {
 
     background: transparent;
 
-    font-size: 38px;
-
     color: #555555;
+
+    font-size: 38px;
 }
 
 .side-navigation {
@@ -832,7 +680,7 @@ a {
 .side-navigation a.active {
     background: #eef8e8;
 
-    color: #56a817;
+    color: #55a815;
 }
 
 
@@ -850,59 +698,25 @@ body.dark-mode .top-header,
 body.dark-mode .orders-container,
 body.dark-mode .empty-orders,
 body.dark-mode .order-card,
-body.dark-mode .side-menu {
+body.dark-mode .side-menu,
+body.dark-mode .refresh-button {
     background: #191c1f;
 
     border-color: #303438;
 }
 
-body.dark-mode .page-heading p {
-    color: #bfc3c7;
-}
-
-body.dark-mode .currency-pill {
-    background: #303438;
-
-    color: #70c735;
-}
-
-body.dark-mode .moon-button svg,
-body.dark-mode .notification-button svg,
-body.dark-mode .menu-button span {
-    stroke: #c4c7ca;
-}
-
-body.dark-mode .menu-button span {
-    background: #c4c7ca;
-}
-
-body.dark-mode .empty-orders h3,
-body.dark-mode .order-main h3,
-body.dark-mode .order-amount {
-    color: #ffffff;
-}
-
+body.dark-mode .page-heading p,
 body.dark-mode .empty-orders p,
+body.dark-mode .orders-loading p,
 body.dark-mode .order-details {
     color: #bfc3c7;
 }
 
-body.dark-mode .order-icon {
-    background: #22262a;
-}
-
-body.dark-mode .order-icon svg {
-    stroke: #c4c7ca;
-}
-
-body.dark-mode .order-card-bottom {
-    border-color: #303438;
-}
-
-body.dark-mode .refresh-button {
-    background: #191c1f;
-
-    border-color: #3b3f43;
+body.dark-mode .empty-orders h3,
+body.dark-mode .order-title,
+body.dark-mode .order-price,
+body.dark-mode .orders-header h2 {
+    color: #ffffff;
 }
 
 body.dark-mode .side-menu-header {
@@ -915,7 +729,7 @@ body.dark-mode .side-navigation a.active {
 
 
 /* =========================================
-   TABLET
+   MOBILE
 ========================================= */
 
 @media (max-width: 700px) {
@@ -927,19 +741,11 @@ body.dark-mode .side-navigation a.active {
     }
 
     .header-right {
-        gap: 24px;
-    }
-
-    .currency-pill {
-        min-width: 82px;
-
-        height: 60px;
-
-        font-size: 24px;
+        gap: 22px;
     }
 
     .orders-page {
-        padding: 48px 32px 70px;
+        padding: 46px 32px 70px;
     }
 
     .page-heading h1 {
@@ -951,17 +757,27 @@ body.dark-mode .side-navigation a.active {
     }
 
     .orders-container {
-        margin-top: 65px;
+        margin-top: 68px;
 
-        padding: 50px 40px 60px;
+        padding: 56px 48px 70px;
+
+        border-radius: 35px;
     }
 
-    .orders-heading-row h2 {
-        font-size: 33px;
+    .orders-header h2 {
+        font-size: 36px;
     }
 
     .empty-orders {
-        padding: 35px 40px;
+        padding: 34px 42px;
+    }
+
+    .empty-orders h3 {
+        font-size: 31px;
+    }
+
+    .empty-orders p {
+        font-size: 26px;
     }
 }
 
@@ -979,7 +795,7 @@ body.dark-mode .side-navigation a.active {
     }
 
     .header-right {
-        gap: 15px;
+        gap: 13px;
     }
 
     .menu-button {
@@ -994,14 +810,16 @@ body.dark-mode .side-navigation a.active {
         height: 3px;
     }
 
-    .currency-pill {
-        min-width: 55px;
+    .balance-pill {
+        min-width: 88px;
 
-        height: 42px;
+        height: 58px;
 
-        padding: 0 12px;
+        padding: 0 18px;
+    }
 
-        font-size: 17px;
+    .balance-pill span {
+        font-size: 21px;
     }
 
     .moon-button {
@@ -1020,22 +838,20 @@ body.dark-mode .side-navigation a.active {
     }
 
     .notification-button svg {
-        width: 28px;
-        height: 28px;
+        width: 29px;
+        height: 29px;
     }
 
     .notification-count {
-        min-width: 35px;
-
+        min-width: 34px;
         height: 24px;
 
         padding: 0 6px;
 
+        top: -4px;
+        right: -7px;
+
         font-size: 14px;
-
-        top: -3px;
-
-        right: -8px;
     }
 
     .profile-button {
@@ -1048,7 +864,7 @@ body.dark-mode .side-navigation a.active {
     }
 
     .orders-page {
-        padding: 44px 32px 60px;
+        padding: 45px 32px 60px;
     }
 
     .page-heading h1 {
@@ -1066,138 +882,73 @@ body.dark-mode .side-navigation a.active {
     }
 
     .orders-container {
-        margin-top: 65px;
+        margin-top: 108px;
 
-        padding: 55px 25px 60px;
+        padding: 48px 40px 55px;
 
-        border-radius: 28px;
+        border-radius: 30px;
     }
 
-    .orders-heading-row h2 {
-        font-size: 28px;
+    .orders-header h2 {
+        max-width: 250px;
+
+        font-size: 36px;
+
+        line-height: 1.05;
     }
 
     .refresh-button {
-        width: 42px;
-        height: 42px;
+        width: 58px;
+        height: 58px;
 
-        font-size: 23px;
+        font-size: 32px;
+    }
+
+    .orders-loading {
+        min-height: 300px;
+    }
+
+    .orders-loading p {
+        font-size: 24px;
     }
 
     .empty-orders {
-        margin-top: 40px;
+        margin-top: 42px;
 
         min-height: 150px;
 
-        padding: 32px 24px;
+        padding: 34px 38px;
 
-        border-radius: 20px;
+        border-radius: 22px;
     }
 
     .empty-orders h3 {
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .empty-orders p {
-        margin-top: 10px;
+        margin-top: 12px;
 
-        font-size: 21px;
-    }
+        font-size: 24px;
 
-    .orders-list {
-        gap: 14px;
+        line-height: 1.3;
     }
 
     .order-card {
-        padding: 22px;
+        padding: 24px;
 
         border-radius: 20px;
     }
 
-    .order-card-top {
-        gap: 15px;
-    }
-
-    .order-icon {
-        width: 52px;
-        height: 52px;
-
-        flex-basis: 52px;
-
-        border-radius: 14px;
-    }
-
-    .order-icon svg {
-        width: 26px;
-        height: 26px;
-    }
-
-    .order-main h3 {
-        font-size: 19px;
+    .order-title {
+        font-size: 21px;
     }
 
     .order-details {
-        font-size: 13px;
+        font-size: 16px;
     }
 
-    .order-card-bottom {
-        margin-top: 18px;
-
-        padding-top: 16px;
-    }
-
-    .order-amount {
-        font-size: 20px;
-    }
-
-    .order-status {
-        min-height: 31px;
-
-        padding: 6px 10px;
-
-        font-size: 12px;
-    }
-
-    .orders-error {
-        padding: 25px 18px;
-    }
-}
-
-
-/* =========================================
-   VERY SMALL PHONES
-========================================= */
-
-@media (max-width: 360px) {
-
-    .header-right {
-        gap: 10px;
-    }
-
-    .currency-pill {
-        display: none;
-    }
-
-    .orders-page {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .orders-container {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .page-heading h1 {
-        font-size: 47px;
-    }
-
-    .orders-heading-row h2 {
-        font-size: 25px;
-    }
-
-    .empty-orders {
-        padding-left: 20px;
-        padding-right: 20px;
+    .order-price {
+        font-size: 22px;
     }
 }
