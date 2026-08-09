@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Orders</title>
+
+    <link rel="stylesheet" href="orders.css">
+</head>
+
+<body>
+
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="top-header">
+
+        <!-- MENU -->
+        <button
+            class="icon-button menu-button"
+            id="menuButton"
+            type="button"
+            aria-label="Open menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <!-- HEADER RIGHT -->
+        <div class="header-right">
+
+            <!-- CURRENCY -->
+            <div class="currency-pill">
+                ₦0
+            </div>
+
+
+            <!-- DARK MODE -->
+            <button
+                class="icon-button moon-button"
+                id="themeButton"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M20.7 15.2A8.5 8.5 0 0 1 8.8 3.3
+                           A8.5 8.5 0 1 0 20.7 15.2Z"
+                    />
+                </svg>
+            </button>
+
+
+            <!-- NOTIFICATIONS -->
+            <button
+                class="notification-button"
+                id="notificationButton"
+                type="button"
+                aria-label="Notifications"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"
+                    />
+                    <path d="M10 21h4" />
+                </svg>
+
+                <span
+                    class="notification-count"
+                    id="notificationCount"
+                >
+                    0
+                </span>
+            </button>
+
+
+            <!-- PROFILE -->
+            <button
+                class="profile-button"
+                id="profileButton"
+                type="button"
+                aria-label="Profile"
+            >
+                <span id="profileInitial">D</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         SIDE MENU
+    ================================= -->
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+    ></div>
+
+    <aside
+        class="side-menu"
+        id="sideMenu"
+        aria-hidden="true"
+    >
+
+        <div class="side-menu-header">
+
+            <strong>Menu</strong>
+
+            <button
+                class="close-menu-button"
+                id="closeMenuButton"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <nav class="side-navigation">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="orders.html" class="active">
+                Orders
+            </a>
+
+            <a href="wallet.html">
+                Wallet
+            </a>
+
+            <a href="support.html">
+                Support
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================================
+         MAIN
+    ================================= -->
+
+    <main class="orders-page">
+
+        <!-- PAGE HEADING -->
+        <section class="page-heading">
+
+            <h1>
+                Orders
+            </h1>
+
+            <p>
+                Your purchase history
+            </p>
+
+        </section>
+
+
+        <!-- ================================
+             ORDERS CONTAINER
+        ================================= -->
+
+        <section class="orders-container">
+
+            <div class="orders-heading-row">
+
+                <h2>
+                    RECENT ORDERS
+                </h2>
+
+                <button
+                    type="button"
+                    class="refresh-button"
+                    id="refreshOrdersButton"
+                    aria-label="Refresh orders"
+                >
+                    ↻
+                </button>
+
+            </div>
+
+
+            <!-- LOADING -->
+            <div
+                class="orders-loading"
+                id="ordersLoading"
+            >
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading your orders...
+                </p>
+            </div>
+
+
+            <!-- EMPTY STATE -->
+            <div
+                class="empty-orders"
+                id="emptyOrders"
+                hidden
+            >
+
+                <h3>
+                    No orders yet
+                </h3>
+
+                <p>
+                    You have not made any purchases yet.
+                </p>
+
+            </div>
+
+
+            <!-- ORDER LIST -->
+            <div
+                class="orders-list"
+                id="ordersList"
+            ></div>
+
+
+            <!-- ERROR -->
+            <div
+                class="orders-error"
+                id="ordersError"
+                hidden
+            >
+
+                <h3>
+                    Unable to load orders
+                </h3>
+
+                <p id="ordersErrorMessage">
+                    Please try again.
+                </p>
+
+                <button
+                    type="button"
+                    id="retryOrdersButton"
+                >
+                    TRY AGAIN
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         FIREBASE
+    ================================= -->
+
+    <script type="module">
+
+        import { initializeApp } from
+            "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+        import {
+            getAuth,
+            onAuthStateChanged
+        } from
+            "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+        import {
+            getFirestore,
+            collection,
+            query,
+            where,
+            orderBy,
+            onSnapshot
+        } from
+            "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+        /* =========================================
+           FIREBASE CONFIG
+        ========================================= */
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAKAD0Gxtk4XxMmnR_kpjmy5VLoX72Dtls",
+            authDomain: "connectsphere-7a679.firebaseapp.com",
+            projectId: "connectsphere-7a679",
+            storageBucket: "connectsphere-7a679.firebasestorage.app",
+            messagingSenderId: "748741698521",
+            appId: "1:748741698521:web:ea08d28f31a4d8638c2fc8",
+            measurementId: "G-WRQ5GX3KMZ"
+        };
+
+
+        /* =========================================
+           FIREBASE INITIALIZATION
+        ========================================= */
+
+        const app = initializeApp(firebaseConfig);
+
+        const auth = getAuth(app);
+
+        const db = getFirestore(app);
+
+
+        /* =========================================
+           ELEMENTS
+        ========================================= */
+
+        const ordersLoading =
+            document.getElementById("ordersLoading");
+
+        const emptyOrders =
+            document.getElementById("emptyOrders");
+
+        const ordersList =
+            document.getElementById("ordersList");
+
+        const ordersError =
+            document.getElementById("ordersError");
+
+        const ordersErrorMessage =
+            document.getElementById("ordersErrorMessage");
+
+        const retryOrdersButton =
+            document.getElementById("retryOrdersButton");
+
+        const refreshOrdersButton =
+            document.getElementById("refreshOrdersButton");
+
+        const profileInitial =
+            document.getElementById("profileInitial");
+
+        const currencyPill =
+            document.querySelector(".currency-pill");
+
+
+        /* =========================================
+           STATE
+        ========================================= */
+
+        let unsubscribeOrders = null;
+
+        let currentUser = null;
+
+
+        /* =========================================
+           HELPERS
+        ========================================= */
+
+        function escapeHTML(value) {
+
+            const div = document.createElement("div");
+
+            div.textContent =
+                value === undefined ||
+                value === null
+                    ? ""
+                    : String(value);
+
+            return div.innerHTML;
+        }
+
+
+        function getInitials(user) {
+
+            if (!user) {
+                return "D";
+            }
+
+            if (user.displayName) {
+
+                const names =
+                    user.displayName
+                        .trim()
+                        .split(/\s+/);
+
+                if (names.length > 1) {
+
+                    return (
+                        names[0][0] +
+                        names[names.length - 1][0]
+                    ).toUpperCase();
+
+                }
+
+                return names[0][0].toUpperCase();
+            }
+
+            if (user.email) {
+                return user.email[0].toUpperCase();
+            }
+
+            return "D";
+        }
+
+
+        function formatCurrency(value) {
+
+            const amount =
+                Number(value || 0);
+
+            return "₦" +
+                amount.toLocaleString(
+                    "en-NG",
+                    {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 2
+                    }
+                );
+        }
+
+
+        function formatDate(timestamp) {
+
+            if (!timestamp) {
+                return "";
+            }
+
+            let date;
+
+            if (
+                timestamp &&
+                typeof timestamp.toDate === "function"
+            ) {
+
+                date = timestamp.toDate();
+
+            } else if (
+                timestamp instanceof Date
+            ) {
+
+                date = timestamp;
+
+            } else {
+
+                date = new Date(timestamp);
+            }
+
+            if (Number.isNaN(date.getTime())) {
+                return "";
+            }
+
+            return date.toLocaleString(
+                "en-NG",
+                {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit"
+                }
+            );
+        }
+
+
+        function getOrderDate(data) {
+
+            return (
+                data.createdAt ||
+                data.updatedAt ||
+                data.date ||
+                data.timestamp ||
+                null
+            );
+        }
+
+
+        function getProductName(data) {
+
+            return (
+                data.productName ||
+                data.product ||
+                data.name ||
+                data.title ||
+                data.itemName ||
+                "Purchase"
+            );
+        }
+
+
+        function getOrderAmount(data) {
+
+            return (
+                data.totalAmount ??
+                data.amount ??
+                data.price ??
+                data.total ??
+                0
+            );
+        }
+
+
+        function getOrderStatus(data) {
+
+            return (
+                data.status ||
+                data.paymentStatus ||
+                data.orderStatus ||
+                "Pending"
+            );
+        }
+
+
+        function getQuantity(data) {
+
+            return (
+                data.quantity ??
+                data.qty ??
+                1
+            );
+        }
+
+
+        function getOrderReference(data, id) {
+
+            return (
+                data.orderId ||
+                data.reference ||
+                data.referenceId ||
+                data.orderReference ||
+                id
+            );
+        }
+
+
+        function getProductType(data) {
+
+            return (
+                data.productType ||
+                data.type ||
+                data.category ||
+                ""
+            );
+        }
+
+
+        /* =========================================
+           ORDER CARD
+        ========================================= */
+
+        function createOrderCard(documentSnapshot) {
+
+            const data =
+                documentSnapshot.data();
+
+            const id =
+                documentSnapshot.id;
+
+            const productName =
+                getProductName(data);
+
+            const amount =
+                getOrderAmount(data);
+
+            const status =
+                getOrderStatus(data);
+
+            const quantity =
+                getQuantity(data);
+
+            const reference =
+                getOrderReference(data, id);
+
+            const productType =
+                getProductType(data);
+
+            const date =
+                formatDate(
+                    getOrderDate(data)
+                );
+
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "order-card";
+
+
+            card.innerHTML = `
+
+                <div class="order-card-top">
+
+                    <div class="order-icon">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="M6 2h12v20H6z"></path>
+                            <path d="M9 6h6"></path>
+                            <path d="M9 10h6"></path>
+                            <path d="M9 14h4"></path>
+                        </svg>
+
+                    </div>
+
+                    <div class="order-main">
+
+                        <h3>
+                            ${escapeHTML(productName)}
+                        </h3>
+
+                        ${
+                            productType
+                                ? `
+                                    <span class="order-type">
+                                        ${escapeHTML(productType)}
+                                    </span>
+                                  `
+                                : ""
+                        }
+
+                        <div class="order-details">
+
+                            <span>
+                                Reference:
+                                ${escapeHTML(reference)}
+                            </span>
+
+                            ${
+                                date
+                                    ? `
+                                        <span>
+                                            ${escapeHTML(date)}
+                                        </span>
+                                      `
+                                    : ""
+                            }
+
+                            <span>
+                                Quantity:
+                                ${escapeHTML(quantity)}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="order-card-bottom">
+
+                    <strong class="order-amount">
+                        ${formatCurrency(amount)}
+                    </strong>
+
+                    <span
+                        class="order-status ${String(status).toLowerCase()}"
+                    >
+                        ${escapeHTML(status)}
+                    </span>
+
+                </div>
+
+            `;
+
+            return card;
+        }
+
+
+        /* =========================================
+           SHOW / HIDE STATES
+        ========================================= */
+
+        function showLoading() {
+
+            ordersLoading.hidden = false;
+
+            emptyOrders.hidden = true;
+
+            ordersError.hidden = true;
+
+            ordersList.innerHTML = "";
+        }
+
+
+        function showEmpty() {
+
+            ordersLoading.hidden = true;
+
+            emptyOrders.hidden = false;
+
+            ordersError.hidden = true;
+
+            ordersList.innerHTML = "";
+        }
+
+
+        function showOrders(snapshot) {
+
+            ordersLoading.hidden = true;
+
+            emptyOrders.hidden = true;
+
+            ordersError.hidden = true;
+
+            ordersList.innerHTML = "";
+
+
+            if (snapshot.empty) {
+
+                showEmpty();
+
+                return;
+            }
+
+
+            snapshot.forEach(
+                documentSnapshot => {
+
+                    const card =
+                        createOrderCard(
+                            documentSnapshot
+                        );
+
+                    ordersList.appendChild(card);
+                }
+            );
+        }
+
+
+        function showError(error) {
+
+            console.error(
+                "Orders error:",
+                error
+            );
+
+            ordersLoading.hidden = true;
+
+            emptyOrders.hidden = true;
+
+            ordersList.innerHTML = "";
+
+            ordersError.hidden = false;
+
+            ordersErrorMessage.textContent =
+                "Your orders could not be loaded. Please try again.";
+        }
+
+
+        /* =========================================
+           LOAD USER ORDERS
+        ========================================= */
+
+        function loadOrders(user) {
+
+            currentUser = user;
+
+            showLoading();
+
+
+            if (unsubscribeOrders) {
+
+                unsubscribeOrders();
+
+                unsubscribeOrders = null;
+            }
+
+
+            if (!user) {
+
+                ordersLoading.hidden = true;
+
+                ordersError.hidden = false;
+
+                ordersErrorMessage.textContent =
+                    "Please sign in to view your orders.";
+
+                return;
+            }
+
+
+            /*
+             * Every order belongs to a Firebase user.
+             *
+             * The query looks for:
+             *
+             * userId == currently signed-in user's UID
+             *
+             * and displays the newest orders first.
+             */
+
+            const ordersRef =
+                collection(db, "orders");
+
+
+            const ordersQuery =
+                query(
+                    ordersRef,
+
+                    where(
+                        "userId",
+                        "==",
+                        user.uid
+                    ),
+
+                    orderBy(
+                        "createdAt",
+                        "desc"
+                    )
+                );
+
+
+            unsubscribeOrders =
+                onSnapshot(
+
+                    ordersQuery,
+
+                    snapshot => {
+
+                        showOrders(snapshot);
+                    },
+
+                    error => {
+
+                        /*
+                         * If Firestore needs an index,
+                         * the error will appear in the
+                         * browser console.
+                         */
+
+                        showError(error);
+                    }
+                );
+        }
+
+
+        /* =========================================
+           AUTH STATE
+        ========================================= */
+
+        onAuthStateChanged(
+            auth,
+            user => {
+
+                if (user) {
+
+                    profileInitial.textContent =
+                        getInitials(user);
+
+                }
+
+                loadOrders(user);
+            }
+        );
+
+
+        /* =========================================
+           RETRY
+        ========================================= */
+
+        retryOrdersButton.addEventListener(
+            "click",
+            () => {
+
+                if (currentUser) {
+                    loadOrders(currentUser);
+                }
+            }
+        );
+
+
+        refreshOrdersButton.addEventListener(
+            "click",
+            () => {
+
+                if (currentUser) {
+                    loadOrders(currentUser);
+                }
+            }
+        );
+
+
+        /* =========================================
+           DARK MODE
+        ========================================= */
+
+        const savedTheme =
+            localStorage.getItem("theme");
+
+
+        if (savedTheme === "dark") {
+
+            document.body.classList.add(
+                "dark-mode"
+            );
+        }
+
+
+        document
+            .getElementById("themeButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    document.body.classList.toggle(
+                        "dark-mode"
+                    );
+
+                    localStorage.setItem(
+                        "theme",
+
+                        document.body.classList.contains(
+                            "dark-mode"
+                        )
+                            ? "dark"
+                            : "light"
+                    );
+                }
+            );
+
+
+        /* =========================================
+           SIDE MENU
+        ========================================= */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const sideMenu =
+            document.getElementById("sideMenu");
+
+        const menuOverlay =
+            document.getElementById("menuOverlay");
+
+        const closeMenuButton =
+            document.getElementById("closeMenuButton");
+
+
+        function openMenu() {
+
+            sideMenu.classList.add("open");
+
+            menuOverlay.classList.add("open");
+
+            sideMenu.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+        }
+
+
+        function closeMenu() {
+
+            sideMenu.classList.remove("open");
+
+            menuOverlay.classList.remove("open");
+
+            sideMenu.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+        }
+
+
+        menuButton.addEventListener(
+            "click",
+            openMenu
+        );
+
+
+        closeMenuButton.addEventListener(
+            "click",
+            closeMenu
+        );
+
+
+        menuOverlay.addEventListener(
+            "click",
+            closeMenu
+        );
+
+
+        /* =========================================
+           PROFILE
+        ========================================= */
+
+        document
+            .getElementById("profileButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    window.location.href =
+                        "profile.html";
+                }
+            );
+
+
+        /* =========================================
+           NOTIFICATIONS
+        ========================================= */
+
+        document
+            .getElementById("notificationButton")
+            .addEventListener(
+                "click",
+                () => {
+
+                    /*
+                     * Change this to your notification
+                     * page when that page is connected.
+                     */
+
+                    window.location.href =
+                        "notifications.html";
+                }
+            );
+
+    </script>
+
+</body>
+</html>
