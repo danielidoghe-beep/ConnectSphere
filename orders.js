@@ -795,3 +795,28 @@ window.addEventListener(
         }
     }
 );
+function escapeHTML(value) {
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function formatFirebaseDate(timestamp) {
+
+    if (!timestamp) {
+        return "";
+    }
+
+    const date = timestamp.toDate
+        ? timestamp.toDate()
+        : new Date(timestamp);
+
+    return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+    });
+}
