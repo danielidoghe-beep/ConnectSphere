@@ -1681,3 +1681,67 @@ window.addEventListener(
         }
     }
 );
+/* =====================================================
+   WHATSAPP SERVICES
+===================================================== */
+
+const WHATSAPP_NUMBER = "2349117412352";
+
+
+function openWhatsApp(message) {
+
+    const url =
+        `https://wa.me/2349117412352?text=${
+            encodeURIComponent(message)
+        }`;
+
+    window.location.href = url;
+}
+
+
+/* =====================================================
+   ESIM
+===================================================== */
+
+document
+    .getElementById("esimMenuLink")
+    ?.addEventListener("click", event => {
+
+        event.preventDefault();
+
+        openWhatsApp(
+            "Hello ConnectSphere, I want to buy an eSIM."
+        );
+    });
+
+
+/* =====================================================
+   SMS NUMBERS
+===================================================== */
+
+document
+    .getElementById("smsNumbersMenuLink")
+    ?.addEventListener("click", event => {
+
+        event.preventDefault();
+
+        openWhatsApp(
+            "Hello ConnectSphere, I want to buy SMS numbers."
+        );
+    });
+
+
+/* =====================================================
+   SME BOOSTING
+===================================================== */
+
+document
+    .getElementById("smeBoostingMenuLink")
+    ?.addEventListener("click", event => {
+
+        event.preventDefault();
+
+        openWhatsApp(
+            "Hello ConnectSphere, I want to buy SME boosting."
+        );
+    });
