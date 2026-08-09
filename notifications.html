@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>Notifications</title>
+
+    <link
+        rel="stylesheet"
+        href="notifications.css"
+    >
+
+    <script
+        type="module"
+        src="notifications.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <button
+        class="theme-button"
+        id="themeButton"
+        aria-label="Toggle theme"
+    >
+        ☾
+    </button>
+
+
+    <button
+        class="notification-button active"
+        aria-label="Notifications"
+    >
+        <span class="notification-icon">
+            ♧
+        </span>
+
+        <span
+            class="notification-count"
+            id="notificationCount"
+        >
+            0
+        </span>
+
+    </button>
+
+
+    <button
+        class="profile-button"
+        id="profileButton"
+    >
+        <span id="headerInitial">
+            ?
+        </span>
+    </button>
+
+</header>
+
+
+
+<main class="notifications-page">
+
+
+    <section class="page-heading">
+
+        <h1>
+            Notifications
+        </h1>
+
+        <p>
+            Stay updated with your account activity.
+        </p>
+
+    </section>
+
+
+
+    <section
+        class="notifications-card"
+        id="notificationsContainer"
+    >
+
+        <div class="loading-state">
+            Loading notifications...
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- SIDE MENU -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+></div>
+
+
+<aside
+    class="side-menu"
+    id="sideMenu"
+>
+
+    <button
+        class="menu-close"
+        id="menuClose"
+        aria-label="Close menu"
+    >
+        ×
+    </button>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="wallet.html">
+            Wallet
+        </a>
+
+        <a href="orders.html">
+            Orders
+        </a>
+
+        <a href="store.html">
+            Logs Store
+        </a>
+
+        <a href="tools.html">
+            Tools Store
+        </a>
+
+        <a href="#" id="esimMenuLink">
+            eSIM
+        </a>
+
+        <a href="#" id="smsNumbersMenuLink">
+            SMS Numbers
+        </a>
+
+        <a href="#" id="smeBoostingMenuLink">
+            SME Boosting
+        </a>
+
+        <a href="notifications.html">
+            Notifications
+        </a>
+
+        <a href="support.html">
+            Support
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+    </nav>
+
+</aside>
+
+
+</body>
+
+</html>
