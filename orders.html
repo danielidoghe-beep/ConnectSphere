@@ -176,36 +176,20 @@
 
         <section class="orders-container">
 
-            <h2>RECENT ORDERS</h2>
+    <div class="orders-header">
+        <h2>RECENT ORDERS</h2>
+    </div>
 
+    <!-- Firebase orders are inserted here -->
+    <div id="ordersList" class="orders-list"></div>
 
-            <!-- Dynamic orders -->
-            <div
-                class="orders-list"
-                id="ordersList"
-            >
+    <!-- Shown ONLY when Firebase returns zero orders -->
+    <div id="emptyOrders" class="empty-orders">
+        <h3>No orders yet</h3>
+        <p>You have not made any purchases yet.</p>
+    </div>
 
-                <!--
-                    The empty state is displayed when
-                    the signed-in user has no orders.
-                -->
-
-                <div
-                    class="empty-orders"
-                    id="emptyOrders"
-                >
-
-                    <h3>No orders yet</h3>
-
-                    <p>
-                        You have not made any purchases yet.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
+</section>
 
     </main>
 
