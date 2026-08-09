@@ -11,7 +11,7 @@ import {
     updatePassword,
     deleteUser,
     signOut
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
 import {
     doc,
@@ -26,7 +26,7 @@ import {
     serverTimestamp,
     getDocs,
     where
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
 /* =====================================================
