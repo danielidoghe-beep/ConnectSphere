@@ -1,347 +1,61 @@
 /* =========================================
-   RESET
-========================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
-}
-
-body {
-    min-height: 100vh;
-
-    background: #f7f8fa;
-
-    color: #111111;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    overflow-x: hidden;
-}
-
-button {
-    font: inherit;
-    cursor: pointer;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* =========================================
-   HEADER
-========================================= */
-
-.top-header {
-    width: 100%;
-    height: 120px;
-
-    background: #ffffff;
-
-    border-bottom: 1px solid #dedede;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 32px;
-
-    position: relative;
-    z-index: 10;
-}
-
-
-/* =========================================
-   HAMBURGER
-========================================= */
-
-.menu-button {
-    width: 58px;
-    height: 58px;
-
-    border: 0;
-    background: transparent;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    gap: 7px;
-}
-
-.menu-button span {
-    display: block;
-
-    width: 37px;
-    height: 4px;
-
-    background: #555555;
-
-    border-radius: 3px;
-}
-
-
-/* =========================================
-   HEADER RIGHT
-========================================= */
-
-.header-right {
-    display: flex;
-    align-items: center;
-
-    gap: 38px;
-}
-
-
-/* =========================================
-   WALLET BALANCE
-========================================= */
-
-.wallet-balance {
-    width: 100px;
-    height: 66px;
-
-    border-radius: 40px;
-
-    background: #e4e4e4;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.wallet-balance span {
-    color: #4fa817;
-
-    font-size: 22px;
-    line-height: 1;
-
-    font-weight: 900;
-
-    white-space: nowrap;
-}
-
-
-/* =========================================
-   MOON
-========================================= */
-
-.moon-button {
-    width: 50px;
-    height: 50px;
-
-    border: 0;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.moon-button svg {
-    width: 42px;
-    height: 42px;
-
-    fill: none;
-
-    stroke: #555555;
-
-    stroke-width: 1.8;
-
-    stroke-linecap: round;
-}
-
-
-/* =========================================
-   NOTIFICATIONS
-========================================= */
-
-.notification-button {
-    position: relative;
-
-    width: 58px;
-    height: 58px;
-
-    border: 0;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.notification-button svg {
-    width: 39px;
-    height: 39px;
-
-    fill: none;
-
-    stroke: #555555;
-
-    stroke-width: 1.8;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-}
-
-.notification-count {
-    position: absolute;
-
-    top: -2px;
-    right: -4px;
-
-    min-width: 48px;
-    height: 34px;
-
-    padding: 0 8px;
-
-    border-radius: 20px;
-
-    background: #56a817;
-
-    color: #000000;
-
-    font-size: 20px;
-    font-weight: 900;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* =========================================
-   PROFILE
-========================================= */
-
-.profile-button {
-    width: 66px;
-    height: 66px;
-
-    border: 0;
-    border-radius: 50%;
-
-    background: #f4a000;
-
-    color: #ffffff;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.profile-button span {
-    font-size: 32px;
-
-    font-weight: 500;
-}
-
-
-/* =========================================
    ORDERS PAGE
 ========================================= */
 
 .orders-page {
     width: 100%;
-
     max-width: 1000px;
-
     margin: 0 auto;
-
     padding: 46px 32px 80px;
 }
 
+/* Page heading */
 
-/* =========================================
-   PAGE HEADING
-========================================= */
-
-.page-heading h1 {
+.orders-page .page-heading h1 {
     font-size: 62px;
-
     line-height: 1;
-
     font-weight: 900;
-
     letter-spacing: -2.5px;
 }
 
-.page-heading p {
+.orders-page .page-heading p {
     margin-top: 17px;
-
-    color: #555555;
-
+    color: #555;
     font-size: 32px;
-
     line-height: 1.2;
 }
 
 
 /* =========================================
-   ORDERS CONTAINER
+   ORDERS OUTER BOX
 ========================================= */
 
 .orders-container {
     width: 100%;
+    margin-top: 68px;
 
-    margin-top: 72px;
+    padding: 58px 48px 82px;
 
-    background: #ffffff;
+    background: #fff;
 
     border: 1px solid #dddddd;
-
-    border-radius: 36px;
-
-    padding: 56px 48px 82px;
-}
-
-.orders-container > h2 {
-    color: #111111;
-
-    font-size: 38px;
-
-    line-height: 1.1;
-
-    font-weight: 900;
-
-    letter-spacing: -1px;
+    border-radius: 34px;
 }
 
 
 /* =========================================
-   ORDERS LIST
+   RECENT ORDERS
 ========================================= */
 
-.orders-list {
-    width: 100%;
+.orders-header h2 {
+    margin: 0;
 
-    margin-top: 42px;
+    color: #111;
 
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
+    font-size: 36px;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
 
@@ -352,416 +66,133 @@ a {
 .empty-orders {
     width: 100%;
 
-    min-height: 155px;
+    margin-top: 42px;
 
-    background: #ffffff;
+    padding: 40px 48px;
 
-    border: 2px solid #dedede;
+    background: #fff;
 
+    border: 2px solid #e0e0e0;
     border-radius: 24px;
-
-    padding: 36px 48px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
 }
 
 .empty-orders h3 {
-    color: #111111;
+    margin: 0;
+
+    color: #111;
 
     font-size: 32px;
-
-    line-height: 1.1;
-
+    line-height: 1.15;
     font-weight: 800;
 }
 
 .empty-orders p {
     margin-top: 14px;
 
-    color: #555555;
+    color: #555;
 
-    font-size: 27px;
-
-    line-height: 1.2;
+    font-size: 26px;
+    line-height: 1.25;
 }
 
 
 /* =========================================
-   ORDER CARD
+   FIREBASE ORDER LIST
+========================================= */
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    margin-top: 42px;
+}
+
+
+/* =========================================
+   INDIVIDUAL ORDER
 ========================================= */
 
 .order-card {
     width: 100%;
 
-    background: #ffffff;
-
-    border: 1px solid #dedede;
-
-    border-radius: 24px;
-
     padding: 30px 32px;
 
-    cursor: pointer;
+    background: #fff;
 
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease;
+    border: 2px solid #e0e0e0;
+    border-radius: 24px;
 }
 
-.order-card:active {
-    transform: scale(0.99);
-}
-
-.order-card-header {
+.order-card-top {
     display: flex;
-
-    align-items: flex-start;
-
     justify-content: space-between;
+    align-items: flex-start;
 
     gap: 20px;
 }
 
-.order-name {
-    color: #111111;
+.order-product {
+    color: #111;
 
-    font-size: 26px;
-
-    line-height: 1.2;
-
+    font-size: 27px;
     font-weight: 800;
+    line-height: 1.2;
 }
 
 .order-status {
     flex-shrink: 0;
 
-    padding: 8px 15px;
+    padding: 8px 16px;
 
     border-radius: 20px;
 
     background: #eef8e8;
-
-    color: #4e9d16;
+    color: #56a817;
 
     font-size: 15px;
-
     font-weight: 800;
 }
 
-.order-info {
-    margin-top: 15px;
+.order-details {
+    margin-top: 22px;
 
-    color: #555555;
-
-    font-size: 18px;
-
-    line-height: 1.45;
+    display: grid;
+    gap: 10px;
 }
 
-.order-amount {
-    margin-top: 18px;
+.order-detail {
+    color: #555;
 
-    color: #111111;
-
-    font-size: 25px;
-
-    font-weight: 900;
+    font-size: 19px;
+    line-height: 1.35;
 }
 
+.order-detail strong {
+    color: #111;
+}
 
-/* =========================================
-   ORDER MODAL
-========================================= */
-
-.order-modal-backdrop {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1000;
-
-    background: rgba(0, 0, 0, 0.58);
-
-    display: none;
-
-    align-items: center;
-
-    justify-content: center;
+.order-login-box {
+    margin-top: 22px;
 
     padding: 20px;
+
+    background: #f7f8fa;
+
+    border: 1px solid #dedede;
+    border-radius: 18px;
 }
 
-.order-modal-backdrop.open {
-    display: flex;
-}
+.order-login-box div {
+    margin-bottom: 8px;
 
-.order-modal {
-    width: min(700px, 100%);
-
-    max-height: calc(100vh - 40px);
-
-    overflow-y: auto;
-
-    background: #ffffff;
-
-    border-radius: 30px;
-
-    border: 1px solid #cccccc;
-
-    padding: 40px;
-
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.25);
-}
-
-.order-modal-header {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.order-modal-header h2 {
-    font-size: 34px;
-
-    font-weight: 900;
-}
-
-.order-modal-close {
-    width: 42px;
-    height: 42px;
-
-    border: 0;
-
-    background: transparent;
-
-    color: #666666;
-
-    font-size: 42px;
-
-    line-height: 1;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-.order-modal-content {
-    margin-top: 30px;
-
-    color: #444444;
+    color: #333;
 
     font-size: 18px;
-
-    line-height: 1.6;
 }
 
-.order-detail-row {
-    padding: 16px 0;
-
-    border-bottom: 1px solid #eeeeee;
-}
-
-.order-detail-label {
-    color: #777777;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-}
-
-.order-detail-value {
-    margin-top: 5px;
-
-    color: #111111;
-
-    font-size: 18px;
-
-    font-weight: 700;
-
-    word-break: break-word;
-}
-
-
-/* =========================================
-   SIDE MENU
-========================================= */
-
-.menu-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 900;
-
-    background: rgba(0, 0, 0, 0.35);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition: opacity 0.2s ease;
-}
-
-.menu-overlay.open {
-    opacity: 1;
-
-    pointer-events: auto;
-}
-
-.side-menu {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-    bottom: 0;
-
-    z-index: 950;
-
-    width: min(340px, 85vw);
-
-    background: #ffffff;
-
-    transform: translateX(-100%);
-
-    transition: transform 0.25s ease;
-
-    box-shadow:
-        5px 0 25px rgba(0, 0, 0, 0.12);
-}
-
-.side-menu.open {
-    transform: translateX(0);
-}
-
-.side-menu-header {
-    height: 120px;
-
-    padding: 0 25px;
-
-    border-bottom: 1px solid #dedede;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-.side-menu-header strong {
-    font-size: 22px;
-
-    font-weight: 900;
-}
-
-.close-menu-button {
-    border: 0;
-
-    background: transparent;
-
-    font-size: 38px;
-
-    color: #555555;
-}
-
-.side-navigation {
-    padding: 25px 18px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-}
-
-.side-navigation a {
-    padding: 18px 20px;
-
-    border-radius: 12px;
-
-    font-size: 18px;
-
-    font-weight: 700;
-}
-
-.side-navigation a.active {
-    background: #eef8e8;
-
-    color: #56a817;
-}
-
-
-/* =========================================
-   DARK MODE
-========================================= */
-
-body.dark-mode {
-    background: #111315;
-
-    color: #ffffff;
-}
-
-body.dark-mode .top-header,
-body.dark-mode .orders-container,
-body.dark-mode .order-card,
-body.dark-mode .order-modal,
-body.dark-mode .side-menu,
-body.dark-mode .empty-orders {
-    background: #191c1f;
-
-    border-color: #303438;
-}
-
-body.dark-mode .page-heading p,
-body.dark-mode .empty-orders p,
-body.dark-mode .order-info,
-body.dark-mode .order-modal-content {
-    color: #bfc3c7;
-}
-
-body.dark-mode .orders-container > h2,
-body.dark-mode .empty-orders h3,
-body.dark-mode .order-name,
-body.dark-mode .order-amount,
-body.dark-mode .order-detail-value {
-    color: #ffffff;
-}
-
-body.dark-mode .wallet-balance {
-    background: #303438;
-}
-
-body.dark-mode .moon-button svg,
-body.dark-mode .notification-button svg,
-body.dark-mode .menu-button span {
-    stroke: #dddddd;
-}
-
-body.dark-mode .menu-button span {
-    background: #dddddd;
-}
-
-body.dark-mode .order-detail-row {
-    border-color: #303438;
-}
-
-body.dark-mode .side-menu-header {
-    border-color: #303438;
-}
-
-body.dark-mode .side-navigation a.active {
-    background: #1f3515;
+.order-login-box div:last-child {
+    margin-bottom: 0;
 }
 
 
@@ -771,55 +202,33 @@ body.dark-mode .side-navigation a.active {
 
 @media (max-width: 700px) {
 
-    .top-header {
-        height: 120px;
-
-        padding: 0 32px;
-    }
-
-    .header-right {
-        gap: 24px;
-    }
-
-    .wallet-balance {
-        width: 100px;
-        height: 66px;
-    }
-
     .orders-page {
-        padding: 46px 32px 70px;
+        padding: 48px 32px 70px;
     }
 
-    .page-heading h1 {
+    .orders-page .page-heading h1 {
         font-size: 58px;
     }
 
-    .page-heading p {
+    .orders-page .page-heading p {
         font-size: 29px;
-
-        margin-top: 16px;
     }
 
     .orders-container {
-        margin-top: 72px;
+        margin-top: 68px;
 
-        padding: 56px 48px 82px;
+        padding: 58px 48px 82px;
 
-        border-radius: 36px;
+        border-radius: 34px;
     }
 
-    .orders-container > h2 {
-        font-size: 36px;
-    }
-
-    .orders-list {
-        margin-top: 42px;
+    .orders-header h2 {
+        font-size: 35px;
     }
 
     .empty-orders {
-        padding: 34px 48px;
-
-        min-height: 155px;
+        margin-top: 42px;
+        padding: 40px 48px;
     }
 
     .empty-orders h3 {
@@ -827,7 +236,7 @@ body.dark-mode .side-navigation a.active {
     }
 
     .empty-orders p {
-        font-size: 26px;
+        font-size: 25px;
     }
 }
 
@@ -838,118 +247,37 @@ body.dark-mode .side-navigation a.active {
 
 @media (max-width: 450px) {
 
-    .top-header {
-        height: 120px;
-
-        padding: 0 32px;
-    }
-
-    .header-right {
-        gap: 15px;
-    }
-
-    .menu-button {
-        width: 42px;
-        height: 42px;
-
-        gap: 5px;
-    }
-
-    .menu-button span {
-        width: 25px;
-        height: 3px;
-    }
-
-    .wallet-balance {
-        width: 88px;
-        height: 58px;
-    }
-
-    .wallet-balance span {
-        font-size: 20px;
-    }
-
-    .moon-button {
-        width: 38px;
-        height: 38px;
-    }
-
-    .moon-button svg {
-        width: 30px;
-        height: 30px;
-    }
-
-    .notification-button {
-        width: 40px;
-        height: 40px;
-    }
-
-    .notification-button svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    .notification-count {
-        min-width: 35px;
-
-        height: 24px;
-
-        padding: 0 6px;
-
-        font-size: 14px;
-
-        top: -3px;
-
-        right: -8px;
-    }
-
-    .profile-button {
-        width: 66px;
-        height: 66px;
-    }
-
-    .profile-button span {
-        font-size: 32px;
-    }
-
     .orders-page {
-        padding: 46px 32px 60px;
+        padding: 44px 32px 60px;
     }
 
-    .page-heading h1 {
-        font-size: 58px;
-
-        letter-spacing: -2.5px;
+    .orders-page .page-heading h1 {
+        font-size: 52px;
+        letter-spacing: -2px;
     }
 
-    .page-heading p {
-        font-size: 29px;
-
+    .orders-page .page-heading p {
+        font-size: 24px;
         line-height: 1.25;
     }
 
     .orders-container {
-        margin-top: 72px;
+        margin-top: 66px;
 
         padding: 56px 48px 82px;
 
-        border-radius: 36px;
+        border-radius: 34px;
     }
 
-    .orders-container > h2 {
-        font-size: 36px;
-
-        line-height: 1.1;
-    }
-
-    .orders-list {
-        margin-top: 42px;
+    .orders-header h2 {
+        font-size: 35px;
+        line-height: 1.05;
     }
 
     .empty-orders {
-        min-height: 155px;
+        margin-top: 42px;
 
-        padding: 36px 48px;
+        padding: 40px 48px;
 
         border-radius: 24px;
     }
@@ -959,34 +287,19 @@ body.dark-mode .side-navigation a.active {
     }
 
     .empty-orders p {
-        margin-top: 14px;
-
-        font-size: 26px;
-
-        line-height: 1.25;
+        font-size: 24px;
+        line-height: 1.3;
     }
 
     .order-card {
         padding: 24px;
-
-        border-radius: 20px;
     }
 
-    .order-name {
-        font-size: 21px;
+    .order-card-top {
+        flex-direction: column;
     }
 
-    .order-info {
-        font-size: 16px;
-    }
-
-    .order-amount {
-        font-size: 22px;
-    }
-
-    .order-modal {
-        padding: 28px 20px;
-
-        border-radius: 26px;
+    .order-product {
+        font-size: 23px;
     }
 }
